@@ -1,0 +1,4 @@
+github "nerdishbynature/RequestKit" "0.2.1"
+github "Swift-Flow/Swift-Flow" "v0.2.1"
+github "Swift-Flow/Swift-Flow-Router" "v0.2.1"
+github "nerdishbynature/octokit.swift" "0.5.1"
