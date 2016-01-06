@@ -11,14 +11,7 @@ import SwiftFlow
 import OctoKit
 
 func authenticationReducer(state: AuthenticationState?, action: Action) -> AuthenticationState {
-    let config = OAuthConfiguration(
-        token: gitHubToken,
-        secret: gitHubSecret,
-        scopes: ["repo", "read:org"]
-    )
-
-    let defaultState = AuthenticationState(oAuthConfig: config, oAuthURL: nil, loggedInState: .NotLoggedIn)
-    var state = state ?? defaultState
+    var state = state ?? initialAuthenticationState()
 
     switch action {
     case _ as SwiftFlowInit:
@@ -30,4 +23,20 @@ func authenticationReducer(state: AuthenticationState?, action: Action) -> Authe
         return state
     }
 
+}
+
+func initialAuthenticationState() -> AuthenticationState {
+    let config = OAuthConfiguration(
+        token: gitHubToken,
+        secret: gitHubSecret,
+        scopes: ["repo", "read:org"]
+    )
+
+    let initialState = AuthenticationState(
+        oAuthConfig: config,
+        oAuthURL: nil,
+        loggedInState: .NotLoggedIn
+    )
+
+    return initialState
 }

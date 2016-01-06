@@ -42,9 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        (store.appState as? State)?.authenticationState.oAuthConfig?.handleOpenURL(url) { config in
-            store.dispatch(SwiftFlowRouter.SetRouteAction([mainViewRoute]))
-        }
+        store.dispatch(handleOpenURL(url))
 
         return false
     }

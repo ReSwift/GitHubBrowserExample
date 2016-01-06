@@ -23,6 +23,16 @@ func authenticateUser(_state: StateType, store: Store) -> Action? {
     return nil
 }
 
+func handleOpenURL(url: NSURL) -> ActionCreator {
+    return { state, store in
+        (state as? State)?.authenticationState.oAuthConfig?.handleOpenURL(url) { config in
+            store.dispatch(SwiftFlowRouter.SetRouteAction([mainViewRoute]))
+        }
+
+        return nil
+    }
+}
+
 struct SetOAuthURL: Action {
     let oAuthUrl: NSURL
 }
