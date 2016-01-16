@@ -24,8 +24,6 @@
 		25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */; };
 		25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */; };
 		25C00EA61C3CEDC50074655A /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA51C3CEDC50074655A /* Credentials.swift */; };
-		25C00EC81C3CEF480074655A /* SwiftFlow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25C00EB21C3CEECA0074655A /* SwiftFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		25C00EC91C3CEF4E0074655A /* SwiftFlowRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25C00EC51C3CEED80074655A /* SwiftFlowRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,68 +69,68 @@
 			remoteGlobalIDString = 234F4C1B1BDDF64300A58EF7;
 			remoteInfo = RequestKit;
 		};
-		25C00EB11C3CEECA0074655A /* PBXContainerItemProxy */ = {
+		2598D8A31C4A04D5003122DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 625E66831C1FF97E0027C288;
-			remoteInfo = "SwiftFlow-iOS";
-		};
-		25C00EB31C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 625E669A1C1FFA3C0027C288;
-			remoteInfo = "SwiftFlow-iOSTests";
-		};
-		25C00EB51C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25DBCF7B1C30C4AA00D63A58;
-			remoteInfo = "SwiftFlow-OSX";
-		};
-		25C00EB71C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25DBCF871C30C4DB00D63A58;
-			remoteInfo = "SwiftFlow-OSXTests";
-		};
-		25C00EB91C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25DBCF4E1C30C18D00D63A58;
-			remoteInfo = "SwiftFlow-tvOS";
-		};
-		25C00EBB1C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25DBCF641C30C1AC00D63A58;
-			remoteInfo = "SwiftFlow-tvOSTests";
-		};
-		25C00EBD1C3CEECA0074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25DBCF371C30BF2B00D63A58;
-			remoteInfo = "SwiftFlow-watchOS";
-		};
-		25C00EC41C3CEED80074655A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EBF1C3CEED80074655A /* SwiftFlowRouter.xcodeproj */;
+			containerPortal = 2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E66CD1C1FFE280027C288;
 			remoteInfo = SwiftFlowRouter;
 		};
-		25C00EC61C3CEED80074655A /* PBXContainerItemProxy */ = {
+		2598D8A51C4A04D5003122DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 25C00EBF1C3CEED80074655A /* SwiftFlowRouter.xcodeproj */;
+			containerPortal = 2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E66F11C2000EA0027C288;
 			remoteInfo = SwiftFlowRouterTests;
+		};
+		2598D8B11C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 625E66831C1FF97E0027C288;
+			remoteInfo = "SwiftFlow-iOS";
+		};
+		2598D8B31C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 625E669A1C1FFA3C0027C288;
+			remoteInfo = "SwiftFlow-iOSTests";
+		};
+		2598D8B51C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25DBCF7B1C30C4AA00D63A58;
+			remoteInfo = "SwiftFlow-OSX";
+		};
+		2598D8B71C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25DBCF871C30C4DB00D63A58;
+			remoteInfo = "SwiftFlow-OSXTests";
+		};
+		2598D8B91C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25DBCF4E1C30C18D00D63A58;
+			remoteInfo = "SwiftFlow-tvOS";
+		};
+		2598D8BB1C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25DBCF641C30C1AC00D63A58;
+			remoteInfo = "SwiftFlow-tvOSTests";
+		};
+		2598D8BD1C4A04E4003122DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25DBCF371C30BF2B00D63A58;
+			remoteInfo = "SwiftFlow-watchOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -143,8 +141,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				25C00EC91C3CEF4E0074655A /* SwiftFlowRouter.framework in Embed Frameworks */,
-				25C00EC81C3CEF480074655A /* SwiftFlow.framework in Embed Frameworks */,
 				2581841C1C3CC06A008E200A /* RequestKit.framework in Embed Frameworks */,
 				2581840B1C3CBFF9008E200A /* OctoKit.framework in Embed Frameworks */,
 			);
@@ -158,6 +154,8 @@
 		258184121C3CC062008E200A /* RequestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RequestKit.xcodeproj; path = Carthage/Checkouts/RequestKit/RequestKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		258184341C3CC710008E200A /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		258184391C3CC912008E200A /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftFlowRouter.xcodeproj; path = "Libraries/Swift-Flow-Router/SwiftFlowRouter.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftFlow.xcodeproj; path = "Libraries/Swift-Flow/SwiftFlow.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		25BB761D1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFlowGitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BB76201C3CB8CB008EA13B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25BB76221C3CB8CB008EA13B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -171,8 +169,6 @@
 		25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIReducers.swift; sourceTree = "<group>"; };
 		25C00EA51C3CEDC50074655A /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftFlow.xcodeproj; path = "Dependencies/Swift-Flow/SwiftFlow.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		25C00EBF1C3CEED80074655A /* SwiftFlowRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftFlowRouter.xcodeproj; path = "Dependencies/Swift-Flow-Router/SwiftFlowRouter.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +219,29 @@
 			path = Routes;
 			sourceTree = "<group>";
 		};
+		2598D89F1C4A04D5003122DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2598D8A41C4A04D5003122DB /* SwiftFlowRouter.framework */,
+				2598D8A61C4A04D5003122DB /* SwiftFlowRouterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2598D8A81C4A04E4003122DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2598D8B21C4A04E4003122DB /* SwiftFlow.framework */,
+				2598D8B41C4A04E4003122DB /* SwiftFlow-iOSTests.xctest */,
+				2598D8B61C4A04E4003122DB /* SwiftFlow.framework */,
+				2598D8B81C4A04E4003122DB /* SwiftFlow-OSXTests.xctest */,
+				2598D8BA1C4A04E4003122DB /* SwiftFlow.framework */,
+				2598D8BC1C4A04E4003122DB /* SwiftFlow-tvOSTests.xctest */,
+				2598D8BE1C4A04E4003122DB /* SwiftFlow.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		25BB76141C3CB8CB008EA13B = {
 			isa = PBXGroup;
 			children = (
@@ -261,8 +280,8 @@
 		25BB76321C3CBA99008EA13B /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */,
-				25C00EBF1C3CEED80074655A /* SwiftFlowRouter.xcodeproj */,
+				2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */,
+				2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */,
 				258184121C3CC062008E200A /* RequestKit.xcodeproj */,
 				258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */,
 			);
@@ -293,29 +312,6 @@
 				25C00EA51C3CEDC50074655A /* Credentials.swift */,
 			);
 			path = GitHubAuth;
-			sourceTree = "<group>";
-		};
-		25C00EA81C3CEECA0074655A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				25C00EB21C3CEECA0074655A /* SwiftFlow.framework */,
-				25C00EB41C3CEECA0074655A /* SwiftFlow-iOSTests.xctest */,
-				25C00EB61C3CEECA0074655A /* SwiftFlow.framework */,
-				25C00EB81C3CEECA0074655A /* SwiftFlow-OSXTests.xctest */,
-				25C00EBA1C3CEECA0074655A /* SwiftFlow.framework */,
-				25C00EBC1C3CEECA0074655A /* SwiftFlow-tvOSTests.xctest */,
-				25C00EBE1C3CEECA0074655A /* SwiftFlow.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		25C00EC01C3CEED80074655A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				25C00EC51C3CEED80074655A /* SwiftFlowRouter.framework */,
-				25C00EC71C3CEED80074655A /* SwiftFlowRouterTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,12 +373,12 @@
 					ProjectRef = 258184121C3CC062008E200A /* RequestKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 25C00EA81C3CEECA0074655A /* Products */;
-					ProjectRef = 25C00EA71C3CEECA0074655A /* SwiftFlow.xcodeproj */;
+					ProductGroup = 2598D8A81C4A04E4003122DB /* Products */;
+					ProjectRef = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
 				},
 				{
-					ProductGroup = 25C00EC01C3CEED80074655A /* Products */;
-					ProjectRef = 25C00EBF1C3CEED80074655A /* SwiftFlowRouter.xcodeproj */;
+					ProductGroup = 2598D89F1C4A04D5003122DB /* Products */;
+					ProjectRef = 2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -421,67 +417,67 @@
 			remoteRef = 258184191C3CC062008E200A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		25C00EB21C3CEECA0074655A /* SwiftFlow.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftFlow.framework;
-			remoteRef = 25C00EB11C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EB41C3CEECA0074655A /* SwiftFlow-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftFlow-iOSTests.xctest";
-			remoteRef = 25C00EB31C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EB61C3CEECA0074655A /* SwiftFlow.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftFlow.framework;
-			remoteRef = 25C00EB51C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EB81C3CEECA0074655A /* SwiftFlow-OSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftFlow-OSXTests.xctest";
-			remoteRef = 25C00EB71C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EBA1C3CEECA0074655A /* SwiftFlow.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftFlow.framework;
-			remoteRef = 25C00EB91C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EBC1C3CEECA0074655A /* SwiftFlow-tvOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftFlow-tvOSTests.xctest";
-			remoteRef = 25C00EBB1C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EBE1C3CEECA0074655A /* SwiftFlow.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftFlow.framework;
-			remoteRef = 25C00EBD1C3CEECA0074655A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		25C00EC51C3CEED80074655A /* SwiftFlowRouter.framework */ = {
+		2598D8A41C4A04D5003122DB /* SwiftFlowRouter.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftFlowRouter.framework;
-			remoteRef = 25C00EC41C3CEED80074655A /* PBXContainerItemProxy */;
+			remoteRef = 2598D8A31C4A04D5003122DB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		25C00EC71C3CEED80074655A /* SwiftFlowRouterTests.xctest */ = {
+		2598D8A61C4A04D5003122DB /* SwiftFlowRouterTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwiftFlowRouterTests.xctest;
-			remoteRef = 25C00EC61C3CEED80074655A /* PBXContainerItemProxy */;
+			remoteRef = 2598D8A51C4A04D5003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8B21C4A04E4003122DB /* SwiftFlow.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftFlow.framework;
+			remoteRef = 2598D8B11C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8B41C4A04E4003122DB /* SwiftFlow-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftFlow-iOSTests.xctest";
+			remoteRef = 2598D8B31C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8B61C4A04E4003122DB /* SwiftFlow.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftFlow.framework;
+			remoteRef = 2598D8B51C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8B81C4A04E4003122DB /* SwiftFlow-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftFlow-OSXTests.xctest";
+			remoteRef = 2598D8B71C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8BA1C4A04E4003122DB /* SwiftFlow.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftFlow.framework;
+			remoteRef = 2598D8B91C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8BC1C4A04E4003122DB /* SwiftFlow-tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SwiftFlow-tvOSTests.xctest";
+			remoteRef = 2598D8BB1C4A04E4003122DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2598D8BE1C4A04E4003122DB /* SwiftFlow.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftFlow.framework;
+			remoteRef = 2598D8BD1C4A04E4003122DB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
