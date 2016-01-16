@@ -13,7 +13,6 @@ let loginRoute: RouteElementIdentifier = "Login"
 let oAuthRoute: RouteElementIdentifier = "OAuth"
 let mainViewRoute: RouteElementIdentifier = "Main"
 
-
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 let loginViewControllerIdentifier = "LoginViewController"

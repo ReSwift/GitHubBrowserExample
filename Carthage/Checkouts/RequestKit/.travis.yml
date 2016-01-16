@@ -1,0 +1,8 @@
+osx_image: xcode7.1
+language: objective-c
+before_install:
+    - make install
+script:
+    - make test
+after_success:
+    - make post_coverage
