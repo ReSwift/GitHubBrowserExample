@@ -23,7 +23,11 @@
 		25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9D1C3CDB5D0074655A /* AppReducer.swift */; };
 		25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */; };
 		25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */; };
-		25C00EA61C3CEDC50074655A /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA51C3CEDC50074655A /* Credentials.swift */; };
+		6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296CA0D1C4D777800A60ECD /* Credentials.swift */; };
+		6296CA1A1C4D77D500A60ECD /* SwiftFlow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D8B21C4A04E4003122DB /* SwiftFlow.framework */; };
+		6296CA1B1C4D77D500A60ECD /* SwiftFlow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D8B21C4A04E4003122DB /* SwiftFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6296CA1E1C4D77DA00A60ECD /* SwiftFlowRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D8A41C4A04D5003122DB /* SwiftFlowRouter.framework */; };
+		6296CA1F1C4D77DA00A60ECD /* SwiftFlowRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2598D8A41C4A04D5003122DB /* SwiftFlowRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +136,20 @@
 			remoteGlobalIDString = 25DBCF371C30BF2B00D63A58;
 			remoteInfo = "SwiftFlow-watchOS";
 		};
+		6296CA1C1C4D77D500A60ECD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D8A71C4A04E4003122DB /* SwiftFlow.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 625E66821C1FF97E0027C288;
+			remoteInfo = "SwiftFlow-iOS";
+		};
+		6296CA201C4D77DA00A60ECD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2598D89E1C4A04D5003122DB /* SwiftFlowRouter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 625E66CC1C1FFE280027C288;
+			remoteInfo = SwiftFlowRouter;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -141,8 +159,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6296CA1B1C4D77D500A60ECD /* SwiftFlow.framework in Embed Frameworks */,
 				2581841C1C3CC06A008E200A /* RequestKit.framework in Embed Frameworks */,
 				2581840B1C3CBFF9008E200A /* OctoKit.framework in Embed Frameworks */,
+				6296CA1F1C4D77DA00A60ECD /* SwiftFlowRouter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +188,7 @@
 		25C00E9D1C3CDB5D0074655A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIReducers.swift; sourceTree = "<group>"; };
-		25C00EA51C3CEDC50074655A /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		6296CA0D1C4D777800A60ECD /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +196,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6296CA1A1C4D77D500A60ECD /* SwiftFlow.framework in Frameworks */,
 				2581841B1C3CC06A008E200A /* RequestKit.framework in Frameworks */,
 				2581840A1C3CBFF9008E200A /* OctoKit.framework in Frameworks */,
+				6296CA1E1C4D77DA00A60ECD /* SwiftFlowRouter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +331,7 @@
 		25C00EA41C3CEDBB0074655A /* GitHubAuth */ = {
 			isa = PBXGroup;
 			children = (
-				25C00EA51C3CEDC50074655A /* Credentials.swift */,
+				6296CA0D1C4D777800A60ECD /* Credentials.swift */,
 			);
 			path = GitHubAuth;
 			sourceTree = "<group>";
@@ -331,6 +353,8 @@
 			dependencies = (
 				2581840D1C3CBFF9008E200A /* PBXTargetDependency */,
 				2581841E1C3CC06A008E200A /* PBXTargetDependency */,
+				6296CA1D1C4D77D500A60ECD /* PBXTargetDependency */,
+				6296CA211C4D77DA00A60ECD /* PBXTargetDependency */,
 			);
 			name = SwiftFlowGitHubBrowser;
 			productName = SwiftFlowGitHubBrowser;
@@ -502,7 +526,7 @@
 			files = (
 				25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */,
 				25BB76231C3CB8CB008EA13B /* LoginViewController.swift in Sources */,
-				25C00EA61C3CEDC50074655A /* Credentials.swift in Sources */,
+				6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */,
 				25C00E9C1C3CDAAC0074655A /* AuthenticationState.swift in Sources */,
 				25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */,
 				25C00E991C3CD8E50074655A /* AuthenticationActions.swift in Sources */,
@@ -525,6 +549,16 @@
 			isa = PBXTargetDependency;
 			name = RequestKit;
 			targetProxy = 2581841D1C3CC06A008E200A /* PBXContainerItemProxy */;
+		};
+		6296CA1D1C4D77D500A60ECD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftFlow-iOS";
+			targetProxy = 6296CA1C1C4D77D500A60ECD /* PBXContainerItemProxy */;
+		};
+		6296CA211C4D77DA00A60ECD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftFlowRouter;
+			targetProxy = 6296CA201C4D77DA00A60ECD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
