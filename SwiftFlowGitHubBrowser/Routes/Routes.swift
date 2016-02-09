@@ -6,7 +6,7 @@
 //  Copyright © 2016 Benji Encz. All rights reserved.
 //
 
-import SwiftFlowRouter
+import ReSwiftRouter
 import SafariServices
 
 let loginRoute: RouteElementIdentifier = "Login"
@@ -81,7 +81,7 @@ class LoginViewRoutable: Routable {
 
     func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
         if routeElementIdentifier == oAuthRoute {
-            if let url = (store.appState as? State)?.authenticationState.oAuthURL {
+            if let url = store.state.authenticationState.oAuthURL {
                 let safariViewController = SFSafariViewController(URL: url)
                 self.viewController.presentViewController(safariViewController, animated: true, completion: completionHandler)
 

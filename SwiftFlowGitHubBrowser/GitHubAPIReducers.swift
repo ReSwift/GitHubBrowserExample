@@ -6,7 +6,7 @@
 //  Copyright © 2016 Benji Encz. All rights reserved.
 //
 
-import SwiftFlow
+import ReSwift
 import OctoKit
 import RequestKit
 

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Benji Encz. All rights reserved.
 //
 
-import SwiftFlow
-import SwiftFlowRouter
+import ReSwift
+import ReSwiftRouter
 import OctoKit
 import RequestKit
 

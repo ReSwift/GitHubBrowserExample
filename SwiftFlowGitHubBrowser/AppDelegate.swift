@@ -8,16 +8,16 @@
 
 import UIKit
 import OctoKit
-import SwiftFlow
-import SwiftFlowRouter
+import ReSwift
+import ReSwiftRouter
 
-var store = MainStore(reducer: AppReducer(), appState: nil)
+var store = Store<State>(reducer: AppReducer(), state: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var router: Router!
+    var router: Router<State>!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
@@ -32,9 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UIViewController()
 
         let rootRoutable = RootRoutable(window: window!)
-        router = Router(store: store, rootRoutable: rootRoutable)
 
-        store.dispatch(SwiftFlowRouter.SetRouteAction([loginRoute]))
+        router = Router(store: store, rootRoutable: rootRoutable) { state in
+            return state.navigationState
+        }
+
+        store.dispatch(ReSwiftRouter.SetRouteAction([loginRoute]))
 
         window?.makeKeyAndVisible()
 
@@ -48,4 +51,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

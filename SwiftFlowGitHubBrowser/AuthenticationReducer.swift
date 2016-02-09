@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftFlow
+import ReSwift
 import OctoKit
 
 func authenticationReducer(state: AuthenticationState?, action: Action) -> AuthenticationState {

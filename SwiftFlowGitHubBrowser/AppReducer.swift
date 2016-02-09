@@ -6,14 +6,14 @@
 //  Copyright © 2016 Benji Encz. All rights reserved.
 //
 
-import SwiftFlow
-import SwiftFlowRouter
+import ReSwift
+import ReSwiftRouter
 
 struct AppReducer: Reducer {
 
-    func handleAction(state: State?, action: Action) -> State {
+    func handleAction(action: Action, state: State?) -> State {
         return State(
-            navigationState: NavigationReducer().handleAction(state?.navigationState, action: action),
+            navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
             authenticationState: authenticationReducer(state?.authenticationState, action: action),
             repositories: repositoriesReducer(state?.repositories, action: action)
         )

@@ -6,11 +6,10 @@
 //  Copyright © 2016 Benji Encz. All rights reserved.
 //
 
-import SwiftFlow
-import SwiftFlowRouter
+import ReSwift
+import ReSwiftRouter
 
-func authenticateUser(_state: StateType, store: Store) -> Action? {
-    guard let state = _state as? State else { return nil }
+func authenticateUser(state: State, store: Store<State>) -> Action? {
     guard let config = state.authenticationState.oAuthConfig else { return nil }
 
     let url = config.authenticate()
@@ -23,10 +22,10 @@ func authenticateUser(_state: StateType, store: Store) -> Action? {
     return nil
 }
 
-func handleOpenURL(url: NSURL) -> ActionCreator {
+func handleOpenURL(url: NSURL) -> Store<State>.ActionCreator {
     return { state, store in
-        (state as? State)?.authenticationState.oAuthConfig?.handleOpenURL(url) { config in
-            store.dispatch(SwiftFlowRouter.SetRouteAction([mainViewRoute]))
+            state.authenticationState.oAuthConfig?.handleOpenURL(url) { config in
+            store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
         }
 
         return nil
