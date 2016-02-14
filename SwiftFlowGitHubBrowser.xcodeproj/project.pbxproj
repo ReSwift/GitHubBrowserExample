@@ -14,7 +14,6 @@
 		258184351C3CC710008E200A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184341C3CC710008E200A /* State.swift */; };
 		2581843A1C3CC912008E200A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184391C3CC912008E200A /* Routes.swift */; };
 		25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB76201C3CB8CB008EA13B /* AppDelegate.swift */; };
-		25BB76231C3CB8CB008EA13B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB76221C3CB8CB008EA13B /* LoginViewController.swift */; };
 		25BB76261C3CB8CB008EA13B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BB76241C3CB8CB008EA13B /* Main.storyboard */; };
 		25BB76281C3CB8CB008EA13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25BB76271C3CB8CB008EA13B /* Assets.xcassets */; };
 		25BB762B1C3CB8CB008EA13B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25BB76291C3CB8CB008EA13B /* LaunchScreen.storyboard */; };
@@ -24,9 +23,13 @@
 		25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */; };
 		25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */; };
 		6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296CA0D1C4D777800A60ECD /* Credentials.swift */; };
-		62EF09FF1C69A1C900D13711 /* ReSwiftRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF09DC1C69A1AF00D13711 /* ReSwiftRouter.framework */; };
-		62EF0A001C69A1C900D13711 /* ReSwiftRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF09DC1C69A1AF00D13711 /* ReSwiftRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62EF0A031C69A1EC00D13711 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF09C11C69A1A500D13711 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */; };
+		62EF0A701C700AD500D13711 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0A6F1C700AD500D13711 /* MainViewController.swift */; };
+		62EF0AB61C700D4900D13711 /* GitHubAuthSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */; };
+		62EF0ABA1C700D9D00D13711 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0AA81C700D1F00D13711 /* Nimble.framework */; };
+		62EF0ABB1C700DA200D13711 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A8D1C700D1200D13711 /* Quick.framework */; };
+		62FCC1C01C70123A00ED0973 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62FCC1C11C70123F00ED0973 /* ReSwiftRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,110 +75,215 @@
 			remoteGlobalIDString = 234F4C1B1BDDF64300A58EF7;
 			remoteInfo = RequestKit;
 		};
-		62EF09C01C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A431C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E66831C1FF97E0027C288;
 			remoteInfo = "ReSwift-iOS";
 		};
-		62EF09C21C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A451C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E669A1C1FFA3C0027C288;
 			remoteInfo = "ReSwift-iOSTests";
 		};
-		62EF09C41C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A471C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25DBCF7B1C30C4AA00D63A58;
 			remoteInfo = "ReSwift-OSX";
 		};
-		62EF09C61C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A491C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25DBCF871C30C4DB00D63A58;
 			remoteInfo = "ReSwift-OSXTests";
 		};
-		62EF09C81C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A4B1C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25DBCF4E1C30C18D00D63A58;
 			remoteInfo = "ReSwift-tvOS";
 		};
-		62EF09CA1C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A4D1C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25DBCF641C30C1AC00D63A58;
 			remoteInfo = "ReSwift-tvOSTests";
 		};
-		62EF09CC1C69A1A500D13711 /* PBXContainerItemProxy */ = {
+		62EF0A4F1C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+			containerPortal = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25DBCF371C30BF2B00D63A58;
 			remoteInfo = "ReSwift-watchOS";
 		};
-		62EF09DB1C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A5E1C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E66CD1C1FFE280027C288;
 			remoteInfo = "ReSwiftRouter-iOS";
 		};
-		62EF09DD1C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A601C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 625E66F11C2000EA0027C288;
 			remoteInfo = "ReSwiftRouterTests-iOS";
 		};
-		62EF09DF1C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A621C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6209C04B1C54256F004E6B66;
 			remoteInfo = "ReSwiftRouter-watchOS";
 		};
-		62EF09E11C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A641C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6209C0611C5427E0004E6B66;
 			remoteInfo = "ReSwiftRouter-tvOS";
 		};
-		62EF09E31C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A661C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6209C06A1C5427E0004E6B66;
 			remoteInfo = "ReSwiftRouter-tvOSTests";
 		};
-		62EF09E51C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A681C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6209C0881C5428DE004E6B66;
 			remoteInfo = "ReSwiftRouter-OSX";
 		};
-		62EF09E71C69A1AF00D13711 /* PBXContainerItemProxy */ = {
+		62EF0A6A1C700A7E00D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6209C0911C5428DE004E6B66;
 			remoteInfo = "ReSwiftRouter-OSXTests";
 		};
-		62EF0A011C69A1C900D13711 /* PBXContainerItemProxy */ = {
+		62EF0A7A1C700C2300D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+			containerPortal = 25BB76151C3CB8CB008EA13B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 625E66CC1C1FFE280027C288;
-			remoteInfo = "ReSwiftRouter-iOS";
+			remoteGlobalIDString = 25BB761C1C3CB8CB008EA13B;
+			remoteInfo = SwiftFlowGitHubBrowser;
+		};
+		62EF0A8C1C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B8E1943873100289F44;
+			remoteInfo = "Quick-OSX";
+		};
+		62EF0A8E1C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAEB6B991943873100289F44;
+			remoteInfo = "Quick-OSXTests";
+		};
+		62EF0A901C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA5663E81A4C8D8500193C88;
+			remoteInfo = "QuickFocused-OSXTests";
+		};
+		62EF0A921C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D117C19473F2100F6D13D;
+			remoteInfo = "Quick-iOS";
+		};
+		62EF0A941C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5D118619473F2100F6D13D;
+			remoteInfo = "Quick-iOSTests";
+		};
+		62EF0A961C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA9876B21A4C70EB0004AA17;
+			remoteInfo = "QuickFocused-iOSTests";
+		};
+		62EF0A981C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F118CD51BDCA4AB005013A2;
+			remoteInfo = "Quick-tvOS";
+		};
+		62EF0A9A1C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F118CDE1BDCA4AB005013A2;
+			remoteInfo = "Quick-tvOSTests";
+		};
+		62EF0A9C1C700D1200D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F118CF01BDCA4BB005013A2;
+			remoteInfo = "QuickFocused-tvOSTests";
+		};
+		62EF0AA71C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74291940169200FFFC47;
+			remoteInfo = "Nimble-iOS";
+		};
+		62EF0AA91C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F1A74341940169200FFFC47;
+			remoteInfo = "Nimble-iOSTests";
+		};
+		62EF0AAB1C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EAD195C0D6300ED456B;
+			remoteInfo = "Nimble-OSX";
+		};
+		62EF0AAD1C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F925EB7195C0D6300ED456B;
+			remoteInfo = "Nimble-OSXTests";
+		};
+		62EF0AAF1C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F5DF1551BDCA0CE00C3A531;
+			remoteInfo = "Nimble-tvOS";
+		};
+		62EF0AB11C700D1F00D13711 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F5DF15E1BDCA0CE00C3A531;
+			remoteInfo = "Nimble-tvOSTests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -186,10 +294,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				62EF0A001C69A1C900D13711 /* ReSwiftRouter.framework in Embed Frameworks */,
 				2581841C1C3CC06A008E200A /* RequestKit.framework in Embed Frameworks */,
-				62EF0A031C69A1EC00D13711 /* ReSwift.framework in Embed Frameworks */,
 				2581840B1C3CBFF9008E200A /* OctoKit.framework in Embed Frameworks */,
+				62FCC1C11C70123F00ED0973 /* ReSwiftRouter.framework in Embed Frameworks */,
+				62FCC1C01C70123A00ED0973 /* ReSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,7 +311,6 @@
 		258184391C3CC912008E200A /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		25BB761D1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFlowGitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25BB76201C3CB8CB008EA13B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		25BB76221C3CB8CB008EA13B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		25BB76251C3CB8CB008EA13B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25BB76271C3CB8CB008EA13B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25BB762A1C3CB8CB008EA13B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -214,8 +321,15 @@
 		25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIReducers.swift; sourceTree = "<group>"; };
 		6296CA0D1C4D777800A60ECD /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
-		62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = Libraries/ReSwift/ReSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
-		62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwiftRouter.xcodeproj; path = Libraries/ReSwiftRouter/ReSwiftRouter.xcodeproj; sourceTree = SOURCE_ROOT; };
+		62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = ReSwiftDev/ReSwift/ReSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
+		62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwiftRouter.xcodeproj; path = ReSwiftDev/ReSwiftRouter/ReSwiftRouter.xcodeproj; sourceTree = SOURCE_ROOT; };
+		62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		62EF0A6F1C700AD500D13711 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		62EF0A751C700C2300D13711 /* SwiftFlowGitHubBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFlowGitHubBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		62EF0A791C700C2300D13711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62EF0A801C700D1200D13711 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Carthage/Checkouts/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
+		62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Carthage/Checkouts/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
+		62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,9 +337,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62EF09FF1C69A1C900D13711 /* ReSwiftRouter.framework in Frameworks */,
 				2581841B1C3CC06A008E200A /* RequestKit.framework in Frameworks */,
 				2581840A1C3CBFF9008E200A /* OctoKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62EF0A721C700C2300D13711 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62EF0ABA1C700D9D00D13711 /* Nimble.framework in Frameworks */,
+				62EF0ABB1C700DA200D13711 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				25BB761F1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */,
+				62EF0A761C700C2300D13711 /* SwiftFlowGitHubBrowserTests */,
 				25BB761E1C3CB8CB008EA13B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -279,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				25BB761D1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser.app */,
+				62EF0A751C700C2300D13711 /* SwiftFlowGitHubBrowserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,6 +410,7 @@
 		25BB761F1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				62EF0A6C1C700ABB00D13711 /* ViewControllers */,
 				25C00EA41C3CEDBB0074655A /* GitHubAuth */,
 				25C00E9A1C3CDA340074655A /* Reducers */,
 				25C00E8E1C3CD8BE0074655A /* Actions */,
@@ -293,7 +418,6 @@
 				258184331C3CC6F2008E200A /* State */,
 				25BB76321C3CBA99008EA13B /* Dependencies */,
 				25BB76201C3CB8CB008EA13B /* AppDelegate.swift */,
-				25BB76221C3CB8CB008EA13B /* LoginViewController.swift */,
 				25BB76241C3CB8CB008EA13B /* Main.storyboard */,
 				25BB76271C3CB8CB008EA13B /* Assets.xcassets */,
 				25BB76291C3CB8CB008EA13B /* LaunchScreen.storyboard */,
@@ -305,8 +429,8 @@
 		25BB76321C3CBA99008EA13B /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */,
-				62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */,
+				62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */,
+				62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */,
 				258184121C3CC062008E200A /* RequestKit.xcodeproj */,
 				258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */,
 			);
@@ -339,32 +463,97 @@
 			path = GitHubAuth;
 			sourceTree = "<group>";
 		};
-		62EF09B71C69A1A500D13711 /* Products */ = {
+		62EF0A3A1C700A7400D13711 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62EF09C11C69A1A500D13711 /* ReSwift.framework */,
-				62EF09C31C69A1A500D13711 /* ReSwift-iOSTests.xctest */,
-				62EF09C51C69A1A500D13711 /* ReSwift.framework */,
-				62EF09C71C69A1A500D13711 /* ReSwift-OSXTests.xctest */,
-				62EF09C91C69A1A500D13711 /* ReSwift.framework */,
-				62EF09CB1C69A1A500D13711 /* ReSwift-tvOSTests.xctest */,
-				62EF09CD1C69A1A500D13711 /* ReSwift.framework */,
+				62EF0A441C700A7400D13711 /* ReSwift.framework */,
+				62EF0A461C700A7400D13711 /* ReSwift-iOSTests.xctest */,
+				62EF0A481C700A7400D13711 /* ReSwift.framework */,
+				62EF0A4A1C700A7400D13711 /* ReSwift-OSXTests.xctest */,
+				62EF0A4C1C700A7400D13711 /* ReSwift.framework */,
+				62EF0A4E1C700A7400D13711 /* ReSwift-tvOSTests.xctest */,
+				62EF0A501C700A7400D13711 /* ReSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		62EF09CF1C69A1AE00D13711 /* Products */ = {
+		62EF0A521C700A7E00D13711 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62EF09DC1C69A1AF00D13711 /* ReSwiftRouter.framework */,
-				62EF09DE1C69A1AF00D13711 /* ReSwiftRouterTests-iOS.xctest */,
-				62EF09E01C69A1AF00D13711 /* ReSwiftRouter.framework */,
-				62EF09E21C69A1AF00D13711 /* ReSwiftRouter.framework */,
-				62EF09E41C69A1AF00D13711 /* ReSwiftRouter-tvOSTests.xctest */,
-				62EF09E61C69A1AF00D13711 /* ReSwiftRouter.framework */,
-				62EF09E81C69A1AF00D13711 /* ReSwiftRouter.xctest */,
+				62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */,
+				62EF0A611C700A7E00D13711 /* ReSwiftRouterTests-iOS.xctest */,
+				62EF0A631C700A7E00D13711 /* ReSwiftRouter.framework */,
+				62EF0A651C700A7E00D13711 /* ReSwiftRouter.framework */,
+				62EF0A671C700A7E00D13711 /* ReSwiftRouter-tvOSTests.xctest */,
+				62EF0A691C700A7E00D13711 /* ReSwiftRouter.framework */,
+				62EF0A6B1C700A7E00D13711 /* ReSwiftRouter.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		62EF0A6C1C700ABB00D13711 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */,
+				62EF0A6F1C700AD500D13711 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		62EF0A761C700C2300D13711 /* SwiftFlowGitHubBrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0AB31C700D3A00D13711 /* GithubAuthSpec */,
+				62EF0A7F1C700CFD00D13711 /* Dependencies */,
+				62EF0A791C700C2300D13711 /* Info.plist */,
+			);
+			path = SwiftFlowGitHubBrowserTests;
+			sourceTree = "<group>";
+		};
+		62EF0A7F1C700CFD00D13711 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */,
+				62EF0A801C700D1200D13711 /* Quick.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		62EF0A811C700D1200D13711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0A8D1C700D1200D13711 /* Quick.framework */,
+				62EF0A8F1C700D1200D13711 /* Quick-OSXTests.xctest */,
+				62EF0A911C700D1200D13711 /* QuickFocused-OSXTests.xctest */,
+				62EF0A931C700D1200D13711 /* Quick.framework */,
+				62EF0A951C700D1200D13711 /* Quick-iOSTests.xctest */,
+				62EF0A971C700D1200D13711 /* QuickFocused-iOSTests.xctest */,
+				62EF0A991C700D1200D13711 /* Quick.framework */,
+				62EF0A9B1C700D1200D13711 /* Quick-tvOSTests.xctest */,
+				62EF0A9D1C700D1200D13711 /* QuickFocused-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62EF0A9F1C700D1F00D13711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0AA81C700D1F00D13711 /* Nimble.framework */,
+				62EF0AAA1C700D1F00D13711 /* NimbleTests.xctest */,
+				62EF0AAC1C700D1F00D13711 /* Nimble.framework */,
+				62EF0AAE1C700D1F00D13711 /* NimbleTests.xctest */,
+				62EF0AB01C700D1F00D13711 /* Nimble.framework */,
+				62EF0AB21C700D1F00D13711 /* NimbleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62EF0AB31C700D3A00D13711 /* GithubAuthSpec */ = {
+			isa = PBXGroup;
+			children = (
+				62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */,
+			);
+			path = GithubAuthSpec;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,12 +573,29 @@
 			dependencies = (
 				2581840D1C3CBFF9008E200A /* PBXTargetDependency */,
 				2581841E1C3CC06A008E200A /* PBXTargetDependency */,
-				62EF0A021C69A1C900D13711 /* PBXTargetDependency */,
 			);
 			name = SwiftFlowGitHubBrowser;
 			productName = SwiftFlowGitHubBrowser;
 			productReference = 25BB761D1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser.app */;
 			productType = "com.apple.product-type.application";
+		};
+		62EF0A741C700C2300D13711 /* SwiftFlowGitHubBrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62EF0A7C1C700C2300D13711 /* Build configuration list for PBXNativeTarget "SwiftFlowGitHubBrowserTests" */;
+			buildPhases = (
+				62EF0A711C700C2300D13711 /* Sources */,
+				62EF0A721C700C2300D13711 /* Frameworks */,
+				62EF0A731C700C2300D13711 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62EF0A7B1C700C2300D13711 /* PBXTargetDependency */,
+			);
+			name = SwiftFlowGitHubBrowserTests;
+			productName = SwiftFlowGitHubBrowserTests;
+			productReference = 62EF0A751C700C2300D13711 /* SwiftFlowGitHubBrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -402,6 +608,9 @@
 				ORGANIZATIONNAME = "Benji Encz";
 				TargetAttributes = {
 					25BB761C1C3CB8CB008EA13B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					62EF0A741C700C2300D13711 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -419,25 +628,34 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 62EF0A9F1C700D1F00D13711 /* Products */;
+					ProjectRef = 62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */;
+				},
+				{
 					ProductGroup = 258183DC1C3CBFAD008E200A /* Products */;
 					ProjectRef = 258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 62EF0A811C700D1200D13711 /* Products */;
+					ProjectRef = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
 				},
 				{
 					ProductGroup = 258184131C3CC062008E200A /* Products */;
 					ProjectRef = 258184121C3CC062008E200A /* RequestKit.xcodeproj */;
 				},
 				{
-					ProductGroup = 62EF09B71C69A1A500D13711 /* Products */;
-					ProjectRef = 62EF09B61C69A1A500D13711 /* ReSwift.xcodeproj */;
+					ProductGroup = 62EF0A3A1C700A7400D13711 /* Products */;
+					ProjectRef = 62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */;
 				},
 				{
-					ProductGroup = 62EF09CF1C69A1AE00D13711 /* Products */;
-					ProjectRef = 62EF09CE1C69A1AE00D13711 /* ReSwiftRouter.xcodeproj */;
+					ProductGroup = 62EF0A521C700A7E00D13711 /* Products */;
+					ProjectRef = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				25BB761C1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */,
+				62EF0A741C700C2300D13711 /* SwiftFlowGitHubBrowserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -471,102 +689,207 @@
 			remoteRef = 258184191C3CC062008E200A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09C11C69A1A500D13711 /* ReSwift.framework */ = {
+		62EF0A441C700A7400D13711 /* ReSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwift.framework;
-			remoteRef = 62EF09C01C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A431C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09C31C69A1A500D13711 /* ReSwift-iOSTests.xctest */ = {
+		62EF0A461C700A7400D13711 /* ReSwift-iOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ReSwift-iOSTests.xctest";
-			remoteRef = 62EF09C21C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A451C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09C51C69A1A500D13711 /* ReSwift.framework */ = {
+		62EF0A481C700A7400D13711 /* ReSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwift.framework;
-			remoteRef = 62EF09C41C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A471C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09C71C69A1A500D13711 /* ReSwift-OSXTests.xctest */ = {
+		62EF0A4A1C700A7400D13711 /* ReSwift-OSXTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ReSwift-OSXTests.xctest";
-			remoteRef = 62EF09C61C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A491C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09C91C69A1A500D13711 /* ReSwift.framework */ = {
+		62EF0A4C1C700A7400D13711 /* ReSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwift.framework;
-			remoteRef = 62EF09C81C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A4B1C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09CB1C69A1A500D13711 /* ReSwift-tvOSTests.xctest */ = {
+		62EF0A4E1C700A7400D13711 /* ReSwift-tvOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ReSwift-tvOSTests.xctest";
-			remoteRef = 62EF09CA1C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A4D1C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09CD1C69A1A500D13711 /* ReSwift.framework */ = {
+		62EF0A501C700A7400D13711 /* ReSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwift.framework;
-			remoteRef = 62EF09CC1C69A1A500D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A4F1C700A7400D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09DC1C69A1AF00D13711 /* ReSwiftRouter.framework */ = {
+		62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwiftRouter.framework;
-			remoteRef = 62EF09DB1C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A5E1C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09DE1C69A1AF00D13711 /* ReSwiftRouterTests-iOS.xctest */ = {
+		62EF0A611C700A7E00D13711 /* ReSwiftRouterTests-iOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ReSwiftRouterTests-iOS.xctest";
-			remoteRef = 62EF09DD1C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A601C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09E01C69A1AF00D13711 /* ReSwiftRouter.framework */ = {
+		62EF0A631C700A7E00D13711 /* ReSwiftRouter.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwiftRouter.framework;
-			remoteRef = 62EF09DF1C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A621C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09E21C69A1AF00D13711 /* ReSwiftRouter.framework */ = {
+		62EF0A651C700A7E00D13711 /* ReSwiftRouter.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwiftRouter.framework;
-			remoteRef = 62EF09E11C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A641C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09E41C69A1AF00D13711 /* ReSwiftRouter-tvOSTests.xctest */ = {
+		62EF0A671C700A7E00D13711 /* ReSwiftRouter-tvOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "ReSwiftRouter-tvOSTests.xctest";
-			remoteRef = 62EF09E31C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A661C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09E61C69A1AF00D13711 /* ReSwiftRouter.framework */ = {
+		62EF0A691C700A7E00D13711 /* ReSwiftRouter.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReSwiftRouter.framework;
-			remoteRef = 62EF09E51C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A681C700A7E00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF09E81C69A1AF00D13711 /* ReSwiftRouter.xctest */ = {
+		62EF0A6B1C700A7E00D13711 /* ReSwiftRouter.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ReSwiftRouter.xctest;
-			remoteRef = 62EF09E71C69A1AF00D13711 /* PBXContainerItemProxy */;
+			remoteRef = 62EF0A6A1C700A7E00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A8D1C700D1200D13711 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = 62EF0A8C1C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A8F1C700D1200D13711 /* Quick-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-OSXTests.xctest";
+			remoteRef = 62EF0A8E1C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A911C700D1200D13711 /* QuickFocused-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickFocused-OSXTests.xctest";
+			remoteRef = 62EF0A901C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A931C700D1200D13711 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = 62EF0A921C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A951C700D1200D13711 /* Quick-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-iOSTests.xctest";
+			remoteRef = 62EF0A941C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A971C700D1200D13711 /* QuickFocused-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickFocused-iOSTests.xctest";
+			remoteRef = 62EF0A961C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A991C700D1200D13711 /* Quick.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Quick.framework;
+			remoteRef = 62EF0A981C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A9B1C700D1200D13711 /* Quick-tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Quick-tvOSTests.xctest";
+			remoteRef = 62EF0A9A1C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0A9D1C700D1200D13711 /* QuickFocused-tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickFocused-tvOSTests.xctest";
+			remoteRef = 62EF0A9C1C700D1200D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AA81C700D1F00D13711 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 62EF0AA71C700D1F00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AAA1C700D1F00D13711 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 62EF0AA91C700D1F00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AAC1C700D1F00D13711 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 62EF0AAB1C700D1F00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AAE1C700D1F00D13711 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 62EF0AAD1C700D1F00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AB01C700D1F00D13711 /* Nimble.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Nimble.framework;
+			remoteRef = 62EF0AAF1C700D1F00D13711 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62EF0AB21C700D1F00D13711 /* NimbleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NimbleTests.xctest;
+			remoteRef = 62EF0AB11C700D1F00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -582,6 +905,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		62EF0A731C700C2300D13711 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -590,7 +920,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */,
-				25BB76231C3CB8CB008EA13B /* LoginViewController.swift in Sources */,
+				62EF0A701C700AD500D13711 /* MainViewController.swift in Sources */,
 				6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */,
 				25C00E9C1C3CDAAC0074655A /* AuthenticationState.swift in Sources */,
 				25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */,
@@ -598,7 +928,16 @@
 				2581843A1C3CC912008E200A /* Routes.swift in Sources */,
 				25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */,
 				25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */,
+				62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */,
 				258184351C3CC710008E200A /* State.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62EF0A711C700C2300D13711 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62EF0AB61C700D4900D13711 /* GitHubAuthSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,10 +954,10 @@
 			name = RequestKit;
 			targetProxy = 2581841D1C3CC06A008E200A /* PBXContainerItemProxy */;
 		};
-		62EF0A021C69A1C900D13711 /* PBXTargetDependency */ = {
+		62EF0A7B1C700C2300D13711 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "ReSwiftRouter-iOS";
-			targetProxy = 62EF0A011C69A1C900D13711 /* PBXContainerItemProxy */;
+			target = 25BB761C1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */;
+			targetProxy = 62EF0A7A1C700C2300D13711 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -734,6 +1073,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Swift-Flow-Router/Carthage/Checkouts/Swift-Flow/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ReSwiftDev/ReSwiftRouter/Carthage/Checkouts/ReSwift/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = SwiftFlowGitHubBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -752,11 +1092,43 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Swift-Flow-Router/Carthage/Checkouts/Swift-Flow/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ReSwiftDev/ReSwiftRouter/Carthage/Checkouts/ReSwift/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = SwiftFlowGitHubBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Flow.SwiftFlowGitHubBrowser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		62EF0A7D1C700C2300D13711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ReSwiftDev/ReSwiftRouter/Carthage/Checkouts/Nimble/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = SwiftFlowGitHubBrowserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.benjamin-encz.SwiftFlowGitHubBrowserTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		62EF0A7E1C700C2300D13711 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ReSwiftDev/ReSwiftRouter/Carthage/Checkouts/Nimble/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = SwiftFlowGitHubBrowserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.benjamin-encz.SwiftFlowGitHubBrowserTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -778,6 +1150,15 @@
 			buildConfigurations = (
 				25BB76301C3CB8CB008EA13B /* Debug */,
 				25BB76311C3CB8CB008EA13B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62EF0A7C1C700C2300D13711 /* Build configuration list for PBXNativeTarget "SwiftFlowGitHubBrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62EF0A7D1C700C2300D13711 /* Debug */,
+				62EF0A7E1C700C2300D13711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,1 +1,3 @@
 github "nerdishbynature/octokit.swift"
+github "Quick/Quick"
+github "Quick/Nimble"
