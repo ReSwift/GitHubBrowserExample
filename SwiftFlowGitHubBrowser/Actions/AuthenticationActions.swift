@@ -39,3 +39,7 @@ func handleOpenURL(url: NSURL) -> Store<State>.ActionCreator {
 struct SetOAuthURL: Action {
     let oAuthUrl: NSURL
 }
+
+struct UpdateLoggedInState: Action {
+    let loggedInState: LoggedInState
+}

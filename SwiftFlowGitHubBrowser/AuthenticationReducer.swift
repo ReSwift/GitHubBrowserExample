@@ -15,14 +15,16 @@ func authenticationReducer(state: AuthenticationState?, action: Action) -> Authe
 
     switch action {
     case _ as SwiftFlowInit:
-        return state
+        break
     case let action as SetOAuthURL:
         state.oAuthURL = action.oAuthUrl
-        return state
+    case let action as UpdateLoggedInState:
+        state.loggedInState = action.loggedInState
     default:
-        return state
+        break
     }
 
+    return state
 }
 
 func initialAuthenticationState() -> AuthenticationState {
