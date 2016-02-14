@@ -16,6 +16,39 @@ class GitHubAuthSpec: QuickSpec {
 
     override func spec() {
 
+        describe("When receiving a success OAuth URL callback ") {
+
+            let store = Store<State>(reducer: AppReducer(), state: nil)
+
+            beforeEach {
+                let fakeOAuth = FakeOAuthConfiguration(injectedTokenConfiguration: TokenConfiguration("Token"))
+                store.state.authenticationState.oAuthConfig = fakeOAuth
+
+                let oAuthCallbackURL = NSURL(string: "swiftflowgithub://success")!
+
+                store.dispatch(handleOpenURL(oAuthCallbackURL))
+            }
+
+            it("updates the route to the main view") {
+                expect(store.state.navigationState.route).toEventually(equal([mainViewRoute]))
+            }
+
+            it("updates the state to reflect that user is logged in") {
+                expect { () -> TokenConfiguration? in
+                    let tokenConfiguration: TokenConfiguration?
+
+                    if case let .LoggedIn(config) = store.state.authenticationState.loggedInState {
+                        tokenConfiguration = config
+                    } else {
+                        tokenConfiguration = nil
+                    }
+
+                    return tokenConfiguration
+                }.toEventuallyNot(beNil())
+            }
+
+        }
+
         describe("When receiving successful login action") {
 
             let store = Store<State>(reducer: AppReducer(), state: nil)
@@ -42,4 +75,16 @@ class GitHubAuthSpec: QuickSpec {
 
     }
 
+}
+
+struct FakeOAuthConfiguration: OAuthConfigurationType {
+    var injectedTokenConfiguration: TokenConfiguration
+
+    func authenticate() -> NSURL? {
+        return nil
+    }
+
+    func handleOpenURL(url: NSURL, completion: (config: TokenConfiguration) -> Void) {
+        completion(config: injectedTokenConfiguration)
+    }
 }

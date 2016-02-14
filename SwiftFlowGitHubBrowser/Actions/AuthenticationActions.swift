@@ -27,7 +27,7 @@ func handleOpenURL(url: NSURL) -> Store<State>.ActionCreator {
     return { state, store in
         state.authenticationState.oAuthConfig?.handleOpenURL(url) { (config: TokenConfiguration) in
             // TODO: Persist Login Information
-            
+            store.dispatch(UpdateLoggedInState(loggedInState: .LoggedIn(config)))
             // Switch to the Main View Route
             store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
         }
