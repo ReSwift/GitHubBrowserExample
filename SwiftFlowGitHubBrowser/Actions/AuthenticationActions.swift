@@ -9,6 +9,7 @@
 import ReSwift
 import ReSwiftRouter
 import OctoKit
+import SSKeychain
 
 func authenticateUser(state: State, store: Store<State>) -> Action? {
     guard let config = state.authenticationState.oAuthConfig else { return nil }

@@ -1,4 +1,5 @@
 github "Quick/Nimble" "v3.1.0"
 github "Quick/Quick" "v0.9.1"
 github "nerdishbynature/RequestKit" "0.2.1"
+github "soffes/SSKeychain" "v1.3.1"
 github "nerdishbynature/octokit.swift" "0.5.1"

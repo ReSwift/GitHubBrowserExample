@@ -61,7 +61,7 @@ public struct OAuthConfiguration: Configuration {
         if let code = url.absoluteString.componentsSeparatedByString("=").last {
             authorize(code) { (config) in
                 completion(config: config)
-            } 
+            }
         }
     }
 

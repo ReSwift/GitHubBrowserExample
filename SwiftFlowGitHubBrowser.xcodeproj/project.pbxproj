@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2581840A1C3CBFF9008E200A /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; };
-		2581840B1C3CBFF9008E200A /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2581841B1C3CC06A008E200A /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; };
-		2581841C1C3CC06A008E200A /* RequestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		258184351C3CC710008E200A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184341C3CC710008E200A /* State.swift */; };
 		2581843A1C3CC912008E200A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184391C3CC912008E200A /* Routes.swift */; };
 		25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB76201C3CB8CB008EA13B /* AppDelegate.swift */; };
@@ -28,8 +24,11 @@
 		62EF0AB61C700D4900D13711 /* GitHubAuthSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */; };
 		62EF0ABA1C700D9D00D13711 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0AA81C700D1F00D13711 /* Nimble.framework */; };
 		62EF0ABB1C700DA200D13711 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A8D1C700D1200D13711 /* Quick.framework */; };
-		62FCC1C01C70123A00ED0973 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		62FCC1C11C70123F00ED0973 /* ReSwiftRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62FCC1ED1C711D0500ED0973 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FCC1E61C711CF600ED0973 /* SSKeychain.framework */; };
+		62FCC1EE1C711D1E00ED0973 /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; };
+		62FCC1EF1C711D2400ED0973 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; };
+		62FCC1F01C711D2800ED0973 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; };
+		62FCC1F11C711D2D00ED0973 /* ReSwiftRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,13 +46,6 @@
 			remoteGlobalIDString = 234F4BA91BDDE31A00A58EF7;
 			remoteInfo = OctoKitTests;
 		};
-		2581840C1C3CBFF9008E200A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 239BE7C81B8C47A100D2CE22;
-			remoteInfo = OctoKit;
-		};
 		258184171C3CC062008E200A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 258184121C3CC062008E200A /* RequestKit.xcodeproj */;
@@ -67,13 +59,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 234F4C261BDDF64300A58EF7;
 			remoteInfo = RequestKitTests;
-		};
-		2581841D1C3CC06A008E200A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 258184121C3CC062008E200A /* RequestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 234F4C1B1BDDF64300A58EF7;
-			remoteInfo = RequestKit;
 		};
 		62EF0A431C700A7400D13711 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -285,24 +270,35 @@
 			remoteGlobalIDString = 1F5DF15E1BDCA0CE00C3A531;
 			remoteInfo = "Nimble-tvOSTests";
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		25BB76431C3CBE6E008EA13B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2581841C1C3CC06A008E200A /* RequestKit.framework in Embed Frameworks */,
-				2581840B1C3CBFF9008E200A /* OctoKit.framework in Embed Frameworks */,
-				62FCC1C11C70123F00ED0973 /* ReSwiftRouter.framework in Embed Frameworks */,
-				62FCC1C01C70123A00ED0973 /* ReSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+		62FCC1E51C711CF600ED0973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666341A844CC400287CA3;
+			remoteInfo = "SSKeychain-iOS";
 		};
-/* End PBXCopyFilesBuildPhase section */
+		62FCC1E71C711CF600ED0973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666551A844D3A00287CA3;
+			remoteInfo = "SSKeychainTests-iOS";
+		};
+		62FCC1E91C711CF600ED0973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
+			remoteInfo = "SSKeychain-OSX";
+		};
+		62FCC1EB1C711CF600ED0973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8A666791A844E4100287CA3;
+			remoteInfo = "SSKeychainTests-OSX";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKit.xcodeproj; path = Carthage/Checkouts/octokit.swift/OctoKit.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -330,6 +326,7 @@
 		62EF0A801C700D1200D13711 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Carthage/Checkouts/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Carthage/Checkouts/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthSpec.swift; sourceTree = "<group>"; };
+		62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Carthage/Checkouts/SSKeychain/SSKeychain.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,8 +334,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2581841B1C3CC06A008E200A /* RequestKit.framework in Frameworks */,
-				2581840A1C3CBFF9008E200A /* OctoKit.framework in Frameworks */,
+				62FCC1F11C711D2D00ED0973 /* ReSwiftRouter.framework in Frameworks */,
+				62FCC1F01C711D2800ED0973 /* ReSwift.framework in Frameworks */,
+				62FCC1EF1C711D2400ED0973 /* OctoKit.framework in Frameworks */,
+				62FCC1EE1C711D1E00ED0973 /* RequestKit.framework in Frameworks */,
+				62FCC1ED1C711D0500ED0973 /* SSKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +429,7 @@
 		25BB76321C3CBA99008EA13B /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */,
 				62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */,
 				62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */,
 				258184121C3CC062008E200A /* RequestKit.xcodeproj */,
@@ -556,6 +557,17 @@
 			path = GithubAuthSpec;
 			sourceTree = "<group>";
 		};
+		62FCC1DF1C711CF500ED0973 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62FCC1E61C711CF600ED0973 /* SSKeychain.framework */,
+				62FCC1E81C711CF600ED0973 /* SSKeychainTests-iOS.xctest */,
+				62FCC1EA1C711CF600ED0973 /* SSKeychain.framework */,
+				62FCC1EC1C711CF600ED0973 /* SSKeychainTests-OSX.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -566,13 +578,10 @@
 				25BB76191C3CB8CB008EA13B /* Sources */,
 				25BB761A1C3CB8CB008EA13B /* Frameworks */,
 				25BB761B1C3CB8CB008EA13B /* Resources */,
-				25BB76431C3CBE6E008EA13B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2581840D1C3CBFF9008E200A /* PBXTargetDependency */,
-				2581841E1C3CC06A008E200A /* PBXTargetDependency */,
 			);
 			name = SwiftFlowGitHubBrowser;
 			productName = SwiftFlowGitHubBrowser;
@@ -651,6 +660,10 @@
 				{
 					ProductGroup = 62EF0A521C700A7E00D13711 /* Products */;
 					ProjectRef = 62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */;
+				},
+				{
+					ProductGroup = 62FCC1DF1C711CF500ED0973 /* Products */;
+					ProjectRef = 62FCC1DE1C711CF500ED0973 /* SSKeychain.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -893,6 +906,34 @@
 			remoteRef = 62EF0AB11C700D1F00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		62FCC1E61C711CF600ED0973 /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 62FCC1E51C711CF600ED0973 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62FCC1E81C711CF600ED0973 /* SSKeychainTests-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SSKeychainTests-iOS.xctest";
+			remoteRef = 62FCC1E71C711CF600ED0973 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62FCC1EA1C711CF600ED0973 /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 62FCC1E91C711CF600ED0973 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		62FCC1EC1C711CF600ED0973 /* SSKeychainTests-OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SSKeychainTests-OSX.xctest";
+			remoteRef = 62FCC1EB1C711CF600ED0973 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -945,16 +986,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2581840D1C3CBFF9008E200A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OctoKit;
-			targetProxy = 2581840C1C3CBFF9008E200A /* PBXContainerItemProxy */;
-		};
-		2581841E1C3CC06A008E200A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RequestKit;
-			targetProxy = 2581841D1C3CC06A008E200A /* PBXContainerItemProxy */;
-		};
 		62EF0A7B1C700C2300D13711 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25BB761C1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */;
@@ -1069,7 +1100,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -1088,7 +1118,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
