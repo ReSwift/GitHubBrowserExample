@@ -37,7 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return state.navigationState
         }
 
-        store.dispatch(ReSwiftRouter.SetRouteAction([loginRoute]))
+        if case .LoggedIn(_) = store.state.authenticationState.loggedInState {
+            store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
+        } else {
+            store.dispatch(ReSwiftRouter.SetRouteAction([loginRoute]))
+        }
 
         window?.makeKeyAndVisible()
 

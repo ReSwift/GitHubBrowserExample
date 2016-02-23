@@ -34,11 +34,17 @@ func initialAuthenticationState() -> AuthenticationState {
         scopes: ["repo", "read:org"]
     )
 
-    let initialState = AuthenticationState(
-        oAuthConfig: config,
-        oAuthURL: nil,
-        loggedInState: .NotLoggedIn
-    )
-
-    return initialState
+    if let authData = AuthenticationService().authenticationData() {
+        return AuthenticationState(
+            oAuthConfig: config,
+            oAuthURL: nil,
+            loggedInState: .LoggedIn(authData)
+        )
+    } else {
+        return AuthenticationState(
+            oAuthConfig: config,
+            oAuthURL: nil,
+            loggedInState: .NotLoggedIn
+        )
+    }
 }
