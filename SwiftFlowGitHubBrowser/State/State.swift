@@ -14,5 +14,5 @@ import RequestKit
 struct State: StateType, HasNavigationState {
     var navigationState: NavigationState
     var authenticationState: AuthenticationState
-    var repositories: Response<Repository>?
+    var repositories: Response<[Repository]>?
 }

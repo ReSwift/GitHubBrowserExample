@@ -7,13 +7,28 @@
 //
 
 import UIKit
+import ReSwift
+import OctoKit
+import RequestKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, StoreSubscriber {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        
+        store.subscribe(self) { state in
+            state.repositories
+        }
+
+        store.dispatch(fetchGitHubRepositories)
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        store.unsubscribe(self)
+    }
+
+    func newState(state: Response<[Repository]>?) {
+        print(state)
     }
 
 }

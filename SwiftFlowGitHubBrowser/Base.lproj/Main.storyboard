@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="DFr-vf-StT">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="yUK-y6-GzQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="yUK-y6-GzQ" customClass="MainViewController" customModule="SwiftFlowGitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ain-cm-z4r"/>
                         <viewControllerLayoutGuide type="bottom" id="e6l-t4-MQt"/>

@@ -20,6 +20,8 @@
 		25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */; };
 		25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */; };
 		6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296CA0D1C4D777800A60ECD /* Credentials.swift */; };
+		62C935481C8CD17F00887A23 /* GitHubRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C935471C8CD17F00887A23 /* GitHubRepositories.swift */; };
+		62C9354A1C8CD2CC00887A23 /* GitHubRepositoriesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C935491C8CD2CC00887A23 /* GitHubRepositoriesActions.swift */; };
 		62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */; };
 		62EF0A701C700AD500D13711 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0A6F1C700AD500D13711 /* MainViewController.swift */; };
 		62EF0AB61C700D4900D13711 /* GitHubAuthSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */; };
@@ -319,6 +321,8 @@
 		25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIReducers.swift; sourceTree = "<group>"; };
 		6296CA0D1C4D777800A60ECD /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		62C935471C8CD17F00887A23 /* GitHubRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepositories.swift; sourceTree = "<group>"; };
+		62C935491C8CD2CC00887A23 /* GitHubRepositoriesActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesActions.swift; sourceTree = "<group>"; };
 		62EF0A391C700A7400D13711 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = ReSwiftDev/ReSwift/ReSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0A511C700A7E00D13711 /* ReSwiftRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwiftRouter.xcodeproj; path = ReSwiftDev/ReSwiftRouter/ReSwiftRouter.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 		25BB761F1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				62C935461C8CD14F00887A23 /* APIRequests */,
+				62C9351E1C8CCF8800887A23 /* Models */,
 				25BE03BA1C7C079B005EBB09 /* Services */,
 				62EF0A6C1C700ABB00D13711 /* ViewControllers */,
 				25C00EA41C3CEDBB0074655A /* GitHubAuth */,
@@ -453,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				25C00E981C3CD8E50074655A /* AuthenticationActions.swift */,
+				62C935491C8CD2CC00887A23 /* GitHubRepositoriesActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -473,6 +480,28 @@
 				6296CA0D1C4D777800A60ECD /* Credentials.swift */,
 			);
 			path = GitHubAuth;
+			sourceTree = "<group>";
+		};
+		62C9351E1C8CCF8800887A23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		62C935461C8CD14F00887A23 /* APIRequests */ = {
+			isa = PBXGroup;
+			children = (
+				62C935471C8CD17F00887A23 /* GitHubRepositories.swift */,
+			);
+			path = APIRequests;
+			sourceTree = "<group>";
+		};
+		62C9354B1C8CD41F00887A23 /* APIRequestSpec */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIRequestSpec;
 			sourceTree = "<group>";
 		};
 		62EF0A3A1C700A7400D13711 /* Products */ = {
@@ -515,6 +544,7 @@
 		62EF0A761C700C2300D13711 /* SwiftFlowGitHubBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
+				62C9354B1C8CD41F00887A23 /* APIRequestSpec */,
 				62EF0AB31C700D3A00D13711 /* GithubAuthSpec */,
 				62EF0A7F1C700CFD00D13711 /* Dependencies */,
 				62EF0A791C700C2300D13711 /* Info.plist */,
@@ -978,8 +1008,10 @@
 				25BE03E11C7C07E6005EBB09 /* AuthenticationService.swift in Sources */,
 				25C00E9C1C3CDAAC0074655A /* AuthenticationState.swift in Sources */,
 				25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */,
+				62C9354A1C8CD2CC00887A23 /* GitHubRepositoriesActions.swift in Sources */,
 				25C00E991C3CD8E50074655A /* AuthenticationActions.swift in Sources */,
 				2581843A1C3CC912008E200A /* Routes.swift in Sources */,
+				62C935481C8CD17F00887A23 /* GitHubRepositories.swift in Sources */,
 				25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */,
 				25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */,
 				62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */,

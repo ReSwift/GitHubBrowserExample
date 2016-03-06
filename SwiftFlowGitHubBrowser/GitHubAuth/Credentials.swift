@@ -9,5 +9,5 @@
 import Foundation
 
 // Insert GitHub Token and Secret Here
-let gitHubToken = ""
-let gitHubSecret = ""
+let gitHubToken = "f7f62e43ad92fda973a6"
+let gitHubSecret = "f427f5673492b662e5c07ae4b7c8e5a7cbc22c77"
