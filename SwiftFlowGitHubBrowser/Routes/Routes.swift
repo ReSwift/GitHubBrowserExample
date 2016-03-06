@@ -12,6 +12,7 @@ import SafariServices
 let loginRoute: RouteElementIdentifier = "Login"
 let oAuthRoute: RouteElementIdentifier = "OAuth"
 let mainViewRoute: RouteElementIdentifier = "Main"
+let repositoryDetailRoute: RouteElementIdentifier = "RepositoryDetail"
 
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
 

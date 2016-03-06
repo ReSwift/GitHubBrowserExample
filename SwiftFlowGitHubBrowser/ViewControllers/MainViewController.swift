@@ -8,6 +8,7 @@
 
 import UIKit
 import ReSwift
+import ReSwiftRouter
 import OctoKit
 import RequestKit
 import ListKit
@@ -36,6 +37,7 @@ class MainViewController: UIViewController, StoreSubscriber {
         store.dispatch(fetchGitHubRepositories)
         self.dataSource = ArrayDataSource(array: [], cellType: RepositoryTableViewCell.self)
         tableView.dataSource = dataSource
+        tableView.delegate = self
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -49,6 +51,18 @@ class MainViewController: UIViewController, StoreSubscriber {
             dataSource?.array = repositories
             tableView.reloadData()
         }
+    }
+
+}
+
+//MARK: UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedRepository = self.dataSource?.array[indexPath.row]
+        let routeAction = ReSwiftRouter.SetRouteAction([mainViewRoute, repositoryDetailRoute])
+        
     }
 
 }
