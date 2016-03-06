@@ -17,19 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yd-ax-Lt1">
-                                <rect key="frame" x="268" y="289.5" width="64" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-6h-Sf8">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8Yd-ax-Lt1" firstAttribute="centerY" secondItem="epq-1e-1dt" secondAttribute="centerY" id="Tv8-Gq-HxM"/>
-                            <constraint firstItem="8Yd-ax-Lt1" firstAttribute="centerX" secondItem="epq-1e-1dt" secondAttribute="centerX" id="raH-s8-CX2"/>
+                            <constraint firstAttribute="trailing" secondItem="5Nv-6h-Sf8" secondAttribute="trailing" id="SvU-mw-CEt"/>
+                            <constraint firstItem="e6l-t4-MQt" firstAttribute="top" secondItem="5Nv-6h-Sf8" secondAttribute="bottom" id="YU0-Vq-Byc"/>
+                            <constraint firstItem="5Nv-6h-Sf8" firstAttribute="top" secondItem="ain-cm-z4r" secondAttribute="bottom" id="mSD-cs-EQB"/>
+                            <constraint firstItem="5Nv-6h-Sf8" firstAttribute="leading" secondItem="epq-1e-1dt" secondAttribute="leading" id="uF1-Lw-rGj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="5Nv-6h-Sf8" id="7d1-dQ-HWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhR-Vy-Sdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

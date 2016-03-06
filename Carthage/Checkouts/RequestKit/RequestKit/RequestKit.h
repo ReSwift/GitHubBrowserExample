@@ -6,7 +6,7 @@
 //  Copyright © 2015 nerdish by nature. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for RequestKit.
 FOUNDATION_EXPORT double RequestKitVersionNumber;

@@ -1,3 +1,4 @@
+import Foundation
 
 public extension String {
     func stringByAppendingURLPath(path: String) -> String {

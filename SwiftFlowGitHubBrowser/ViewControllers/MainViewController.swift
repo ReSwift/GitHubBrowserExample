@@ -10,8 +10,21 @@ import UIKit
 import ReSwift
 import OctoKit
 import RequestKit
+import ListKit
+
+class RepositoryTableViewCell: UITableViewCell, ListKitCellProtocol {
+    var model: Repository? {
+        didSet {
+            self.textLabel!.text = model?.name ?? ""
+        }
+    }
+}
 
 class MainViewController: UIViewController, StoreSubscriber {
+
+    @IBOutlet var tableView: UITableView!
+
+    var dataSource: ArrayDataSource<RepositoryTableViewCell, Repository>?
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,6 +34,8 @@ class MainViewController: UIViewController, StoreSubscriber {
         }
 
         store.dispatch(fetchGitHubRepositories)
+        self.dataSource = ArrayDataSource(array: [], cellType: RepositoryTableViewCell.self)
+        tableView.dataSource = dataSource
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -28,7 +43,12 @@ class MainViewController: UIViewController, StoreSubscriber {
     }
 
     func newState(state: Response<[Repository]>?) {
-        print(state)
+        guard let state = state else { return }
+
+        if case let .Success(repositories) = state {
+            dataSource?.array = repositories
+            tableView.reloadData()
+        }
     }
 
 }
