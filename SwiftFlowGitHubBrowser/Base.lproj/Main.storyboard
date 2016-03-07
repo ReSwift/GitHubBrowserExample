@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1772" y="228"/>
         </scene>
-        <!--View Controller-->
+        <!--Repository Detail View Controller-->
         <scene sceneID="Cld-ce-Mc2">
             <objects>
-                <viewController storyboardIdentifier="RepositoryDetailViewController" id="arg-Ky-S14" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepositoryDetailViewController" id="arg-Ky-S14" customClass="RepositoryDetailViewController" customModule="SwiftFlowGitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o2D-lQ-PnJ"/>
                         <viewControllerLayoutGuide type="bottom" id="hFc-KF-uIN"/>
@@ -61,8 +61,23 @@
                     <view key="view" contentMode="scaleToFill" id="EUR-Pr-aZO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RF-LM-FNC">
+                                <rect key="frame" x="279" y="77" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9RF-LM-FNC" firstAttribute="centerX" secondItem="EUR-Pr-aZO" secondAttribute="centerX" id="XZ2-RO-Wal"/>
+                            <constraint firstItem="9RF-LM-FNC" firstAttribute="top" secondItem="o2D-lQ-PnJ" secondAttribute="bottom" constant="57" id="fZK-dG-XMh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="9RF-LM-FNC" id="pT4-J1-G1F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Yv-Fv-FL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

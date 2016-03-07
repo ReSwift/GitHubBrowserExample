@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import OctoKit
+import ReSwift
 
-class RepositoryDetailViewController: UIViewController {
+class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
-    
+    @IBOutlet var mainLabel: UILabel!
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        store.subscribe(self) { state in
+            return state.navigationState.getRouteSpecificState(state.navigationState.route)
+        }
+    }
+
+    func newState(selectedRepository: Repository?) {
+        self.mainLabel.text = selectedRepository?.name ?? ""
+    }
 
 }

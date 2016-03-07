@@ -68,7 +68,7 @@ extension MainViewController: UITableViewDelegate {
         let newRoute = [mainViewRoute, repositoryDetailRoute]
 
         let routeAction = ReSwiftRouter.SetRouteAction(newRoute)
-        let setDataAction = ReSwiftRouter.SetRouteSpecificData(route: newRoute, data: selectedRepository)
+        let setDataAction = ReSwiftRouter.SetRouteSpecificData(route: newRoute, data: selectedRepository!)
         store.dispatch(setDataAction)
         store.dispatch(routeAction)
     }

@@ -32,10 +32,10 @@ public struct NavigationState {
 }
 
 extension NavigationState {
-    func getRouteSpecificState(route: [RouteElementIdentifier]) -> Any {
+    public func getRouteSpecificState<T>(route: [RouteElementIdentifier]) -> T? {
         let hash = RouteHash(route: route)
 
-        return self.routeSpecificState[hash]
+        return self.routeSpecificState[hash] as? T
     }
 }
 
