@@ -31,6 +31,14 @@ public struct NavigationState {
     public var routeSpecificState: [RouteHash: Any] = [:]
 }
 
+extension NavigationState {
+    func getRouteSpecificState(route: [RouteElementIdentifier]) -> Any {
+        let hash = RouteHash(route: route)
+
+        return self.routeSpecificState[hash]
+    }
+}
+
 public protocol HasNavigationState {
     var navigationState: NavigationState { get set }
 }

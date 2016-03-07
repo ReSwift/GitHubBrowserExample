@@ -30,6 +30,10 @@ class MainViewController: UIViewController, StoreSubscriber {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Required to update the route, when this VC was presented through back button from
+        // NavigationController, since we can't intercept the back button
+        store.dispatch(SetRouteAction([mainViewRoute]))
+
         store.subscribe(self) { state in
             state.repositories
         }
@@ -61,8 +65,12 @@ extension MainViewController: UITableViewDelegate {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedRepository = self.dataSource?.array[indexPath.row]
-        let routeAction = ReSwiftRouter.SetRouteAction([mainViewRoute, repositoryDetailRoute])
-        
+        let newRoute = [mainViewRoute, repositoryDetailRoute]
+
+        let routeAction = ReSwiftRouter.SetRouteAction(newRoute)
+        let setDataAction = ReSwiftRouter.SetRouteSpecificData(route: newRoute, data: selectedRepository)
+        store.dispatch(setDataAction)
+        store.dispatch(routeAction)
     }
 
 }

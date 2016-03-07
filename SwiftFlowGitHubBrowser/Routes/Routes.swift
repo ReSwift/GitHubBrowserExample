@@ -18,6 +18,7 @@ let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 let loginViewControllerIdentifier = "LoginViewController"
 let mainViewControllerIdentifier = "MainViewController"
+let repositoryDetailControllerIdentifier = "RepositoryDetailViewController"
 
 class RootRoutable: Routable {
 
@@ -108,7 +109,44 @@ class MainViewRoutable: Routable {
     init(_ viewController: UIViewController) {
         self.viewController = viewController
     }
+
+    func pushRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        completionHandler: RoutingCompletionHandler) -> Routable {
+            let detailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
+            (self.viewController as! UINavigationController).pushViewController(
+                detailViewController,
+                animated: true,
+                completion: completionHandler
+            )
+
+            return RepositoryDetailRoutable()
+    }
+
+    func popRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        completionHandler: RoutingCompletionHandler) {
+            // no-op, since this is called when VC is already popped.
+            completionHandler()
+    }
+}
+
+class RepositoryDetailRoutable: Routable {
+
 }
 
 class OAuthRoutable: Routable {}
+
+extension UINavigationController {
+
+    func pushViewController(viewController: UIViewController,
+        animated: Bool, completion: Void -> Void) {
+
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion)
+            pushViewController(viewController, animated: animated)
+            CATransaction.commit()
+    }
+    
+}
 

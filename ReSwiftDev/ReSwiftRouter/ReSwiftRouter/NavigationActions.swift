@@ -30,3 +30,13 @@ public struct SetRouteAction: StandardActionConvertible {
     }
     
 }
+
+public struct SetRouteSpecificData: Action {
+    let route: [RouteElementIdentifier]
+    let data: Any
+
+    public init(route: [RouteElementIdentifier], data: Any) {
+        self.route = route
+        self.data = data
+    }
+}
