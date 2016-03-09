@@ -15,4 +15,7 @@ struct State: StateType, HasNavigationState {
     var navigationState: NavigationState
     var authenticationState: AuthenticationState
     var repositories: Response<[Repository]>?
+    var bookmarks: [Bookmark]
 }
+
+typealias Bookmark = (route: [RouteElementIdentifier], routeSpecificData: Any)

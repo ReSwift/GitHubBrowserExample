@@ -13,7 +13,7 @@ public typealias RouteElementIdentifier = String
 public struct RouteHash: Hashable {
     let routeHash: String
 
-    init(route: [RouteElementIdentifier]) {
+    public init(route: [RouteElementIdentifier]) {
         self.routeHash = route.joinWithSeparator("/")
     }
 

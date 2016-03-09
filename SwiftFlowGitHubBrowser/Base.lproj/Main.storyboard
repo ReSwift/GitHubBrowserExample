@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="1772" y="228"/>
         </scene>
-        <!--Repository Detail View Controller-->
+        <!--Title-->
         <scene sceneID="Cld-ce-Mc2">
             <objects>
                 <viewController storyboardIdentifier="RepositoryDetailViewController" id="arg-Ky-S14" customClass="RepositoryDetailViewController" customModule="SwiftFlowGitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,7 +75,15 @@
                             <constraint firstItem="9RF-LM-FNC" firstAttribute="top" secondItem="o2D-lQ-PnJ" secondAttribute="bottom" constant="57" id="fZK-dG-XMh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="cct-YI-ydu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="pcH-Kk-OZp">
+                            <connections>
+                                <action selector="bookmarkButtonTapped:" destination="arg-Ky-S14" id="6gG-L2-NQk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="bookmarkButton" destination="pcH-Kk-OZp" id="RfX-U8-niL"/>
                         <outlet property="mainLabel" destination="9RF-LM-FNC" id="pT4-J1-G1F"/>
                     </connections>
                 </viewController>

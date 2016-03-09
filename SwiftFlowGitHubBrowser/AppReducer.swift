@@ -15,7 +15,8 @@ struct AppReducer: Reducer {
         return State(
             navigationState: NavigationReducer.handleAction(action, state: state?.navigationState),
             authenticationState: authenticationReducer(state?.authenticationState, action: action),
-            repositories: repositoriesReducer(state?.repositories, action: action)
+            repositories: repositoriesReducer(state?.repositories, action: action),
+            bookmarks: bookmarksReducer(state?.bookmarks, action: action)
         )
     }
 

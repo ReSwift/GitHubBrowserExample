@@ -72,7 +72,7 @@ public class Router<State: StateType>: StoreSubscriber {
                     }
                 }
 
-                let waitUntil = dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC)))
+                let waitUntil = dispatch_time(DISPATCH_TIME_NOW, Int64(30 * Double(NSEC_PER_SEC)))
 
                 let result = dispatch_semaphore_wait(semaphore, waitUntil)
 
