@@ -40,7 +40,7 @@ public struct NavigationReducer {
     static func setRouteSpecificData(
         var state: NavigationState,
         route: [RouteElementIdentifier],
-        data: Any) -> NavigationState{
+        data: AnyObject) -> NavigationState{
             let routeHash = RouteHash(route: route)
 
             state.routeSpecificState[routeHash] = data

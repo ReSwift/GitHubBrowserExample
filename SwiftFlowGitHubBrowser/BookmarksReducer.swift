@@ -10,7 +10,7 @@ import Foundation
 import ReSwift
 import ReSwiftRouter
 
-func bookmarksReducer(state: [(route: [RouteElementIdentifier], routeSpecificData: Any)]?, action: Action) -> [(route: [RouteElementIdentifier], routeSpecificData: Any)] {
+func bookmarksReducer(state: [Bookmark]?, action: Action) -> [Bookmark] {
     var state = state ?? []
 
     switch action {

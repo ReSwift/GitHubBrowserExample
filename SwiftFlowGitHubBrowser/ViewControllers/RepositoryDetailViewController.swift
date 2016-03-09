@@ -49,7 +49,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         store.dispatch(
             CreateBookmark(
                 route: [mainViewRoute, repositoryDetailRoute],
-                routeSpecificData: self.repository!)
+                routeSpecificData: self.repository)
         )
     }
 }

@@ -18,4 +18,4 @@ struct State: StateType, HasNavigationState {
     var bookmarks: [Bookmark]
 }
 
-typealias Bookmark = (route: [RouteElementIdentifier], routeSpecificData: Any)
+typealias Bookmark = (route: [RouteElementIdentifier], routeSpecificData: Any?)
