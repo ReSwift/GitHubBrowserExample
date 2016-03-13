@@ -25,16 +25,16 @@ public protocol Routable {
 extension Routable {
     public func changeRouteSegment(from: RouteElementIdentifier,
         to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
-            fatalError("This routable cannot change segments. You have not implemented it.")
+            fatalError("This routable (\(self.dynamicType)) cannot change segments. You have not implemented it.")
     }
 
     public func popRouteSegment(routeElementIdentifier: RouteElementIdentifier,
         completionHandler: RoutingCompletionHandler) {
-            fatalError("This routable cannot change segments. You have not implemented it.")
+            fatalError("This routable (\(self.dynamicType)) cannot change segments. You have not implemented it.")
     }
 
     public func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier,
         completionHandler: RoutingCompletionHandler) -> Routable {
-            fatalError("This routable cannot change segments. You have not implemented it.")
+            fatalError("This routable (\(self.dynamicType)) cannot change segments. You have not implemented it.")
     }
 }

@@ -41,7 +41,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="XbV-GW-xhp"/>
+                    <navigationItem key="navigationItem" id="XbV-GW-xhp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="fxm-SM-LX0">
+                            <connections>
+                                <action selector="bookmarkButtonTapped:" destination="yUK-y6-GzQ" id="vog-Ft-u1F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="5Nv-6h-Sf8" id="7d1-dQ-HWz"/>
                     </connections>
@@ -49,6 +55,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhR-Vy-Sdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1772" y="228"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="lt1-dn-ObG">
+            <objects>
+                <viewController storyboardIdentifier="BookmarkViewController" title="Bookmarks" id="A0E-XS-maW" customClass="BookmarkViewController" customModule="SwiftFlowGitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EO9-br-Cf2"/>
+                        <viewControllerLayoutGuide type="bottom" id="tXf-EV-W6x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EFE-1Y-oqo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-t6-i0Q">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pIz-t6-i0Q" secondAttribute="trailing" id="47u-gc-ZJp"/>
+                            <constraint firstItem="tXf-EV-W6x" firstAttribute="top" secondItem="pIz-t6-i0Q" secondAttribute="bottom" id="9IN-JP-9ls"/>
+                            <constraint firstItem="pIz-t6-i0Q" firstAttribute="top" secondItem="EO9-br-Cf2" secondAttribute="bottom" id="Hau-7q-lpm"/>
+                            <constraint firstAttribute="trailing" secondItem="pIz-t6-i0Q" secondAttribute="trailing" id="QRF-af-HF4"/>
+                            <constraint firstItem="pIz-t6-i0Q" firstAttribute="top" secondItem="EO9-br-Cf2" secondAttribute="bottom" id="lTB-Ye-LPz"/>
+                            <constraint firstItem="pIz-t6-i0Q" firstAttribute="leading" secondItem="EFE-1Y-oqo" secondAttribute="leading" id="pit-dH-7Yr"/>
+                            <constraint firstItem="tXf-EV-W6x" firstAttribute="top" secondItem="pIz-t6-i0Q" secondAttribute="bottom" id="s5F-Ld-pMw"/>
+                            <constraint firstItem="pIz-t6-i0Q" firstAttribute="leading" secondItem="EFE-1Y-oqo" secondAttribute="leadingMargin" id="uDn-oZ-14W"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="47u-gc-ZJp"/>
+                                <exclude reference="Hau-7q-lpm"/>
+                                <exclude reference="uDn-oZ-14W"/>
+                                <exclude reference="s5F-Ld-pMw"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pIz-t6-i0Q" id="LhS-va-IvA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffT-eb-XpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704" y="946"/>
         </scene>
         <!--Title-->
         <scene sceneID="Cld-ce-Mc2">

@@ -45,6 +45,8 @@ class MainViewController: UIViewController, StoreSubscriber {
     }
 
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         store.unsubscribe(self)
     }
 
@@ -57,6 +59,10 @@ class MainViewController: UIViewController, StoreSubscriber {
         }
     }
 
+    @IBAction func bookmarkButtonTapped(sender: AnyObject) {
+        let newRoute = [mainViewRoute, bookmarkRoute]
+        store.dispatch(ReSwiftRouter.SetRouteAction(newRoute))
+    }
 }
 
 //MARK: UITableViewDelegate

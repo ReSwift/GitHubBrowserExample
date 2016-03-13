@@ -76,11 +76,11 @@ public class Router<State: StateType>: StoreSubscriber {
 
                 let result = dispatch_semaphore_wait(semaphore, waitUntil)
 
-                if result != 0 {
-                    assertionFailure("[SwiftFlowRouter]: Router is stuck waiting for a" +
-                        " completion handler to be called. Ensure that you have called the " +
-                        " completion handler in each Routable element.")
-                }
+//                if result != 0 {
+//                    assertionFailure("[SwiftFlowRouter]: Router is stuck waiting for a" +
+//                        " completion handler to be called. Ensure that you have called the " +
+//                        " completion handler in each Routable element.")
+//                }
             }
 
         }

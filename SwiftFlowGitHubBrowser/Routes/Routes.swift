@@ -12,6 +12,7 @@ import SafariServices
 let loginRoute: RouteElementIdentifier = "Login"
 let oAuthRoute: RouteElementIdentifier = "OAuth"
 let mainViewRoute: RouteElementIdentifier = "Main"
+let bookmarkRoute: RouteElementIdentifier = "BookMark"
 let repositoryDetailRoute: RouteElementIdentifier = "RepositoryDetail"
 
 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -19,6 +20,7 @@ let storyboard = UIStoryboard(name: "Main", bundle: nil)
 let loginViewControllerIdentifier = "LoginViewController"
 let mainViewControllerIdentifier = "MainViewController"
 let repositoryDetailControllerIdentifier = "RepositoryDetailViewController"
+let bookmarkControllerIdentifier = "BookmarkViewController"
 
 class RootRoutable: Routable {
 
@@ -113,14 +115,46 @@ class MainViewRoutable: Routable {
     func pushRouteSegment(
         routeElementIdentifier: RouteElementIdentifier,
         completionHandler: RoutingCompletionHandler) -> Routable {
-            let detailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
-            (self.viewController as! UINavigationController).pushViewController(
-                detailViewController,
-                animated: true,
-                completion: completionHandler
-            )
+            if routeElementIdentifier == repositoryDetailRoute {
+                let detailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
+                (self.viewController as! UINavigationController).pushViewController(
+                    detailViewController,
+                    animated: true,
+                    completion: completionHandler
+                )
 
-            return RepositoryDetailRoutable()
+                return RepositoryDetailRoutable()
+
+            } else if routeElementIdentifier == bookmarkRoute {
+                let bookmarkViewController = storyboard.instantiateViewControllerWithIdentifier(bookmarkControllerIdentifier)
+                (self.viewController as! UINavigationController).pushViewController(
+                    bookmarkViewController,
+                    animated: true,
+                    completion: completionHandler
+                )
+
+                return BookmarkRoutable()
+            }
+
+        fatalError("Cannot handle this route change!")
+    }
+
+    func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+
+        if from == bookmarkRoute && to == repositoryDetailRoute {
+            (self.viewController as! UINavigationController).popViewController(true) {
+                let repositoryDetailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
+                (self.viewController as! UINavigationController).pushViewController(
+                    repositoryDetailViewController,
+                    animated: true,
+                    completion: completionHandler
+                )
+            }
+
+            return BookmarkRoutable()
+        }
+
+        fatalError("Cannot handle this route change!")
     }
 
     func popRouteSegment(
@@ -131,10 +165,8 @@ class MainViewRoutable: Routable {
     }
 }
 
-class RepositoryDetailRoutable: Routable {
-
-}
-
+class RepositoryDetailRoutable: Routable {}
+class BookmarkRoutable: Routable {}
 class OAuthRoutable: Routable {}
 
 extension UINavigationController {
@@ -145,6 +177,14 @@ extension UINavigationController {
             CATransaction.begin()
             CATransaction.setCompletionBlock(completion)
             pushViewController(viewController, animated: animated)
+            CATransaction.commit()
+    }
+
+    func popViewController(animated: Bool, completion: Void -> Void) {
+
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion)
+            popViewControllerAnimated(animated)
             CATransaction.commit()
     }
     

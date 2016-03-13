@@ -28,7 +28,7 @@ public struct NavigationState {
     public init() {}
 
     public var route: [RouteElementIdentifier] = []
-    public var routeSpecificState: [RouteHash: AnyObject?] = [:]
+    public var routeSpecificState: [RouteHash: Any?] = [:]
 }
 
 extension NavigationState {

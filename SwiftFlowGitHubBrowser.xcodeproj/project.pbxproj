@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251A75DC1C94F92900EBEB32 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */; };
 		2532E8F61C8F8BFB003F5392 /* BookmarkActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532E8F51C8F8BFB003F5392 /* BookmarkActions.swift */; };
 		2532E92B1C8F8C49003F5392 /* BookmarksReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532E92A1C8F8C49003F5392 /* BookmarksReducer.swift */; };
 		258184351C3CC710008E200A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184341C3CC710008E200A /* State.swift */; };
@@ -474,6 +475,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		2532E8F51C8F8BFB003F5392 /* BookmarkActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkActions.swift; sourceTree = "<group>"; };
 		2532E92A1C8F8C49003F5392 /* BookmarksReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksReducer.swift; sourceTree = "<group>"; };
 		258183DB1C3CBFAD008E200A /* OctoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OctoKit.xcodeproj; path = Carthage/Checkouts/octokit.swift/OctoKit.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -738,6 +740,7 @@
 				62EF0A6D1C700ABB00D13711 /* LoginViewController.swift */,
 				62EF0A6F1C700AD500D13711 /* MainViewController.swift */,
 				62C9357A1C8CDBDE00887A23 /* RepositoryDetailViewController.swift */,
+				251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */,
 				25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */,
 				62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */,
+				251A75DC1C94F92900EBEB32 /* BookmarkViewController.swift in Sources */,
 				258184351C3CC710008E200A /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

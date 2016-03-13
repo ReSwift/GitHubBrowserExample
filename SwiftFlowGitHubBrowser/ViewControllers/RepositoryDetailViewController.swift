@@ -23,15 +23,24 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
         store.subscribe(self) { state in
             (
-                state.navigationState.getRouteSpecificState(state.navigationState.route),
+                state.navigationState.getRouteSpecificState(state.navigationState.route) as Any?,
                 state.bookmarks
             )
         }
     }
 
-    func newState(state: (selectedRepository: Repository?, bookmarks: [Bookmark])) {
-        self.repository = state.selectedRepository
-        self.mainLabel.text = state.selectedRepository?.name ?? ""
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        store.unsubscribe(self)
+    }
+
+    func newState(state: (selectedRepository: Any?, bookmarks: [Bookmark])) {
+        guard let selectedRepository = state.selectedRepository as? Repository? else { return }
+
+        self.repository = selectedRepository
+        self.mainLabel.text = selectedRepository?.name ?? ""
+        self.title = selectedRepository?.name ?? ""
 
         let bookmarkActive = !state.bookmarks.contains { route, data in
             guard let repository = data as? Repository else { return false }
@@ -44,12 +53,11 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
     }
 
     @IBAction func bookmarkButtonTapped(sender: AnyObject) {
-        // TODO: Forcefull unwrapping of optional type is required to ensure that casting to `Repository` works.
-        // if the underlying type of `Any` is `Optional<Repository>` then a cast to `Repository` will fail.
         store.dispatch(
             CreateBookmark(
                 route: [mainViewRoute, repositoryDetailRoute],
-                routeSpecificData: self.repository)
+                routeSpecificData: self.repository
+            )
         )
     }
 }
