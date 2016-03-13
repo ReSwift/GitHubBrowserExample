@@ -45,6 +45,12 @@ class BookmarkViewController: UIViewController, StoreSubscriber {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
+
+        // Required to update the route, when this VC was dismissed through back button from
+        // NavigationController, since we can't intercept the back button
+        if store.state.navigationState.route == [mainViewRoute, bookmarkRoute] {
+            store.dispatch(SetRouteAction([mainViewRoute]))
+        }
     }
 
     func newState(state: [Bookmark]) {

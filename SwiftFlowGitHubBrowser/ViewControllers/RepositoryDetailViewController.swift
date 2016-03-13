@@ -23,7 +23,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
         store.subscribe(self) { state in
             (
-                state.navigationState.getRouteSpecificState(state.navigationState.route) as Any?,
+                state.navigationState.getRouteSpecificState(state.navigationState.route),
                 state.bookmarks
             )
         }
@@ -33,14 +33,18 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
+
+        // Required to update the route, when this VC was dismissed through back button from
+        // NavigationController, since we can't intercept the back button
+        if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
+            store.dispatch(SetRouteAction([mainViewRoute]))
+        }
     }
 
-    func newState(state: (selectedRepository: Any?, bookmarks: [Bookmark])) {
-        guard let selectedRepository = state.selectedRepository as? Repository? else { return }
-
-        self.repository = selectedRepository
-        self.mainLabel.text = selectedRepository?.name ?? ""
-        self.title = selectedRepository?.name ?? ""
+    func newState(state: (selectedRepository: Repository?, bookmarks: [Bookmark])) {
+        self.repository = state.selectedRepository
+        self.mainLabel.text = state.selectedRepository?.name ?? ""
+        self.title = state.selectedRepository?.name ?? ""
 
         let bookmarkActive = !state.bookmarks.contains { route, data in
             guard let repository = data as? Repository else { return false }

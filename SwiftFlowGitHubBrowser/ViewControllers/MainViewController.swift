@@ -30,10 +30,6 @@ class MainViewController: UIViewController, StoreSubscriber {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Required to update the route, when this VC was presented through back button from
-        // NavigationController, since we can't intercept the back button
-        store.dispatch(SetRouteAction([mainViewRoute]))
-
         store.subscribe(self) { state in
             state.repositories
         }
