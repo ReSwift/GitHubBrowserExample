@@ -33,18 +33,13 @@
 		62EF0ABB1C700DA200D13711 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A8D1C700D1200D13711 /* Quick.framework */; };
 		62FCC1ED1C711D0500ED0973 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FCC1E61C711CF600ED0973 /* SSKeychain.framework */; };
 		62FCC1EE1C711D1E00ED0973 /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; };
-		62FCC1EF1C711D2400ED0973 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; };
 		62FCC1F01C711D2800ED0973 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; };
 		62FCC1F11C711D2D00ED0973 /* ReSwiftRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; };
-		7A7A56D71C91D73C00670D38 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; };
 		7A7A56D81C91D73C00670D38 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A441C700A7400D13711 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7A7A57081C91D74700670D38 /* ReSwiftRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; };
 		7A7A57091C91D74700670D38 /* ReSwiftRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A5F1C700A7E00D13711 /* ReSwiftRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7A7A570C1C91D75E00670D38 /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; };
 		7A7A570D1C91D75E00670D38 /* RequestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 258184181C3CC062008E200A /* RequestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A7A57101C91D76D00670D38 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; };
 		7A7A57111C91D76D00670D38 /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 258183E11C3CBFAD008E200A /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7A7A57141C91D77C00670D38 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62FCC1E61C711CF600ED0973 /* SSKeychain.framework */; };
 		7A7A57151C91D77C00670D38 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62FCC1E61C711CF600ED0973 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A7A57181C91D78C00670D38 /* ListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C935581C8CD6B400887A23 /* ListKit.framework */; };
 		7A7A57191C91D78C00670D38 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C935581C8CD6B400887A23 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -519,17 +514,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A7A57141C91D77C00670D38 /* SSKeychain.framework in Frameworks */,
-				7A7A57081C91D74700670D38 /* ReSwiftRouter.framework in Frameworks */,
-				7A7A56D71C91D73C00670D38 /* ReSwift.framework in Frameworks */,
 				62C935791C8CD6E500887A23 /* ListKit.framework in Frameworks */,
 				62FCC1F11C711D2D00ED0973 /* ReSwiftRouter.framework in Frameworks */,
 				62FCC1F01C711D2800ED0973 /* ReSwift.framework in Frameworks */,
-				62FCC1EF1C711D2400ED0973 /* OctoKit.framework in Frameworks */,
 				7A7A57101C91D76D00670D38 /* OctoKit.framework in Frameworks */,
 				62FCC1EE1C711D1E00ED0973 /* RequestKit.framework in Frameworks */,
 				7A7A57181C91D78C00670D38 /* ListKit.framework in Frameworks */,
-				7A7A570C1C91D75E00670D38 /* RequestKit.framework in Frameworks */,
 				62FCC1ED1C711D0500ED0973 /* SSKeychain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
