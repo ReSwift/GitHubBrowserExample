@@ -42,7 +42,12 @@ class RootRoutable: Routable {
         return MainViewRoutable(self.window.rootViewController!)
     }
 
-    func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+    func changeRouteSegment(
+        from: RouteElementIdentifier,
+        to: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler) -> Routable
+    {
 
         if to == loginRoute {
             completionHandler()
@@ -55,7 +60,11 @@ class RootRoutable: Routable {
         }
     }
 
-    func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+    func pushRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler) -> Routable
+    {
 
         if routeElementIdentifier == loginRoute {
             completionHandler()
@@ -68,7 +77,11 @@ class RootRoutable: Routable {
         }
     }
 
-    func popRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) {
+    func popRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler)
+    {
         // TODO: this should technically never be called -> bug in router
         completionHandler()
     }
@@ -83,7 +96,11 @@ class LoginViewRoutable: Routable {
         self.viewController = viewController
     }
 
-    func pushRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+    func pushRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler) -> Routable
+    {
         if routeElementIdentifier == oAuthRoute {
             if let url = store.state.authenticationState.oAuthURL {
                 let safariViewController = SFSafariViewController(URL: url)
@@ -96,7 +113,11 @@ class LoginViewRoutable: Routable {
         fatalError("Router could not proceed.")
     }
 
-    func popRouteSegment(routeElementIdentifier: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) {
+    func popRouteSegment(
+        routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler)
+    {
         if routeElementIdentifier == oAuthRoute {
             self.viewController.dismissViewControllerAnimated(true, completion: completionHandler)
         }
@@ -114,6 +135,7 @@ class MainViewRoutable: Routable {
 
     func pushRouteSegment(
         routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
         completionHandler: RoutingCompletionHandler) -> Routable {
             if routeElementIdentifier == repositoryDetailRoute {
                 let detailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
@@ -139,7 +161,12 @@ class MainViewRoutable: Routable {
         fatalError("Cannot handle this route change!")
     }
 
-    func changeRouteSegment(from: RouteElementIdentifier, to: RouteElementIdentifier, completionHandler: RoutingCompletionHandler) -> Routable {
+    func changeRouteSegment(
+        from: RouteElementIdentifier,
+        to: RouteElementIdentifier,
+        animated: Bool,
+        completionHandler: RoutingCompletionHandler) -> Routable
+    {
 
         if from == bookmarkRoute && to == repositoryDetailRoute {
             (self.viewController as! UINavigationController).popViewController(true) {
@@ -159,6 +186,7 @@ class MainViewRoutable: Routable {
 
     func popRouteSegment(
         routeElementIdentifier: RouteElementIdentifier,
+        animated: Bool,
         completionHandler: RoutingCompletionHandler) {
             // no-op, since this is called when VC is already popped.
             completionHandler()
