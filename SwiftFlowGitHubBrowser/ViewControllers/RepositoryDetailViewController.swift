@@ -18,6 +18,16 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
     var repository: Repository?
 
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        if parent == nil {
+            // Required to update the route, when this VC was dismissed through back button from
+            // NavigationController, since we can't intercept the back button
+            if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
+                store.dispatch(SetRouteAction([mainViewRoute]))
+            }
+        }
+    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -33,12 +43,6 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
-
-        // Required to update the route, when this VC was dismissed through back button from
-        // NavigationController, since we can't intercept the back button
-        if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
-            store.dispatch(SetRouteAction([mainViewRoute]))
-        }
     }
 
     func newState(state: (selectedRepository: Repository?, bookmarks: [Bookmark])) {
