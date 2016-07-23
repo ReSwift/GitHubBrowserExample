@@ -32,9 +32,17 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         super.viewWillAppear(animated)
 
         store.subscribe(self) { state in
-            (
-                state.navigationState.getRouteSpecificState(state.navigationState.route),
-                state.bookmarks
+            let currentRepository: Repository? = state.navigationState.getRouteSpecificState(
+                state.navigationState.route
+            )
+
+            let isCurrentRepositoryBookmarked = currentRepository.map {
+                BookmarkService.isRepositoryBookmarked(state, currentRepository: $0)
+            } ?? false
+
+            return (
+                currentRepository,
+                isCurrentRepositoryBookmarked
             )
         }
     }
@@ -45,7 +53,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         store.unsubscribe(self)
     }
 
-    func newState(state: (selectedRepository: Repository?, bookmarks: [Bookmark])) {
+    func newState(state: (selectedRepository: Repository?, isBookmarked: Bool)) {
         // Only perform repository related updates if the repository actually changed
         if self.repository?.gitURL != state.selectedRepository?.gitURL {
             self.repository = state.selectedRepository
@@ -57,14 +65,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
             }
         }
 
-        let bookmarkActive = !state.bookmarks.contains { route, data in
-            guard let repository = data as? Repository else { return false }
-
-            return RouteHash(route: route) == RouteHash(route: [mainViewRoute, repositoryDetailRoute])
-                && repository.name == self.repository?.name
-        }
-
-        self.bookmarkButton.enabled = bookmarkActive
+        self.bookmarkButton.enabled = state.isBookmarked
     }
 
     @IBAction func bookmarkButtonTapped(sender: AnyObject) {
