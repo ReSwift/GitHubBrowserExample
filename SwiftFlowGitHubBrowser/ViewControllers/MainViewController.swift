@@ -35,7 +35,12 @@ class MainViewController: UIViewController, StoreSubscriber {
         }
 
         store.dispatch(fetchGitHubRepositories)
-        self.dataSource = ArrayDataSource(array: [], cellType: RepositoryTableViewCell.self)
+
+        if self.dataSource == nil {
+            // If we have no intial data, let's configure it.
+            self.dataSource = ArrayDataSource(array: [], cellType: RepositoryTableViewCell.self)
+        }
+
         tableView.dataSource = dataSource
         tableView.delegate = self
     }
