@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-t6-i0Q">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -80,6 +80,7 @@
                             <constraint firstItem="pIz-t6-i0Q" firstAttribute="top" secondItem="EO9-br-Cf2" secondAttribute="bottom" id="Hau-7q-lpm"/>
                             <constraint firstAttribute="trailing" secondItem="pIz-t6-i0Q" secondAttribute="trailing" id="QRF-af-HF4"/>
                             <constraint firstItem="pIz-t6-i0Q" firstAttribute="top" secondItem="EO9-br-Cf2" secondAttribute="bottom" id="lTB-Ye-LPz"/>
+                            <constraint firstItem="pIz-t6-i0Q" firstAttribute="top" secondItem="EFE-1Y-oqo" secondAttribute="topMargin" id="oNe-Cq-iST"/>
                             <constraint firstItem="pIz-t6-i0Q" firstAttribute="leading" secondItem="EFE-1Y-oqo" secondAttribute="leading" id="pit-dH-7Yr"/>
                             <constraint firstItem="tXf-EV-W6x" firstAttribute="top" secondItem="pIz-t6-i0Q" secondAttribute="bottom" id="s5F-Ld-pMw"/>
                             <constraint firstItem="pIz-t6-i0Q" firstAttribute="leading" secondItem="EFE-1Y-oqo" secondAttribute="leadingMargin" id="uDn-oZ-14W"/>
@@ -88,6 +89,7 @@
                             <mask key="constraints">
                                 <exclude reference="47u-gc-ZJp"/>
                                 <exclude reference="Hau-7q-lpm"/>
+                                <exclude reference="lTB-Ye-LPz"/>
                                 <exclude reference="uDn-oZ-14W"/>
                                 <exclude reference="s5F-Ld-pMw"/>
                             </mask>

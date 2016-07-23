@@ -18,15 +18,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
     var repository: Repository?
 
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        if parent == nil {
-            // Required to update the route, when this VC was dismissed through back button from
-            // NavigationController, since we can't intercept the back button
-            if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
-                store.dispatch(SetRouteAction([mainViewRoute]))
-            }
-        }
-    }
+    // MARK: View Lifecycle
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -53,6 +45,18 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         store.unsubscribe(self)
     }
 
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        if parent == nil {
+            // Required to update the route, when this VC was dismissed through back button from
+            // NavigationController, since we can't intercept the back button
+            if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
+                store.dispatch(SetRouteAction([mainViewRoute]))
+            }
+        }
+    }
+
+    // MARK: State Updates
+
     func newState(state: (selectedRepository: Repository?, isBookmarked: Bool)) {
         // Only perform repository related updates if the repository actually changed
         if self.repository?.gitURL != state.selectedRepository?.gitURL {
@@ -67,6 +71,8 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
         self.bookmarkButton.enabled = state.isBookmarked
     }
+
+    // MARK: Interaction
 
     @IBAction func bookmarkButtonTapped(sender: AnyObject) {
         store.dispatch(

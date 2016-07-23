@@ -13,19 +13,13 @@ import OctoKit
 import RequestKit
 import ListKit
 
-class RepositoryTableViewCell: UITableViewCell, ListKitCellProtocol {
-    var model: Repository? {
-        didSet {
-            self.textLabel!.text = model?.name ?? ""
-        }
-    }
-}
-
 class MainViewController: UIViewController, StoreSubscriber {
 
     @IBOutlet var tableView: UITableView!
 
     var dataSource: ArrayDataSource<RepositoryTableViewCell, Repository>?
+
+    // MARK: View Lifecycle
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,6 +28,7 @@ class MainViewController: UIViewController, StoreSubscriber {
             state.repositories
         }
 
+        // Kick off request to update list of repositories
         store.dispatch(fetchGitHubRepositories)
 
         if self.dataSource == nil {
@@ -51,6 +46,8 @@ class MainViewController: UIViewController, StoreSubscriber {
         store.unsubscribe(self)
     }
 
+    // MARK: State Updates
+
     func newState(state: Response<[Repository]>?) {
         guard let state = state else { return }
 
@@ -59,6 +56,8 @@ class MainViewController: UIViewController, StoreSubscriber {
             tableView.reloadData()
         }
     }
+
+    // MARK: Interaction
 
     @IBAction func bookmarkButtonTapped(sender: AnyObject) {
         let newRoute = [mainViewRoute, bookmarkRoute]

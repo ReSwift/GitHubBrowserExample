@@ -11,6 +11,7 @@ import OctoKit
 import ReSwiftRouter
 
 class BookmarkService {
+
     static func isRepositoryBookmarked(state: State, currentRepository: Repository) -> Bool {
         let bookmarkActive = !state.bookmarks.contains { route, data in
             guard let repository = data as? Repository else { return false }
@@ -21,4 +22,5 @@ class BookmarkService {
         
         return bookmarkActive
     }
+    
 }
