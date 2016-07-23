@@ -181,6 +181,13 @@ class MainViewRoutable: Routable {
             return BookmarkRoutable()
         }
 
+        // We can run into the following fatal error when back button on repository detail &
+        // bookmark button on the main view controller are pressed very quickly subsequently.
+        // This happens because the manual route update after the back button tap on the repository
+        // detail view hasn't happened yet.
+        // We could work around this with more hacks, but it wouldn't be useful to this example code.
+        // A discussion/brainstorm for better ways of intercepting back button is going on here:
+        // https://github.com/ReSwift/ReSwift-Router/issues/17
         fatalError("Cannot handle this route change!")
     }
 
