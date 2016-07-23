@@ -18,6 +18,8 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
     var repository: Repository?
 
+    private var _originalNavigationBarDelegate: UINavigationBarDelegate?
+
     // MARK: View Lifecycle
 
     override func viewWillAppear(animated: Bool) {
@@ -37,22 +39,15 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
                 isCurrentRepositoryBookmarked
             )
         }
+
+        self._originalNavigationBarDelegate = self.navigationController?.navigationBar.delegate
+        self.navigationController?.navigationBar.delegate = self
     }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
-    }
-
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        if parent == nil {
-            // Required to update the route, when this VC was dismissed through back button from
-            // NavigationController, since we can't intercept the back button
-            if store.state.navigationState.route == [mainViewRoute, repositoryDetailRoute] {
-                store.dispatch(SetRouteAction([mainViewRoute]))
-            }
-        }
     }
 
     // MARK: State Updates
@@ -82,4 +77,19 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
             )
         )
     }
+}
+
+extension RepositoryDetailViewController: UINavigationBarDelegate {
+
+    func navigationBar(
+        navigationBar: UINavigationBar,
+        shouldPopItem item: UINavigationItem) -> Bool
+    {
+        self.navigationController?.navigationBar.delegate = self._originalNavigationBarDelegate
+
+        store.dispatch(SetRouteAction([mainViewRoute]))
+
+        return true
+    }
+
 }

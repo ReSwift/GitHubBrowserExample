@@ -187,9 +187,11 @@ class MainViewRoutable: Routable {
     func popRouteSegment(
         routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) {
-            // no-op, since this is called when VC is already popped.
+        completionHandler: RoutingCompletionHandler)
+    {
+        (self.viewController as! UINavigationController).popViewController(true) {
             completionHandler()
+        }
     }
 }
 
