@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		251A75DC1C94F92900EBEB32 /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */; };
 		2532E8F61C8F8BFB003F5392 /* BookmarkActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532E8F51C8F8BFB003F5392 /* BookmarkActions.swift */; };
-		2532E92B1C8F8C49003F5392 /* BookmarksReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2532E92A1C8F8C49003F5392 /* BookmarksReducer.swift */; };
 		254B3B951D3ABBFF00B1E4F0 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B881D3ABBCE00B1E4F0 /* OctoKit.framework */; };
 		254B3B961D3ABBFF00B1E4F0 /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B881D3ABBCE00B1E4F0 /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		254B3B991D3ABC0400B1E4F0 /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B701D3ABBC400B1E4F0 /* RequestKit.framework */; };
@@ -24,6 +23,10 @@
 		257420841D442A7C0002D020 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420831D442A7C0002D020 /* RepositoryTableViewCell.swift */; };
 		257420861D442E020002D020 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420851D442E020002D020 /* BookmarkTableViewCell.swift */; };
 		257420891D44304C0002D020 /* NavigationController+CompletionBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420881D44304C0002D020 /* NavigationController+CompletionBlock.swift */; };
+		257420E21D443D990002D020 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420DE1D443D990002D020 /* AppReducer.swift */; };
+		257420E31D443D990002D020 /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420DF1D443D990002D020 /* AuthenticationReducer.swift */; };
+		257420E41D443D990002D020 /* BookmarksReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420E01D443D990002D020 /* BookmarksReducer.swift */; };
+		257420E51D443D990002D020 /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420E11D443D990002D020 /* GitHubAPIReducers.swift */; };
 		258184351C3CC710008E200A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184341C3CC710008E200A /* State.swift */; };
 		2581843A1C3CC912008E200A /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258184391C3CC912008E200A /* Routes.swift */; };
 		25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BB76201C3CB8CB008EA13B /* AppDelegate.swift */; };
@@ -33,9 +36,6 @@
 		25BE03E11C7C07E6005EBB09 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BE03E01C7C07E6005EBB09 /* AuthenticationService.swift */; };
 		25C00E991C3CD8E50074655A /* AuthenticationActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E981C3CD8E50074655A /* AuthenticationActions.swift */; };
 		25C00E9C1C3CDAAC0074655A /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9B1C3CDAAC0074655A /* AuthenticationState.swift */; };
-		25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9D1C3CDB5D0074655A /* AppReducer.swift */; };
-		25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */; };
-		25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */; };
 		6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6296CA0D1C4D777800A60ECD /* Credentials.swift */; };
 		62C935481C8CD17F00887A23 /* GitHubRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C935471C8CD17F00887A23 /* GitHubRepositories.swift */; };
 		62C9354A1C8CD2CC00887A23 /* GitHubRepositoriesActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C935491C8CD2CC00887A23 /* GitHubRepositoriesActions.swift */; };
@@ -501,7 +501,6 @@
 /* Begin PBXFileReference section */
 		251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		2532E8F51C8F8BFB003F5392 /* BookmarkActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkActions.swift; sourceTree = "<group>"; };
-		2532E92A1C8F8C49003F5392 /* BookmarksReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksReducer.swift; sourceTree = "<group>"; };
 		254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Carthage/Checkouts/SSKeychain/SSKeychain.xcodeproj; sourceTree = SOURCE_ROOT; };
 		254B3B321D3ABBAB00B1E4F0 /* ReSwiftRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwiftRouter.xcodeproj; path = Carthage/Checkouts/ReSwiftRouter/ReSwiftRouter.xcodeproj; sourceTree = SOURCE_ROOT; };
 		254B3B4D1D3ABBB400B1E4F0 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = Carthage/Checkouts/ReSwift/ReSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -511,6 +510,10 @@
 		257420831D442A7C0002D020 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		257420851D442E020002D020 /* BookmarkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewCell.swift; sourceTree = "<group>"; };
 		257420881D44304C0002D020 /* NavigationController+CompletionBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NavigationController+CompletionBlock.swift"; path = "UIKitExtensions/NavigationController+CompletionBlock.swift"; sourceTree = "<group>"; };
+		257420DE1D443D990002D020 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppReducer.swift; path = Reducers/AppReducer.swift; sourceTree = "<group>"; };
+		257420DF1D443D990002D020 /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticationReducer.swift; path = Reducers/AuthenticationReducer.swift; sourceTree = "<group>"; };
+		257420E01D443D990002D020 /* BookmarksReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookmarksReducer.swift; path = Reducers/BookmarksReducer.swift; sourceTree = "<group>"; };
+		257420E11D443D990002D020 /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubAPIReducers.swift; path = Reducers/GitHubAPIReducers.swift; sourceTree = "<group>"; };
 		258184341C3CC710008E200A /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		258184391C3CC912008E200A /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		25BB761D1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFlowGitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -522,9 +525,6 @@
 		25BE03E01C7C07E6005EBB09 /* AuthenticationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		25C00E981C3CD8E50074655A /* AuthenticationActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationActions.swift; sourceTree = "<group>"; };
 		25C00E9B1C3CDAAC0074655A /* AuthenticationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
-		25C00E9D1C3CDB5D0074655A /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
-		25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIReducers.swift; sourceTree = "<group>"; };
 		6296CA0D1C4D777800A60ECD /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		62C935471C8CD17F00887A23 /* GitHubRepositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepositories.swift; sourceTree = "<group>"; };
 		62C935491C8CD2CC00887A23 /* GitHubRepositoriesActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesActions.swift; sourceTree = "<group>"; };
@@ -745,10 +745,10 @@
 		25C00E9A1C3CDA340074655A /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
-				25C00E9D1C3CDB5D0074655A /* AppReducer.swift */,
-				25C00E9F1C3CDCA70074655A /* AuthenticationReducer.swift */,
-				25C00EA11C3CDD1F0074655A /* GitHubAPIReducers.swift */,
-				2532E92A1C8F8C49003F5392 /* BookmarksReducer.swift */,
+				257420DE1D443D990002D020 /* AppReducer.swift */,
+				257420DF1D443D990002D020 /* AuthenticationReducer.swift */,
+				257420E01D443D990002D020 /* BookmarksReducer.swift */,
+				257420E11D443D990002D020 /* GitHubAPIReducers.swift */,
 			);
 			name = Reducers;
 			sourceTree = "<group>";
@@ -1378,27 +1378,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25C00EA01C3CDCA70074655A /* AuthenticationReducer.swift in Sources */,
 				62EF0A701C700AD500D13711 /* MainViewController.swift in Sources */,
 				6296CA0E1C4D777800A60ECD /* Credentials.swift in Sources */,
 				25BE03E11C7C07E6005EBB09 /* AuthenticationService.swift in Sources */,
 				2574204D1D4421410002D020 /* BookmarkService.swift in Sources */,
 				257420891D44304C0002D020 /* NavigationController+CompletionBlock.swift in Sources */,
 				62C9357B1C8CDBDE00887A23 /* RepositoryDetailViewController.swift in Sources */,
+				257420E51D443D990002D020 /* GitHubAPIReducers.swift in Sources */,
 				25C00E9C1C3CDAAC0074655A /* AuthenticationState.swift in Sources */,
-				25C00E9E1C3CDB5D0074655A /* AppReducer.swift in Sources */,
+				257420E41D443D990002D020 /* BookmarksReducer.swift in Sources */,
 				257420841D442A7C0002D020 /* RepositoryTableViewCell.swift in Sources */,
+				257420E31D443D990002D020 /* AuthenticationReducer.swift in Sources */,
 				2532E8F61C8F8BFB003F5392 /* BookmarkActions.swift in Sources */,
 				62C9354A1C8CD2CC00887A23 /* GitHubRepositoriesActions.swift in Sources */,
 				257420861D442E020002D020 /* BookmarkTableViewCell.swift in Sources */,
 				25C00E991C3CD8E50074655A /* AuthenticationActions.swift in Sources */,
 				2581843A1C3CC912008E200A /* Routes.swift in Sources */,
 				62C935481C8CD17F00887A23 /* GitHubRepositories.swift in Sources */,
-				2532E92B1C8F8C49003F5392 /* BookmarksReducer.swift in Sources */,
-				25C00EA21C3CDD1F0074655A /* GitHubAPIReducers.swift in Sources */,
 				25BB76211C3CB8CB008EA13B /* AppDelegate.swift in Sources */,
 				62EF0A6E1C700ABB00D13711 /* LoginViewController.swift in Sources */,
 				251A75DC1C94F92900EBEB32 /* BookmarkViewController.swift in Sources */,
+				257420E21D443D990002D020 /* AppReducer.swift in Sources */,
 				258184351C3CC710008E200A /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
