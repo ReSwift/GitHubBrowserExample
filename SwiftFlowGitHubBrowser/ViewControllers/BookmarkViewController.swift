@@ -12,16 +12,6 @@ import ReSwiftRouter
 import OctoKit
 import ListKit
 
-class BookmarkTableViewCell: UITableViewCell, ListKitCellProtocol {
-    var model: Bookmark? {
-        didSet {
-            if let repository = model?.routeSpecificData as? Repository {
-                self.textLabel!.text = repository.name ?? ""
-            }
-        }
-    }
-}
-
 class BookmarkViewController: UIViewController, StoreSubscriber {
 
     @IBOutlet var tableView: UITableView!
