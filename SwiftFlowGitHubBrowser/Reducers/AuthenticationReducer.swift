@@ -29,8 +29,8 @@ func authenticationReducer(state: AuthenticationState?, action: Action) -> Authe
 
 func initialAuthenticationState() -> AuthenticationState {
     let config = OAuthConfiguration(
-        token: gitHubToken,
-        secret: gitHubSecret,
+        token: gitHubClientId,
+        secret: gitHubClientSecret,
         scopes: ["repo", "read:org"]
     )
 
