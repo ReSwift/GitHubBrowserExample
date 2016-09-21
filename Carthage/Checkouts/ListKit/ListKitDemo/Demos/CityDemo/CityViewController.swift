@@ -33,19 +33,19 @@ class CityViewController: UIViewController {
     
     let cities = [city1, city2]
     
-    let nib = UINib(nibName: "CityCell", bundle: NSBundle.mainBundle())
+    let nib = UINib(nibName: "CityCell", bundle: Bundle.main)
 
     dataSource = ArrayDataSource(array: cities, cellType: CityCell.self, nib: nib)
     tableView.dataSource = dataSource
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     tableView.reloadData()
   }
   
-  @IBAction func addButtonTapped(sender: AnyObject) {
+  @IBAction func addButtonTapped(_ sender: AnyObject) {
     let additionalCity = City(
       name: "Tokyo",
       country: "Japan",

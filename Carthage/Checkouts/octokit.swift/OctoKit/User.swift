@@ -45,18 +45,19 @@ public extension Octokit {
 
     /**
         Fetches a user or organization
+        - parameter session: RequestKitURLSession, defaults to NSURLSession.sharedSession()
         - parameter name: The name of the user or organization.
         - parameter completion: Callback for the outcome of the fetch.
     */
-    public func user(name: String, completion: (response: Response<User>) -> Void) {
-        let router = UserRouter.ReadUser(name, self.configuration)
-        router.loadJSON([String: AnyObject].self) { json, error in
+    public func user(_ session: RequestKitURLSession = URLSession.shared, name: String, completion: @escaping (_ response: Response<User>) -> Void) -> URLSessionDataTaskProtocol? {
+        let router = UserRouter.readUser(name, self.configuration)
+        return router.loadJSON(session, expectedResultType: [String: AnyObject].self) { json, error in
             if let error = error {
-                completion(response: Response.Failure(error))
+                completion(Response.failure(error))
             } else {
                 if let json = json {
                     let parsedUser = User(json)
-                    completion(response: Response.Success(parsedUser))
+                    completion(Response.success(parsedUser))
                 }
             }
         }
@@ -64,17 +65,18 @@ public extension Octokit {
 
     /**
         Fetches the authenticated user
+        - parameter session: RequestKitURLSession, defaults to NSURLSession.sharedSession()
         - parameter completion: Callback for the outcome of the fetch.
     */
-    public func me(completion: (response: Response<User>) -> Void) {
-        let router = UserRouter.ReadAuthenticatedUser(self.configuration)
-        router.loadJSON([String: AnyObject].self) { json, error in
+    public func me(_ session: RequestKitURLSession = URLSession.shared, completion: @escaping (_ response: Response<User>) -> Void) -> URLSessionDataTaskProtocol? {
+        let router = UserRouter.readAuthenticatedUser(self.configuration)
+        return router.loadJSON(session, expectedResultType: [String: AnyObject].self) { json, error in
             if let error = error {
-                completion(response: Response.Failure(error))
+                completion(Response.failure(error))
             } else {
                 if let json = json {
                     let parsedUser = User(json)
-                    completion(response: Response.Success(parsedUser))
+                    completion(Response.success(parsedUser))
                 }
             }
         }
@@ -84,13 +86,13 @@ public extension Octokit {
 // MARK: Router
 
 enum UserRouter: Router {
-    case ReadAuthenticatedUser(Configuration)
-    case ReadUser(String, Configuration)
+    case readAuthenticatedUser(Configuration)
+    case readUser(String, Configuration)
 
     var configuration: Configuration {
         switch self {
-        case .ReadAuthenticatedUser(let config): return config
-        case .ReadUser(_, let config): return config
+        case .readAuthenticatedUser(let config): return config
+        case .readUser(_, let config): return config
         }
     }
 
@@ -99,19 +101,19 @@ enum UserRouter: Router {
     }
 
     var encoding: HTTPEncoding {
-        return .URL
+        return .url
     }
 
     var path: String {
         switch self {
-        case .ReadAuthenticatedUser:
+        case .readAuthenticatedUser:
             return "user"
-        case .ReadUser(let username, _):
+        case .readUser(let username, _):
             return "users/\(username)"
         }
     }
 
-    var params: [String: String] {
+    var params: [String: Any] {
         return [:]
     }
 }

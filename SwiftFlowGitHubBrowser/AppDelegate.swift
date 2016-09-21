@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var router: Router<State>!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
 
         /* 
         Set a dummy VC to satisfy UIKit
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return state.navigationState
         }
 
-        if case .LoggedIn(_) = store.state.authenticationState.loggedInState {
+        if case .loggedIn(_) = store.state.authenticationState.loggedInState {
             store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
         } else {
             store.dispatch(ReSwiftRouter.SetRouteAction([loginRoute]))
@@ -48,8 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        store.dispatch(handleOpenURL(url))
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        store.dispatch(handleOpenURL(url: url))
 
         return false
     }

@@ -38,13 +38,13 @@ func initialAuthenticationState() -> AuthenticationState {
         return AuthenticationState(
             oAuthConfig: config,
             oAuthURL: nil,
-            loggedInState: .LoggedIn(authData)
+            loggedInState: .loggedIn(authData)
         )
     } else {
         return AuthenticationState(
             oAuthConfig: config,
             oAuthURL: nil,
-            loggedInState: .NotLoggedIn
+            loggedInState: .notLoggedIn
         )
     }
 }

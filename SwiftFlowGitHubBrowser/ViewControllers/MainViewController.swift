@@ -21,7 +21,7 @@ class MainViewController: UIViewController, StoreSubscriber {
 
     // MARK: View Lifecycle
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         store.subscribe(self) { state in
@@ -40,7 +40,7 @@ class MainViewController: UIViewController, StoreSubscriber {
         tableView.delegate = self
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         store.unsubscribe(self)
@@ -51,7 +51,7 @@ class MainViewController: UIViewController, StoreSubscriber {
     func newState(state: Response<[Repository]>?) {
         guard let state = state else { return }
 
-        if case let .Success(repositories) = state {
+        if case let .success(repositories) = state {
             dataSource?.array = repositories
             tableView.reloadData()
         }
@@ -59,7 +59,7 @@ class MainViewController: UIViewController, StoreSubscriber {
 
     // MARK: Interaction
 
-    @IBAction func bookmarkButtonTapped(sender: AnyObject) {
+    @IBAction func bookmarkButtonTapped(_ sender: AnyObject) {
         let newRoute = [mainViewRoute, bookmarkRoute]
         store.dispatch(ReSwiftRouter.SetRouteAction(newRoute))
     }
@@ -69,7 +69,7 @@ class MainViewController: UIViewController, StoreSubscriber {
 
 extension MainViewController: UITableViewDelegate {
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRepository = self.dataSource?.array[indexPath.row]
         let newRoute = [mainViewRoute, repositoryDetailRoute]
 

@@ -11,11 +11,13 @@ import UIKit
 import ListKit
 
 class CustomTableViewCell: UITableViewCell, ListKitCellProtocol {
-  var model:AnyObject? {
+
+  var model: String? {
     didSet {
-      self.textLabel!.text = model as! String?
+      self.textLabel!.text = model
     }
   }
+
 }
 
 class BasicDataSourceTests: XCTestCase {
@@ -24,7 +26,7 @@ class BasicDataSourceTests: XCTestCase {
       var array: [String]
       array = ["Yay", "Test", "Nothing"]
     
-      let source = ArrayDataSource(array: array, cellType: CustomTableViewCell.self)
+      let source: ArrayDataSource<CustomTableViewCell, String> = ArrayDataSource(array: array, cellType: CustomTableViewCell.self)
       
       let rows = source.tableView(UITableView(), numberOfRowsInSection: 0)
       XCTAssertEqual(array.count, rows)
@@ -33,10 +35,10 @@ class BasicDataSourceTests: XCTestCase {
     func testCell() {
       var array: [String]
       array = ["Yay", "Test", "Nothing"]
-      let source = ArrayDataSource(array: array, cellType: CustomTableViewCell.self)
-      let cell = source.tableView(UITableView(), cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+      let source: ArrayDataSource<CustomTableViewCell, String> = ArrayDataSource(array: array, cellType: CustomTableViewCell.self)
+      let cell = source.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0))
       
-      XCTAssertEqual(cell.textLabel!.text!, "Yay")
+      XCTAssertEqual(cell.textLabel!.text, "Yay")
     }
   
 }

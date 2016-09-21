@@ -31,22 +31,22 @@ class RootRoutable: Routable {
     }
 
     func setToLoginViewController() -> Routable {
-        self.window.rootViewController = storyboard.instantiateViewControllerWithIdentifier(loginViewControllerIdentifier)
+        self.window.rootViewController = storyboard.instantiateViewController(withIdentifier: loginViewControllerIdentifier)
 
         return LoginViewRoutable(self.window.rootViewController!)
     }
 
     func setToMainViewController() -> Routable {
-        self.window.rootViewController = storyboard.instantiateViewControllerWithIdentifier(mainViewControllerIdentifier)
+        self.window.rootViewController = storyboard.instantiateViewController(withIdentifier: mainViewControllerIdentifier)
 
         return MainViewRoutable(self.window.rootViewController!)
     }
 
     func changeRouteSegment(
-        from: RouteElementIdentifier,
+        _ from: RouteElementIdentifier,
         to: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) -> Routable
+        completionHandler: @escaping RoutingCompletionHandler) -> Routable
     {
 
         if to == loginRoute {
@@ -61,9 +61,9 @@ class RootRoutable: Routable {
     }
 
     func pushRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) -> Routable
+        completionHandler: @escaping RoutingCompletionHandler) -> Routable
     {
 
         if routeElementIdentifier == loginRoute {
@@ -78,9 +78,9 @@ class RootRoutable: Routable {
     }
 
     func popRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler)
+        completionHandler: @escaping RoutingCompletionHandler)
     {
         // TODO: this should technically never be called -> bug in router
         completionHandler()
@@ -97,14 +97,14 @@ class LoginViewRoutable: Routable {
     }
 
     func pushRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) -> Routable
+        completionHandler: @escaping RoutingCompletionHandler) -> Routable
     {
         if routeElementIdentifier == oAuthRoute {
             if let url = store.state.authenticationState.oAuthURL {
-                let safariViewController = SFSafariViewController(URL: url)
-                self.viewController.presentViewController(safariViewController, animated: true, completion: completionHandler)
+                let safariViewController = SFSafariViewController(url: url)
+                self.viewController.present(safariViewController, animated: true, completion: completionHandler)
 
                 return OAuthRoutable()
             }
@@ -114,12 +114,12 @@ class LoginViewRoutable: Routable {
     }
 
     func popRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler)
+        completionHandler: @escaping RoutingCompletionHandler)
     {
         if routeElementIdentifier == oAuthRoute {
-            self.viewController.dismissViewControllerAnimated(true, completion: completionHandler)
+            self.viewController.dismiss(animated: true, completion: completionHandler)
         }
     }
 
@@ -134,11 +134,11 @@ class MainViewRoutable: Routable {
     }
 
     func pushRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) -> Routable {
+        completionHandler: @escaping RoutingCompletionHandler) -> Routable {
             if routeElementIdentifier == repositoryDetailRoute {
-                let detailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
+                let detailViewController = storyboard.instantiateViewController(withIdentifier: repositoryDetailControllerIdentifier)
                 (self.viewController as! UINavigationController).pushViewController(
                     detailViewController,
                     animated: true,
@@ -148,7 +148,7 @@ class MainViewRoutable: Routable {
                 return RepositoryDetailRoutable()
 
             } else if routeElementIdentifier == bookmarkRoute {
-                let bookmarkViewController = storyboard.instantiateViewControllerWithIdentifier(bookmarkControllerIdentifier)
+                let bookmarkViewController = storyboard.instantiateViewController(withIdentifier: bookmarkControllerIdentifier)
                 (self.viewController as! UINavigationController).pushViewController(
                     bookmarkViewController,
                     animated: true,
@@ -162,15 +162,15 @@ class MainViewRoutable: Routable {
     }
 
     func changeRouteSegment(
-        from: RouteElementIdentifier,
+        _ from: RouteElementIdentifier,
         to: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) -> Routable
+        completionHandler: @escaping RoutingCompletionHandler) -> Routable
     {
 
         if from == bookmarkRoute && to == repositoryDetailRoute {
             (self.viewController as! UINavigationController).popViewController(true) {
-                let repositoryDetailViewController = storyboard.instantiateViewControllerWithIdentifier(repositoryDetailControllerIdentifier)
+                let repositoryDetailViewController = storyboard.instantiateViewController(withIdentifier: repositoryDetailControllerIdentifier)
                 (self.viewController as! UINavigationController).pushViewController(
                     repositoryDetailViewController,
                     animated: true,
@@ -192,9 +192,9 @@ class MainViewRoutable: Routable {
     }
 
     func popRouteSegment(
-        routeElementIdentifier: RouteElementIdentifier,
+        _ routeElementIdentifier: RouteElementIdentifier,
         animated: Bool,
-        completionHandler: RoutingCompletionHandler) {
+        completionHandler: @escaping RoutingCompletionHandler) {
             // no-op, since this is called when VC is already popped.
             completionHandler()
     }

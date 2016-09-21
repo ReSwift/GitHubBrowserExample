@@ -1,68 +1,38 @@
 import XCTest
 import OctoKit
-import Nocilla
 
 class IssueTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        LSNocilla.sharedInstance().start()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-        LSNocilla.sharedInstance().clearStubs()
-        LSNocilla.sharedInstance().stop()
-    }
-    
     // MARK: Actual Request tests
     
     func testGetMyIssues() {
         let config = TokenConfiguration("12345")
-        if let json = Helper.stringFromFile("issues") {
-            stubRequest("GET", "https://api.github.com/issues?access_token=12345&page=1&per_page=100").andReturn(200).withHeaders(["Content-Type": "application/json"]).withBody(json)
-            let expectation = expectationWithDescription("issues")
-            Octokit(config).myIssues() { response in
-                switch response {
-                case .Success(let issues):
-                    XCTAssertEqual(issues.count, 1)
-                    expectation.fulfill()
-                case .Failure:
-                    XCTAssert(false, "should not get an error")
-                    expectation.fulfill()
-                }
+        let session = OctoKitURLTestSession(expectedURL: "https://api.github.com/issues?access_token=12345&page=1&per_page=100", expectedHTTPMethod: "GET", jsonFile: "issues", statusCode: 200)
+        let task = Octokit(config).myIssues(session) { response in
+            switch response {
+            case .success(let issues):
+                XCTAssertEqual(issues.count, 1)
+            case .failure:
+                XCTAssert(false, "should not get an error")
             }
-            waitForExpectationsWithTimeout(1) { (error) in
-                XCTAssertNil(error, "\(error)")
-            }
-        } else {
-            XCTFail("json shouldn't be nil")
         }
+        XCTAssertNotNil(task)
+        XCTAssertTrue(session.wasCalled)
     }
-    
+
     func testGetIssue() {
-        let (owner, repo, number) = ("octocat", "Hello-World", 1347)
-        if let json = Helper.stringFromFile("issue") {
-            stubRequest("GET", "https://api.github.com/repos/octocat/Hello-World/issues/1347").andReturn(200)
-                .withHeaders(["Content-Type": "application/json"]).withBody(json)
-            let expectation = expectationWithDescription("issue")
-            Octokit().issue(owner, repository: repo, number: number) { response in
-                switch response {
-                case .Success(let issue):
-                    XCTAssertEqual(issue.number, number)
-                    expectation.fulfill()
-                case .Failure:
-                    XCTAssert(false, "should not get an error")
-                    expectation.fulfill()
-                }
+        let session = OctoKitURLTestSession(expectedURL: "https://api.github.com/repos/octocat/Hello-World/issues/1347", expectedHTTPMethod: "GET", jsonFile: "issue", statusCode: 200)
+        let task = Octokit().issue(session, owner: "octocat", repository: "Hello-World", number: 1347) { response in
+            switch response {
+            case .success(let issue):
+                XCTAssertEqual(issue.number, 1347)
+            case .failure:
+                XCTAssert(false, "should not get an error")
             }
-        } else {
-            XCTFail("json shouldn't be nil")
         }
-        waitForExpectationsWithTimeout(1) { error in
-            XCTAssertNil(error, "\(error)")
-        }
+        XCTAssertNotNil(task)
+        XCTAssertTrue(session.wasCalled)
     }
-    
+
     // MARK: Model Tests
     
     func testParsingIssue() {
@@ -73,7 +43,7 @@ class IssueTests: XCTestCase {
         XCTAssertEqual(subject.id, 1)
         XCTAssertEqual(subject.number, 1347)
         XCTAssertEqual(subject.title, "Found a bug")
-        XCTAssertEqual(subject.htmlURL, NSURL(string: "https://github.com/octocat/Hello-World/issues/1347"))
+        XCTAssertEqual(subject.htmlURL, URL(string: "https://github.com/octocat/Hello-World/issues/1347"))
         XCTAssertEqual(subject.state, Openness.Open)
         XCTAssertEqual(subject.locked, false)
     }
