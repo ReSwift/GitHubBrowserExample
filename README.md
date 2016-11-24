@@ -4,6 +4,14 @@ This project is currently driving some API changes, so it is using newer APIs th
 
 Successful API changes will be merged into the Swift Flow projects.
 
+# Checking out Project & Dependencies
+
+In order to install the projects dependencies, run the following Carthage command in the root directory:
+
+```
+carthage update --no-build
+```
+
 # GitHub Configuration Instructions
 
 This demo requires you to create a GitHub API token that provides the app with access to content on GitHub.
