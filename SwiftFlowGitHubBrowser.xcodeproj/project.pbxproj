@@ -14,11 +14,10 @@
 		254B3B991D3ABC0400B1E4F0 /* RequestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B701D3ABBC400B1E4F0 /* RequestKit.framework */; };
 		254B3B9A1D3ABC0400B1E4F0 /* RequestKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B701D3ABBC400B1E4F0 /* RequestKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		254B3B9D1D3ABC0A00B1E4F0 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B581D3ABBB400B1E4F0 /* ReSwift.framework */; };
-		254B3B9E1D3ABC0A00B1E4F0 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B581D3ABBB400B1E4F0 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		254B3BA11D3ABC1300B1E4F0 /* ReSwiftRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B401D3ABBAB00B1E4F0 /* ReSwiftRouter.framework */; };
 		254B3BA21D3ABC1300B1E4F0 /* ReSwiftRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B401D3ABBAB00B1E4F0 /* ReSwiftRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		254B3BA51D3ABC1E00B1E4F0 /* SSKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B251D3ABB9400B1E4F0 /* SSKeychain.framework */; };
-		254B3BA61D3ABC1E00B1E4F0 /* SSKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B251D3ABB9400B1E4F0 /* SSKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2565B86A1DE74F440016371D /* SAMKeychain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 253038F41D92D8B900AA49F4 /* SAMKeychain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2565B89F1DE7506C0016371D /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 254B3B581D3ABBB400B1E4F0 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2574204D1D4421410002D020 /* BookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574204C1D4421410002D020 /* BookmarkService.swift */; };
 		257420841D442A7C0002D020 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420831D442A7C0002D020 /* RepositoryTableViewCell.swift */; };
 		257420861D442E020002D020 /* BookmarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257420851D442E020002D020 /* BookmarkTableViewCell.swift */; };
@@ -50,54 +49,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		254B3B241D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038F31D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E8A666341A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
+			remoteInfo = "SAMKeychain-iOS";
 		};
-		254B3B261D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038F51D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E8A666551A844D3A00287CA3;
-			remoteInfo = "SSKeychainTests-iOS";
+			remoteInfo = "SAMKeychainTests-iOS";
 		};
-		254B3B281D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038F71D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E8A6666F1A844E4100287CA3;
-			remoteInfo = "SSKeychain-OSX";
+			remoteInfo = "SAMKeychain-OSX";
 		};
-		254B3B2A1D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038F91D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E8A666791A844E4100287CA3;
-			remoteInfo = "SSKeychainTests-OSX";
+			remoteInfo = "SAMKeychainTests-OSX";
 		};
-		254B3B2C1D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038FB1D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 21632D981C925A3C00C40D7D;
-			remoteInfo = "SSKeychain-tvOS";
+			remoteInfo = "SAMKeychain-tvOS";
 		};
-		254B3B2E1D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038FD1D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 21632DA11C925A3C00C40D7D;
-			remoteInfo = "SSKeychainTests-tvOS";
+			remoteInfo = "SAMKeychainTests-tvOS";
 		};
-		254B3B301D3ABB9400B1E4F0 /* PBXContainerItemProxy */ = {
+		253038FF1D92D8B900AA49F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+			containerPortal = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 21632DBC1C925B1F00C40D7D;
-			remoteInfo = "SSKeychain-watchOS";
+			remoteInfo = "SAMKeychain-watchOS";
 		};
 		254B3B3F1D3ABBAB00B1E4F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -323,12 +322,26 @@
 			remoteGlobalIDString = 625E66CC1C1FFE280027C288;
 			remoteInfo = "ReSwiftRouter-iOS";
 		};
-		254B3BA71D3ABC1E00B1E4F0 /* PBXContainerItemProxy */ = {
+		2565B8861DE74F440016371D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E8A666331A844CC400287CA3;
-			remoteInfo = "SSKeychain-iOS";
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076CF51D6D7C2000E2B499;
+			remoteInfo = "QuickAfterSuite-macOSTests";
+		};
+		2565B8881DE74F440016371D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076D081D6D7CD600E2B499;
+			remoteInfo = "QuickAfterSuite-iOSTests";
+		};
+		2565B88A1DE74F440016371D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 62EF0A801C700D1200D13711 /* Quick.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64076D1A1D6D7CEA00E2B499;
+			remoteInfo = "QuickAfterSuite-tvOSTests";
 		};
 		62C935531C8CD6B400887A23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -487,10 +500,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				254B3B961D3ABBFF00B1E4F0 /* OctoKit.framework in Embed Frameworks */,
-				254B3B9E1D3ABC0A00B1E4F0 /* ReSwift.framework in Embed Frameworks */,
 				254B3B9A1D3ABC0400B1E4F0 /* RequestKit.framework in Embed Frameworks */,
+				2565B89F1DE7506C0016371D /* ReSwift.framework in Embed Frameworks */,
 				7A7A57191C91D78C00670D38 /* ListKit.framework in Embed Frameworks */,
-				254B3BA61D3ABC1E00B1E4F0 /* SSKeychain.framework in Embed Frameworks */,
+				2565B86A1DE74F440016371D /* SAMKeychain.framework in Embed Frameworks */,
 				254B3BA21D3ABC1300B1E4F0 /* ReSwiftRouter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -500,8 +513,8 @@
 
 /* Begin PBXFileReference section */
 		251A75DB1C94F92900EBEB32 /* BookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SAMKeychain.xcodeproj; path = Carthage/Checkouts/SSKeychain/SAMKeychain.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2532E8F51C8F8BFB003F5392 /* BookmarkActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkActions.swift; sourceTree = "<group>"; };
-		254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSKeychain.xcodeproj; path = Carthage/Checkouts/SSKeychain/SSKeychain.xcodeproj; sourceTree = SOURCE_ROOT; };
 		254B3B321D3ABBAB00B1E4F0 /* ReSwiftRouter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwiftRouter.xcodeproj; path = Carthage/Checkouts/ReSwiftRouter/ReSwiftRouter.xcodeproj; sourceTree = SOURCE_ROOT; };
 		254B3B4D1D3ABBB400B1E4F0 /* ReSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReSwift.xcodeproj; path = Carthage/Checkouts/ReSwift/ReSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
 		254B3B651D3ABBC400B1E4F0 /* RequestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RequestKit.xcodeproj; path = Carthage/Checkouts/RequestKit/RequestKit.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -548,7 +561,6 @@
 				254B3B9D1D3ABC0A00B1E4F0 /* ReSwift.framework in Frameworks */,
 				254B3B991D3ABC0400B1E4F0 /* RequestKit.framework in Frameworks */,
 				62C935791C8CD6E500887A23 /* ListKit.framework in Frameworks */,
-				254B3BA51D3ABC1E00B1E4F0 /* SSKeychain.framework in Frameworks */,
 				254B3BA11D3ABC1300B1E4F0 /* ReSwiftRouter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,16 +577,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		254B3B1B1D3ABB9400B1E4F0 /* Products */ = {
+		253038EA1D92D8B900AA49F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				254B3B251D3ABB9400B1E4F0 /* SSKeychain.framework */,
-				254B3B271D3ABB9400B1E4F0 /* SSKeychainTests-iOS.xctest */,
-				254B3B291D3ABB9400B1E4F0 /* SSKeychain.framework */,
-				254B3B2B1D3ABB9400B1E4F0 /* SSKeychainTests-OSX.xctest */,
-				254B3B2D1D3ABB9400B1E4F0 /* SSKeychain.framework */,
-				254B3B2F1D3ABB9400B1E4F0 /* SSKeychainTests.xctest */,
-				254B3B311D3ABB9400B1E4F0 /* SSKeychain.framework */,
+				253038F41D92D8B900AA49F4 /* SAMKeychain.framework */,
+				253038F61D92D8B900AA49F4 /* SAMKeychainTests-iOS.xctest */,
+				253038F81D92D8B900AA49F4 /* SAMKeychain.framework */,
+				253038FA1D92D8B900AA49F4 /* SAMKeychainTests-macOS.xctest */,
+				253038FC1D92D8B900AA49F4 /* SAMKeychain.framework */,
+				253038FE1D92D8B900AA49F4 /* SAMKeychainTests.xctest */,
+				253039001D92D8B900AA49F4 /* SAMKeychain.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -599,7 +611,7 @@
 				254B3B581D3ABBB400B1E4F0 /* ReSwift.framework */,
 				254B3B5A1D3ABBB400B1E4F0 /* ReSwift-iOSTests.xctest */,
 				254B3B5C1D3ABBB400B1E4F0 /* ReSwift.framework */,
-				254B3B5E1D3ABBB400B1E4F0 /* ReSwift-OSXTests.xctest */,
+				254B3B5E1D3ABBB400B1E4F0 /* ReSwift-macOSTests.xctest */,
 				254B3B601D3ABBB400B1E4F0 /* ReSwift.framework */,
 				254B3B621D3ABBB400B1E4F0 /* ReSwift-tvOSTests.xctest */,
 				254B3B641D3ABBB400B1E4F0 /* ReSwift.framework */,
@@ -713,11 +725,11 @@
 		25BB76321C3CBA99008EA13B /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */,
 				254B3B7D1D3ABBCE00B1E4F0 /* OctoKit.xcodeproj */,
 				254B3B651D3ABBC400B1E4F0 /* RequestKit.xcodeproj */,
 				254B3B4D1D3ABBB400B1E4F0 /* ReSwift.xcodeproj */,
 				254B3B321D3ABBAB00B1E4F0 /* ReSwiftRouter.xcodeproj */,
-				254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */,
 				62C9354C1C8CD6B300887A23 /* ListKit.xcodeproj */,
 			);
 			name = Dependencies;
@@ -822,14 +834,17 @@
 			isa = PBXGroup;
 			children = (
 				62EF0A8D1C700D1200D13711 /* Quick.framework */,
-				62EF0A8F1C700D1200D13711 /* Quick-OSXTests.xctest */,
-				62EF0A911C700D1200D13711 /* QuickFocused-OSXTests.xctest */,
+				62EF0A8F1C700D1200D13711 /* Quick-macOSTests.xctest */,
+				62EF0A911C700D1200D13711 /* QuickFocused-macOSTests.xctest */,
+				2565B8871DE74F440016371D /* QuickAfterSuite-macOSTests.xctest */,
 				62EF0A931C700D1200D13711 /* Quick.framework */,
 				62EF0A951C700D1200D13711 /* Quick-iOSTests.xctest */,
 				62EF0A971C700D1200D13711 /* QuickFocused-iOSTests.xctest */,
+				2565B8891DE74F440016371D /* QuickAfterSuite-iOSTests.xctest */,
 				62EF0A991C700D1200D13711 /* Quick.framework */,
 				62EF0A9B1C700D1200D13711 /* Quick-tvOSTests.xctest */,
 				62EF0A9D1C700D1200D13711 /* QuickFocused-tvOSTests.xctest */,
+				2565B88B1DE74F440016371D /* QuickAfterSuite-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -837,10 +852,10 @@
 		62EF0A9F1C700D1F00D13711 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				62EF0AA81C700D1F00D13711 /* Nimble.framework */,
-				62EF0AAA1C700D1F00D13711 /* NimbleTests.xctest */,
 				62EF0AAC1C700D1F00D13711 /* Nimble.framework */,
 				62EF0AAE1C700D1F00D13711 /* NimbleTests.xctest */,
+				62EF0AA81C700D1F00D13711 /* Nimble.framework */,
+				62EF0AAA1C700D1F00D13711 /* NimbleTests.xctest */,
 				62EF0AB01C700D1F00D13711 /* Nimble.framework */,
 				62EF0AB21C700D1F00D13711 /* NimbleTests.xctest */,
 			);
@@ -875,7 +890,6 @@
 				254B3B9C1D3ABC0400B1E4F0 /* PBXTargetDependency */,
 				254B3BA01D3ABC0A00B1E4F0 /* PBXTargetDependency */,
 				254B3BA41D3ABC1300B1E4F0 /* PBXTargetDependency */,
-				254B3BA81D3ABC1E00B1E4F0 /* PBXTargetDependency */,
 			);
 			name = SwiftFlowGitHubBrowser;
 			productName = SwiftFlowGitHubBrowser;
@@ -912,9 +926,11 @@
 				TargetAttributes = {
 					25BB761C1C3CB8CB008EA13B = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					62EF0A741C700C2300D13711 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 25BB761C1C3CB8CB008EA13B;
 					};
 				};
@@ -960,8 +976,8 @@
 					ProjectRef = 254B3B321D3ABBAB00B1E4F0 /* ReSwiftRouter.xcodeproj */;
 				},
 				{
-					ProductGroup = 254B3B1B1D3ABB9400B1E4F0 /* Products */;
-					ProjectRef = 254B3B1A1D3ABB9400B1E4F0 /* SSKeychain.xcodeproj */;
+					ProductGroup = 253038EA1D92D8B900AA49F4 /* Products */;
+					ProjectRef = 253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -973,53 +989,53 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		254B3B251D3ABB9400B1E4F0 /* SSKeychain.framework */ = {
+		253038F41D92D8B900AA49F4 /* SAMKeychain.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 254B3B241D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = SAMKeychain.framework;
+			remoteRef = 253038F31D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B271D3ABB9400B1E4F0 /* SSKeychainTests-iOS.xctest */ = {
+		253038F61D92D8B900AA49F4 /* SAMKeychainTests-iOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-iOS.xctest";
-			remoteRef = 254B3B261D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = "SAMKeychainTests-iOS.xctest";
+			remoteRef = 253038F51D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B291D3ABB9400B1E4F0 /* SSKeychain.framework */ = {
+		253038F81D92D8B900AA49F4 /* SAMKeychain.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 254B3B281D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = SAMKeychain.framework;
+			remoteRef = 253038F71D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B2B1D3ABB9400B1E4F0 /* SSKeychainTests-OSX.xctest */ = {
+		253038FA1D92D8B900AA49F4 /* SAMKeychainTests-macOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "SSKeychainTests-OSX.xctest";
-			remoteRef = 254B3B2A1D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = "SAMKeychainTests-macOS.xctest";
+			remoteRef = 253038F91D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B2D1D3ABB9400B1E4F0 /* SSKeychain.framework */ = {
+		253038FC1D92D8B900AA49F4 /* SAMKeychain.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 254B3B2C1D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = SAMKeychain.framework;
+			remoteRef = 253038FB1D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B2F1D3ABB9400B1E4F0 /* SSKeychainTests.xctest */ = {
+		253038FE1D92D8B900AA49F4 /* SAMKeychainTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = SSKeychainTests.xctest;
-			remoteRef = 254B3B2E1D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = SAMKeychainTests.xctest;
+			remoteRef = 253038FD1D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B311D3ABB9400B1E4F0 /* SSKeychain.framework */ = {
+		253039001D92D8B900AA49F4 /* SAMKeychain.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 254B3B301D3ABB9400B1E4F0 /* PBXContainerItemProxy */;
+			path = SAMKeychain.framework;
+			remoteRef = 253038FF1D92D8B900AA49F4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		254B3B401D3ABBAB00B1E4F0 /* ReSwiftRouter.framework */ = {
@@ -1092,10 +1108,10 @@
 			remoteRef = 254B3B5B1D3ABBB400B1E4F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		254B3B5E1D3ABBB400B1E4F0 /* ReSwift-OSXTests.xctest */ = {
+		254B3B5E1D3ABBB400B1E4F0 /* ReSwift-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "ReSwift-OSXTests.xctest";
+			path = "ReSwift-macOSTests.xctest";
 			remoteRef = 254B3B5D1D3ABBB400B1E4F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1218,6 +1234,27 @@
 			remoteRef = 254B3B931D3ABBCE00B1E4F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2565B8871DE74F440016371D /* QuickAfterSuite-macOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite-macOSTests.xctest";
+			remoteRef = 2565B8861DE74F440016371D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2565B8891DE74F440016371D /* QuickAfterSuite-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite-iOSTests.xctest";
+			remoteRef = 2565B8881DE74F440016371D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2565B88B1DE74F440016371D /* QuickAfterSuite-tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "QuickAfterSuite-tvOSTests.xctest";
+			remoteRef = 2565B88A1DE74F440016371D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		62C935541C8CD6B400887A23 /* ListKitDemo.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -1253,17 +1290,17 @@
 			remoteRef = 62EF0A8C1C700D1200D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF0A8F1C700D1200D13711 /* Quick-OSXTests.xctest */ = {
+		62EF0A8F1C700D1200D13711 /* Quick-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Quick-OSXTests.xctest";
+			path = "Quick-macOSTests.xctest";
 			remoteRef = 62EF0A8E1C700D1200D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		62EF0A911C700D1200D13711 /* QuickFocused-OSXTests.xctest */ = {
+		62EF0A911C700D1200D13711 /* QuickFocused-macOSTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "QuickFocused-OSXTests.xctest";
+			path = "QuickFocused-macOSTests.xctest";
 			remoteRef = 62EF0A901C700D1200D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1434,11 +1471,6 @@
 			name = "ReSwiftRouter-iOS";
 			targetProxy = 254B3BA31D3ABC1300B1E4F0 /* PBXContainerItemProxy */;
 		};
-		254B3BA81D3ABC1E00B1E4F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SSKeychain-iOS";
-			targetProxy = 254B3BA71D3ABC1E00B1E4F0 /* PBXContainerItemProxy */;
-		};
 		62EF0A7B1C700C2300D13711 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25BB761C1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */;
@@ -1565,6 +1597,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Flow.SwiftFlowGitHubBrowser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1579,6 +1612,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Flow.SwiftFlowGitHubBrowser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1596,6 +1630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.benjamin-encz.SwiftFlowGitHubBrowserTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFlowGitHubBrowser.app/SwiftFlowGitHubBrowser";
 			};
 			name = Debug;
@@ -1613,6 +1648,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.benjamin-encz.SwiftFlowGitHubBrowserTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFlowGitHubBrowser.app/SwiftFlowGitHubBrowser";
 			};
 			name = Release;

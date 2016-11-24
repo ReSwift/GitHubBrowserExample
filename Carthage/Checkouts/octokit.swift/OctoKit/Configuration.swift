@@ -4,9 +4,12 @@ import RequestKit
 let githubBaseURL = "https://api.github.com"
 let githubWebURL = "https://github.com"
 
+public let OctoKitErrorDomain = "com.nerdishbynature.octokit"
+
 public struct TokenConfiguration: Configuration {
     public var apiEndpoint: String
     public var accessToken: String?
+    public let errorDomain = OctoKitErrorDomain
 
     public init(_ token: String? = nil, url: String = githubBaseURL) {
         apiEndpoint = url
@@ -21,6 +24,7 @@ public struct OAuthConfiguration: Configuration {
     public let secret: String
     public let scopes: [String]
     public let webEndpoint: String
+    public let errorDomain = OctoKitErrorDomain
 
     public init(_ url: String = githubBaseURL, webURL: String = githubWebURL,
         token: String, secret: String, scopes: [String]) {
@@ -31,23 +35,23 @@ public struct OAuthConfiguration: Configuration {
             self.scopes = scopes
     }
 
-    public func authenticate() -> NSURL? {
-        return OAuthRouter.Authorize(self).URLRequest?.URL
+    public func authenticate() -> URL? {
+        return OAuthRouter.authorize(self).URLRequest?.url
     }
 
-    public func authorize(code: String, completion: (config: TokenConfiguration) -> Void) {
-        let request = OAuthRouter.AccessToken(self, code).URLRequest
+    public func authorize(_ session: RequestKitURLSession = URLSession.shared, code: String, completion: @escaping (_ config: TokenConfiguration) -> Void) {
+        let request = OAuthRouter.accessToken(self, code).URLRequest
         if let request = request {
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, err in
-                if let response = response as? NSHTTPURLResponse {
+            let task = session.dataTask(with: request) { data, response, err in
+                if let response = response as? HTTPURLResponse {
                     if response.statusCode != 200 {
                         return
                     } else {
-                        if let data = data, string = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
+                        if let data = data, let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as? String {
                             let accessToken = self.accessTokenFromResponse(string)
                             if let accessToken = accessToken {
                                 let config = TokenConfiguration(accessToken, url: self.apiEndpoint)
-                                completion(config: config)
+                                completion(config)
                             }
                         }
                     }
@@ -57,79 +61,82 @@ public struct OAuthConfiguration: Configuration {
         }
     }
 
-    public func handleOpenURL(url: NSURL, completion: (config: TokenConfiguration) -> Void) {
-        if let code = url.absoluteString.componentsSeparatedByString("=").last {
-            authorize(code) { (config) in
-                completion(config: config)
+    public func handleOpenURL(_ session: RequestKitURLSession = URLSession.shared, url: URL, completion: @escaping (_ config: TokenConfiguration) -> Void) {
+        let urlString: String? = url.absoluteString
+        if let code = urlString?.components(separatedBy: "=").last {
+            authorize(session, code: code) { (config) in
+                completion(config)
             }
         }
     }
 
-    public func accessTokenFromResponse(response: String) -> String? {
-        let accessTokenParam = response.componentsSeparatedByString("&").first
+    public func accessTokenFromResponse(_ response: String) -> String? {
+        let accessTokenParam = response.components(separatedBy: "&").first
         if let accessTokenParam = accessTokenParam {
-            return accessTokenParam.componentsSeparatedByString("=").last
+            return accessTokenParam.components(separatedBy: "=").last
         }
         return nil
     }
 }
 
 enum OAuthRouter: Router {
-    case Authorize(OAuthConfiguration)
-    case AccessToken(OAuthConfiguration, String)
+    case authorize(OAuthConfiguration)
+    case accessToken(OAuthConfiguration, String)
 
     var configuration: Configuration {
         switch self {
-        case .Authorize(let config): return config
-        case .AccessToken(let config, _): return config
+        case .authorize(let config): return config
+        case .accessToken(let config, _): return config
         }
     }
 
     var method: HTTPMethod {
         switch self {
-        case .Authorize:
+        case .authorize:
             return .GET
-        case .AccessToken:
+        case .accessToken:
             return .POST
         }
     }
 
     var encoding: HTTPEncoding {
         switch self {
-        case .Authorize:
-            return .URL
-        case .AccessToken:
-            return .FORM
+        case .authorize:
+            return .url
+        case .accessToken:
+            return .form
         }
     }
 
     var path: String {
         switch self {
-        case .Authorize:
+        case .authorize:
             return "login/oauth/authorize"
-        case .AccessToken:
+        case .accessToken:
             return "login/oauth/access_token"
         }
     }
 
-    var params: [String: String] {
+    var params: [String: Any] {
         switch self {
-        case .Authorize(let config):
-            let scope = (config.scopes as NSArray).componentsJoinedByString(",")
+        case .authorize(let config):
+            let scope = (config.scopes as NSArray).componentsJoined(by: ",")
             return ["scope": scope, "client_id": config.token, "allow_signup": "false"]
-        case .AccessToken(let config, let code):
+        case .accessToken(let config, let code):
             return ["client_id": config.token, "client_secret": config.secret, "code": code]
         }
     }
 
-    var URLRequest: NSURLRequest? {
+    var URLRequest: Foundation.URLRequest? {
         switch self {
-        case .Authorize(let config):
-            let URLString = config.webEndpoint.stringByAppendingURLPath(path)
-            return request(URLString, parameters: params)
-        case .AccessToken(let config, _):
-            let URLString = config.webEndpoint.stringByAppendingURLPath(path)
-            return request(URLString, parameters: params)
+        case .authorize(let config):
+            let url = URL(string: path, relativeTo: URL(string: config.webEndpoint)!)
+            let components = URLComponents(url: url!, resolvingAgainstBaseURL: true)
+            return request(components!, parameters: params)
+        case .accessToken(let config, _):
+            let url = URL(string: path, relativeTo: URL(string: config.webEndpoint)!)
+            let components = URLComponents(url: url!, resolvingAgainstBaseURL: true)
+            return request(components!, parameters: params)
         }
     }
 }

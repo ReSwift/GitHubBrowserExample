@@ -16,11 +16,7 @@ import Foundation
  */
 public protocol StoreType {
 
-    #if swift(>=2.2)
     associatedtype State: StateType
-    #else
-    typealias State: StateType
-    #endif
 
     /// Initializes the store with a reducer and an intial state.
     init(reducer: AnyReducer, state: State?)
@@ -45,7 +41,7 @@ public protocol StoreType {
 
      - parameter subscriber: Subscriber that will receive store updates
      */
-    func subscribe<S: StoreSubscriber where S.StoreSubscriberStateType == State>(subscriber: S)
+    func subscribe<S: StoreSubscriber>(_ subscriber: S) where S.StoreSubscriberStateType == State
 
     /**
      Unsubscribes the provided subscriber. The subscriber will no longer
@@ -53,7 +49,7 @@ public protocol StoreType {
 
      - parameter subscriber: Subscriber that will be unsubscribed
      */
-    func unsubscribe(subscriber: AnyStoreSubscriber)
+    func unsubscribe(_ subscriber: AnyStoreSubscriber)
 
     /**
      Dispatches an action. This is the simplest way to modify the stores state.
@@ -68,7 +64,7 @@ public protocol StoreType {
      - returns: By default returns the dispatched action, but middlewares can change the
      return type, e.g. to return promises
      */
-    func dispatch(action: Action) -> Any
+    func dispatch(_ action: Action) -> Any
 
     /**
      Dispatches an action creator to the store. Action creators are functions that generate
@@ -103,13 +99,13 @@ public protocol StoreType {
      - returns: By default returns the dispatched action, but middlewares can change the
      return type, e.g. to return promises
      */
-    func dispatch(actionCreator: ActionCreator) -> Any
+    func dispatch(_ actionCreator: ActionCreator) -> Any
 
     /**
      Dispatches an async action creator to the store. An async action creator generates an
      action creator asynchronously.
      */
-    func dispatch(asyncActionCreator: AsyncActionCreator)
+    func dispatch(_ asyncActionCreator: AsyncActionCreator)
 
     /**
      Dispatches an async action creator to the store. An async action creator generates an
@@ -122,7 +118,7 @@ public protocol StoreType {
      - Note: If the ActionCreator does not dispatch an action, the callback block will never
      be called
      */
-    func dispatch(asyncActionCreator: AsyncActionCreator, callback: DispatchCallback?)
+    func dispatch(_ asyncActionCreator: AsyncActionCreator, callback: DispatchCallback?)
 
 
     /**
@@ -132,11 +128,7 @@ public protocol StoreType {
      a successful login). However, you should try to use this callback very seldom as it
      deviates slighlty from the unidirectional data flow principal.
      */
-    #if swift(>=2.2)
     associatedtype DispatchCallback = (State) -> Void
-    #else
-    typealias DispatchCallback = (State) -> Void
-    #endif
 
     /**
      An ActionCreator is a function that, based on the received state argument, might or might not
@@ -158,18 +150,10 @@ public protocol StoreType {
      ```
 
      */
-    #if swift(>=2.2)
-    associatedtype ActionCreator = (state: State, store: StoreType) -> Action?
-    #else
-    typealias ActionCreator = (state: State, store: StoreType) -> Action?
-    #endif
+    associatedtype ActionCreator = (_ state: State, _ store: StoreType) -> Action?
 
     /// AsyncActionCreators allow the developer to wait for the completion of an async action.
-    #if swift(>=2.2)
-    associatedtype AsyncActionCreator = (state: State, store: StoreType,
-    actionCreatorCallback: ActionCreator -> Void) -> Void
-    #else
-    typealias AsyncActionCreator = (state: State, store: StoreType,
-    actionCreatorCallback: ActionCreator -> Void) -> Void
-    #endif
+    associatedtype AsyncActionCreator =
+        (_ state: State, _ store: StoreType,
+         _ actionCreatorCallback: (ActionCreator) -> Void) -> Void
 }

@@ -18,7 +18,7 @@ class BookmarkViewController: UIViewController, StoreSubscriber {
 
     var dataSource: ArrayDataSource<BookmarkTableViewCell, Bookmark>?
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.dataSource = ArrayDataSource(array: [], cellType: BookmarkTableViewCell.self)
@@ -31,7 +31,7 @@ class BookmarkViewController: UIViewController, StoreSubscriber {
         }
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
@@ -54,7 +54,7 @@ class BookmarkViewController: UIViewController, StoreSubscriber {
 
 extension BookmarkViewController: UITableViewDelegate {
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedBookmark = self.dataSource!.array[indexPath.row]
         let routeAction = ReSwiftRouter.SetRouteAction(selectedBookmark.route)
         let setDataAction = ReSwiftRouter.SetRouteSpecificData(route:

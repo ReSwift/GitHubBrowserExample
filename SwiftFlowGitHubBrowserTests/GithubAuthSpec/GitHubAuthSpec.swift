@@ -24,9 +24,9 @@ class GitHubAuthSpec: QuickSpec {
                 let fakeOAuth = FakeOAuthConfiguration(injectedTokenConfiguration: TokenConfiguration("Token"))
                 store.state.authenticationState.oAuthConfig = fakeOAuth
 
-                let oAuthCallbackURL = NSURL(string: "swiftflowgithub://success")!
+                let oAuthCallbackURL = URL(string: "swiftflowgithub://success")!
 
-                store.dispatch(handleOpenURL(oAuthCallbackURL))
+                store.dispatch(handleOpenURL(url: oAuthCallbackURL))
             }
 
             it("updates the route to the main view") {
@@ -37,7 +37,7 @@ class GitHubAuthSpec: QuickSpec {
                 expect { () -> TokenConfiguration? in
                     let tokenConfiguration: TokenConfiguration?
 
-                    if case let .LoggedIn(config) = store.state.authenticationState.loggedInState {
+                    if case let .loggedIn(config) = store.state.authenticationState.loggedInState {
                         tokenConfiguration = config
                     } else {
                         tokenConfiguration = nil
@@ -55,14 +55,14 @@ class GitHubAuthSpec: QuickSpec {
 
             beforeEach {
                 let tokenConfiguration = TokenConfiguration("Token")
-                let loggedInAction = UpdateLoggedInState(loggedInState: .LoggedIn(tokenConfiguration))
+                let loggedInAction = UpdateLoggedInState(loggedInState: .loggedIn(tokenConfiguration))
                 store.dispatch(loggedInAction)
             }
 
             it("stores the TokenConfiguration in the auth state") {
                 let tokenConfiguration: TokenConfiguration?
 
-                if case let .LoggedIn(config) = store.state.authenticationState.loggedInState {
+                if case let .loggedIn(config) = store.state.authenticationState.loggedInState {
                     tokenConfiguration = config
                 } else {
                     tokenConfiguration = nil
@@ -80,11 +80,11 @@ class GitHubAuthSpec: QuickSpec {
 struct FakeOAuthConfiguration: OAuthConfigurationType {
     var injectedTokenConfiguration: TokenConfiguration
 
-    func authenticate() -> NSURL? {
+    func authenticate() -> URL? {
         return nil
     }
 
-    func handleOpenURL(url: NSURL, completion: (config: TokenConfiguration) -> Void) {
-        completion(config: injectedTokenConfiguration)
+    func handleOpenURL(openUrl: URL, completion: @escaping (TokenConfiguration) -> Void) {
+        completion(injectedTokenConfiguration)
     }
 }

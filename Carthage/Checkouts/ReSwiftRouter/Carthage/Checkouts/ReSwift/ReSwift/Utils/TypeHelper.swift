@@ -18,18 +18,19 @@ import Foundation
  - returns: A `StateType` from `handleAction` or the original `StateType` if it cannot be
             casted to `SpecificStateType`.
  */
+@discardableResult
 func withSpecificTypes<SpecificStateType, Action>(
-        action: Action,
+        _ action: Action,
         state genericStateType: StateType?,
-        @noescape function: (action: Action, state: SpecificStateType?) -> SpecificStateType
+        function: (_ action: Action, _ state: SpecificStateType?) -> SpecificStateType
     ) -> StateType {
         guard let genericStateType = genericStateType else {
-            return function(action: action, state: nil) as! StateType
+            return function(action, nil) as! StateType
         }
 
         guard let specificStateType = genericStateType as? SpecificStateType else {
             return genericStateType
         }
 
-        return function(action: action, state: specificStateType) as! StateType
+        return function(action, specificStateType) as! StateType
 }

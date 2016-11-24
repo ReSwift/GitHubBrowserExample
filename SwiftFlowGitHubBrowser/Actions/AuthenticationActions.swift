@@ -23,12 +23,12 @@ func authenticateUser(state: State, store: Store<State>) -> Action? {
     return nil
 }
 
-func handleOpenURL(url: NSURL) -> Store<State>.ActionCreator {
+func handleOpenURL(url: URL) -> Store<State>.ActionCreator {
     return { state, store in
-        state.authenticationState.oAuthConfig?.handleOpenURL(url) { (config: TokenConfiguration) in
+        state.authenticationState.oAuthConfig?.handleOpenURL(openUrl: url) { (config: TokenConfiguration) in
             AuthenticationService().saveAuthenticationData(config)
 
-            store.dispatch(UpdateLoggedInState(loggedInState: .LoggedIn(config)))
+            store.dispatch(UpdateLoggedInState(loggedInState: .loggedIn(config)))
             // Switch to the Main View Route
             store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
         }
@@ -38,7 +38,7 @@ func handleOpenURL(url: NSURL) -> Store<State>.ActionCreator {
 }
 
 struct SetOAuthURL: Action {
-    let oAuthUrl: NSURL
+    let oAuthUrl: URL
 }
 
 struct UpdateLoggedInState: Action {

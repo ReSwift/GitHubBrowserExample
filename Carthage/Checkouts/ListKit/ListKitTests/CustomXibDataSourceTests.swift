@@ -38,17 +38,17 @@ class CustomXibDataSourceTests: XCTestCase {
   }
   
   func testCell() {
-    let bundle = NSBundle(forClass: CustomXibDataSourceTests.self)
+    let bundle = Bundle(for: CustomXibDataSourceTests.self)
     let nib = UINib(nibName: "CityCell", bundle: bundle)
     let source = ArrayDataSource(array: array, cellType: CityCell.self, nib: nib)
     
-    let cell = source.tableView(UITableView(), cellForRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0)) as! CityCell
+    let cell = source.tableView(UITableView(), cellForRowAt: IndexPath(row: 0, section: 0)) as! CityCell
     
     XCTAssertEqual(cell.mainLabel.text!, array[0].name)
   }
   
   func testAddRow() {
-    let bundle = NSBundle(forClass: CustomXibDataSourceTests.self)
+    let bundle = Bundle(for: CustomXibDataSourceTests.self)
     let nib = UINib(nibName: "CityCell", bundle: bundle)
     let source = ArrayDataSource(array: array, cellType: CityCell.self, nib: nib)
     
@@ -66,9 +66,9 @@ class CustomXibDataSourceTests: XCTestCase {
     XCTAssertEqual(array.count, rows)
   }
   
-  func imageInTestBundle(name: String, type: String) -> UIImage {
-    let bundle = NSBundle(forClass: CustomXibDataSourceTests.self)
-    let path = bundle.pathForResource(name, ofType: type)
+  func imageInTestBundle(_ name: String, type: String) -> UIImage {
+    let bundle = Bundle(for: CustomXibDataSourceTests.self)
+    let path = bundle.path(forResource: name, ofType: type)
     let image = UIImage(contentsOfFile: path!)
     
     return image!

@@ -11,10 +11,10 @@ import OctoKit
 import ReSwift
 
 func fetchGitHubRepositories(state: State, store: Store<State>) -> Action? {
-    guard case let .LoggedIn(configuration) = state.authenticationState.loggedInState  else { return nil }
+    guard case let .loggedIn(configuration) = state.authenticationState.loggedInState  else { return nil }
 
     Octokit(configuration).repositories { response in
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             store.dispatch(SetRepostories(repositories: response))
         }
     }

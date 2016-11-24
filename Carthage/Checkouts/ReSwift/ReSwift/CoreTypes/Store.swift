@@ -15,10 +15,11 @@ import Foundation
  reducers you can combine them by initializng a `MainReducer` with all of your reducers as an
  argument.
  */
-public class Store<State: StateType>: StoreType {
+open class Store<State: StateType>: StoreType {
 
     typealias SubscriptionType = Subscription<State>
 
+    // swiftlint:disable todo
     // TODO: Setter should not be public; need way for store enhancers to modify appState anyway
 
     /*private (set)*/ public var state: State! {
@@ -27,7 +28,7 @@ public class Store<State: StateType>: StoreType {
             subscriptions.forEach {
                 // if a selector is available, subselect the relevant state
                 // otherwise pass the entire state to the subscriber
-                $0.subscriber?._newState($0.selector?(state) ?? state)
+                $0.subscriber?._newState(state: $0.selector?(state) ?? state)
             }
         }
     }
@@ -49,11 +50,13 @@ public class Store<State: StateType>: StoreType {
 
         // Wrap the dispatch function with all middlewares
         self.dispatchFunction = middleware
-            .reverse()
-            .reduce({ [unowned self] action in self._defaultDispatch(action) }) {
+            .reversed()
+            .reduce({ [unowned self] action in
+                return self._defaultDispatch(action: action)
+            }) {
                 [weak self] dispatchFunction, middleware in
-                    let getState = { self?.state }
-                    return middleware(self?.dispatch, getState)(dispatchFunction)
+                let getState = { self?.state }
+                return middleware(self?.dispatch, getState)(dispatchFunction)
         }
 
         if let state = state {
@@ -64,7 +67,9 @@ public class Store<State: StateType>: StoreType {
     }
 
     private func _isNewSubscriber(subscriber: AnyStoreSubscriber) -> Bool {
-        if subscriptions.contains({ $0.subscriber === subscriber }) {
+        let contains = subscriptions.contains(where: { $0.subscriber === subscriber })
+
+        if contains {
             print("Store subscriber is already added, ignoring.")
             return false
         }
@@ -72,38 +77,37 @@ public class Store<State: StateType>: StoreType {
         return true
     }
 
-    public func subscribe<S: StoreSubscriber
-        where S.StoreSubscriberStateType == State>(subscriber: S) {
+    open func subscribe<S: StoreSubscriber>(_ subscriber: S)
+        where S.StoreSubscriberStateType == State {
             subscribe(subscriber, selector: nil)
     }
 
-    public func subscribe<SelectedState, S: StoreSubscriber
-        where S.StoreSubscriberStateType == SelectedState>
-        (subscriber: S, selector: (State -> SelectedState)?) {
-            if !_isNewSubscriber(subscriber) { return }
+    open func subscribe<SelectedState, S: StoreSubscriber>
+        (_ subscriber: S, selector: ((State) -> SelectedState)?)
+        where S.StoreSubscriberStateType == SelectedState {
+            if !_isNewSubscriber(subscriber: subscriber) { return }
 
             subscriptions.append(Subscription(subscriber: subscriber, selector: selector))
 
             if let state = self.state {
-                subscriber._newState(selector?(state) ?? state)
+                subscriber._newState(state: selector?(state) ?? state)
             }
     }
 
-    public func unsubscribe(subscriber: AnyStoreSubscriber) {
-        if let index = subscriptions.indexOf({ return $0.subscriber === subscriber }) {
-            subscriptions.removeAtIndex(index)
+    open func unsubscribe(_ subscriber: AnyStoreSubscriber) {
+        if let index = subscriptions.index(where: { return $0.subscriber === subscriber }) {
+            subscriptions.remove(at: index)
         }
     }
 
-    public func _defaultDispatch(action: Action) -> Any {
-        if isDispatching {
-            // Use Obj-C exception since throwing of exceptions can be verified through tests
-            NSException.raise("ReSwift:IllegalDispatchFromReducer", format: "Reducers may not " +
-                "dispatch actions.", arguments: getVaList(["nil"]))
+    open func _defaultDispatch(action: Action) -> Any {
+        guard !isDispatching else {
+            raiseFatalError(
+                "ReSwift:IllegalDispatchFromReducer - Reducers may not dispatch actions.")
         }
 
         isDispatching = true
-        let newState = reducer._handleAction(action, state: state) as! State
+        let newState = reducer._handleAction(action: action, state: state) as! State
         isDispatching = false
 
         state = newState
@@ -111,29 +115,32 @@ public class Store<State: StateType>: StoreType {
         return action
     }
 
-    public func dispatch(action: Action) -> Any {
+    @discardableResult
+    open func dispatch(_ action: Action) -> Any {
         let returnValue = dispatchFunction(action)
 
         return returnValue
     }
 
-    public func dispatch(actionCreatorProvider: ActionCreator) -> Any {
-        let action = actionCreatorProvider(state: state, store: self)
+    @discardableResult
+    open func dispatch(_ actionCreatorProvider: @escaping ActionCreator) -> Any {
+        let action = actionCreatorProvider(state, self)
 
         if let action = action {
             dispatch(action)
         }
 
-        return action
+        return action as Any
     }
 
-    public func dispatch(asyncActionCreatorProvider: AsyncActionCreator) {
+    open func dispatch(_ asyncActionCreatorProvider: @escaping AsyncActionCreator) {
         dispatch(asyncActionCreatorProvider, callback: nil)
     }
 
-    public func dispatch(actionCreatorProvider: AsyncActionCreator, callback: DispatchCallback?) {
-        actionCreatorProvider(state: state, store: self) { actionProvider in
-            let action = actionProvider(state: self.state, store: self)
+    open func dispatch(_ actionCreatorProvider: @escaping AsyncActionCreator,
+                         callback: DispatchCallback?) {
+        actionCreatorProvider(state, self) { actionProvider in
+            let action = actionProvider(self.state, self)
 
             if let action = action {
                 self.dispatch(action)
@@ -144,11 +151,11 @@ public class Store<State: StateType>: StoreType {
 
     public typealias DispatchCallback = (State) -> Void
 
-    public typealias ActionCreator = (state: State, store: Store) -> Action?
+    public typealias ActionCreator = (_ state: State, _ store: Store) -> Action?
 
     public typealias AsyncActionCreator = (
-        state: State,
-        store: Store,
-        actionCreatorCallback: ActionCreator -> Void
+        _ state: State,
+        _ store: Store,
+        _ actionCreatorCallback: @escaping ((ActionCreator) -> Void)
     ) -> Void
 }

@@ -20,7 +20,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
 
     // MARK: View Lifecycle
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         store.subscribe(self) { state in
@@ -29,7 +29,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
             )
 
             let isCurrentRepositoryBookmarked = currentRepository.map {
-                BookmarkService.isRepositoryBookmarked(state, currentRepository: $0)
+                BookmarkService.isRepositoryBookmarked(state: state, currentRepository: $0)
             } ?? false
 
             return (
@@ -39,13 +39,13 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         }
     }
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         store.unsubscribe(self)
     }
 
-    override func didMoveToParentViewController(parent: UIViewController?) {
+    override func didMove(toParentViewController parent: UIViewController?) {
         if parent == nil {
             // Required to update the route, when this VC was dismissed through back button from
             // NavigationController, since we can't intercept the back button
@@ -63,18 +63,18 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
             self.repository = state.selectedRepository
             self.title = state.selectedRepository?.name ?? ""
 
-            if let url = state.selectedRepository?.htmlURL.flatMap({NSURL.init(string: $0)}) {
-                let request = NSURLRequest(URL: url)
+            if let url = state.selectedRepository?.htmlURL.flatMap({URL.init(string: $0)}) {
+                let request = URLRequest(url: url)
                 self.webView.loadRequest(request)
             }
         }
 
-        self.bookmarkButton.enabled = state.isBookmarked
+        self.bookmarkButton.isEnabled = state.isBookmarked
     }
 
     // MARK: Interaction
 
-    @IBAction func bookmarkButtonTapped(sender: AnyObject) {
+    @IBAction func bookmarkButtonTapped(_ sender: AnyObject) {
         store.dispatch(
             CreateBookmark(
                 route: [mainViewRoute, repositoryDetailRoute],
