@@ -12,7 +12,7 @@ import RequestKit
 
 func repositoriesReducer(state: Response<[Repository]>?, action: Action) -> Response<[Repository]>? {
     switch action {
-    case let action as SetRepostories:
+    case let action as SetRepositories:
         return action.repositories
     default:
         return nil
