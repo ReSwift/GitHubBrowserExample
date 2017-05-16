@@ -17,35 +17,34 @@ import Foundation
  */
 open class Store<State: StateType>: StoreType {
 
-    typealias SubscriptionType = Subscription<State>
+    typealias SubscriptionType = SubscriptionBox<State>
 
     // swiftlint:disable todo
     // TODO: Setter should not be public; need way for store enhancers to modify appState anyway
+    // swiftlint:enable todo
 
     /*private (set)*/ public var state: State! {
         didSet {
             subscriptions = subscriptions.filter { $0.subscriber != nil }
             subscriptions.forEach {
-                // if a selector is available, subselect the relevant state
-                // otherwise pass the entire state to the subscriber
-                $0.subscriber?._newState(state: $0.selector?(state) ?? state)
+                $0.newValues(oldState: oldValue, newState: state)
             }
         }
     }
 
     public var dispatchFunction: DispatchFunction!
 
-    private var reducer: AnyReducer
+    private var reducer: Reducer<State>
 
     var subscriptions: [SubscriptionType] = []
 
     private var isDispatching = false
 
-    public required convenience init(reducer: AnyReducer, state: State?) {
-        self.init(reducer: reducer, state: state, middleware: [])
-    }
-
-    public required init(reducer: AnyReducer, state: State?, middleware: [Middleware]) {
+    public required init(
+        reducer: @escaping Reducer<State>,
+        state: State?,
+        middleware: [Middleware<State>] = []
+    ) {
         self.reducer = reducer
 
         // Wrap the dispatch function with all middlewares
@@ -53,10 +52,12 @@ open class Store<State: StateType>: StoreType {
             .reversed()
             .reduce({ [unowned self] action in
                 return self._defaultDispatch(action: action)
-            }) {
-                [weak self] dispatchFunction, middleware in
-                let getState = { self?.state }
-                return middleware(self?.dispatch, getState)(dispatchFunction)
+            }) { dispatchFunction, middleware in
+                // If the store get's deinitialized before the middleware is complete; drop
+                // the action without dispatching.
+                let dispatch: (Action) -> Void = { [weak self] in self?.dispatch($0) }
+                let getState = { [weak self] in self?.state }
+                return middleware(dispatch, getState)(dispatchFunction)
         }
 
         if let state = state {
@@ -66,32 +67,38 @@ open class Store<State: StateType>: StoreType {
         }
     }
 
-    private func _isNewSubscriber(subscriber: AnyStoreSubscriber) -> Bool {
-        let contains = subscriptions.contains(where: { $0.subscriber === subscriber })
-
-        if contains {
-            print("Store subscriber is already added, ignoring.")
-            return false
-        }
-
-        return true
-    }
-
     open func subscribe<S: StoreSubscriber>(_ subscriber: S)
         where S.StoreSubscriberStateType == State {
-            subscribe(subscriber, selector: nil)
+            _ = subscribe(subscriber, transform: nil)
     }
 
-    open func subscribe<SelectedState, S: StoreSubscriber>
-        (_ subscriber: S, selector: ((State) -> SelectedState)?)
-        where S.StoreSubscriberStateType == SelectedState {
-            if !_isNewSubscriber(subscriber: subscriber) { return }
+    open func subscribe<SelectedState, S: StoreSubscriber>(
+        _ subscriber: S, transform: ((Subscription<State>) -> Subscription<SelectedState>)?
+    ) where S.StoreSubscriberStateType == SelectedState
+    {
+        // If the same subscriber is already registered with the store, replace the existing
+        // subscription with the new one.
+        if let index = subscriptions.index(where: { $0.subscriber === subscriber }) {
+            subscriptions.remove(at: index)
+        }
 
-            subscriptions.append(Subscription(subscriber: subscriber, selector: selector))
+        // Create a subscription for the new subscriber.
+        let originalSubscription = Subscription<State>()
+        // Call the optional transformation closure. This allows callers to modify
+        // the subscription, e.g. in order to subselect parts of the store's state.
+        let transformedSubscription = transform?(originalSubscription)
 
-            if let state = self.state {
-                subscriber._newState(state: selector?(state) ?? state)
-            }
+        let subscriptionBox = SubscriptionBox(
+            originalSubscription: originalSubscription,
+            transformedSubscription: transformedSubscription,
+            subscriber: subscriber
+        )
+
+        subscriptions.append(subscriptionBox)
+
+        if let state = self.state {
+            originalSubscription.newValues(oldState: nil, newState: state)
+        }
     }
 
     open func unsubscribe(_ subscriber: AnyStoreSubscriber) {
@@ -100,37 +107,32 @@ open class Store<State: StateType>: StoreType {
         }
     }
 
-    open func _defaultDispatch(action: Action) -> Any {
+    // swiftlint:disable:next identifier_name
+    open func _defaultDispatch(action: Action) {
         guard !isDispatching else {
             raiseFatalError(
-                "ReSwift:IllegalDispatchFromReducer - Reducers may not dispatch actions.")
+                "ReSwift:ConcurrentMutationError- Action has been dispatched while" +
+                " a previous action is action is being processed. A reducer" +
+                " is dispatching an action, or ReSwift is used in a concurrent context" +
+                " (e.g. from multiple threads)."
+            )
         }
 
         isDispatching = true
-        let newState = reducer._handleAction(action: action, state: state) as! State
+        let newState = reducer(action, state)
         isDispatching = false
 
         state = newState
-
-        return action
     }
 
-    @discardableResult
-    open func dispatch(_ action: Action) -> Any {
-        let returnValue = dispatchFunction(action)
-
-        return returnValue
+    open func dispatch(_ action: Action) {
+        dispatchFunction(action)
     }
 
-    @discardableResult
-    open func dispatch(_ actionCreatorProvider: @escaping ActionCreator) -> Any {
-        let action = actionCreatorProvider(state, self)
-
-        if let action = action {
+    open func dispatch(_ actionCreatorProvider: @escaping ActionCreator) {
+        if let action = actionCreatorProvider(state, self) {
             dispatch(action)
         }
-
-        return action as Any
     }
 
     open func dispatch(_ asyncActionCreatorProvider: @escaping AsyncActionCreator) {
@@ -138,7 +140,7 @@ open class Store<State: StateType>: StoreType {
     }
 
     open func dispatch(_ actionCreatorProvider: @escaping AsyncActionCreator,
-                         callback: DispatchCallback?) {
+                       callback: DispatchCallback?) {
         actionCreatorProvider(state, self) { actionProvider in
             let action = actionProvider(self.state, self)
 
@@ -158,4 +160,13 @@ open class Store<State: StateType>: StoreType {
         _ store: Store,
         _ actionCreatorCallback: @escaping ((ActionCreator) -> Void)
     ) -> Void
+}
+
+// MARK: Skip Repeats for Equatable States
+
+extension Store where State: Equatable {
+    open func subscribe<S: StoreSubscriber>(_ subscriber: S)
+        where S.StoreSubscriberStateType == State {
+            _ = subscribe(subscriber, transform: { $0.skipRepeats() })
+    }
 }

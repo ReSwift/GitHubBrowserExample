@@ -10,7 +10,7 @@ class RouterTests: XCTestCase {
 
     func testRequest() {
         let subject = router.request()
-        XCTAssertEqual(subject?.url?.absoluteString, "https://example.com/api/v1/some_route?access_token=1234&key1=value1&key2=value2")
+        XCTAssertEqual(subject?.url?.absoluteString, "https://example.com/api/v1/some_route?access_token=1234&key1=value1%3A456&key2=value2")
         XCTAssertEqual(subject?.httpMethod, "GET")
     }
 
@@ -42,7 +42,7 @@ class RouterTests: XCTestCase {
         let router = TestRouter.formEncodedRoute(config)
         let subject = router.request()
         XCTAssertEqual(subject?.url?.absoluteString, "https://example.com/api/v1/route")
-        XCTAssertEqual(String(data: subject?.httpBody ?? Data(), encoding: String.Encoding.utf8), "access_token=1234&key1=value1&key2=value2")
+        XCTAssertEqual(String(data: subject?.httpBody ?? Data(), encoding: .utf8), "access_token=1234&key1=value1%3A456&key2=value2")
         XCTAssertEqual(subject?.httpMethod, "POST")
     }
 }
@@ -86,12 +86,7 @@ enum TestRouter: Router {
     }
 
     var params: [String: Any] {
-        switch self {
-        case .testRoute(_):
-            return ["key1": "value1", "key2": "value2"]
-        case .formEncodedRoute:
-            return ["key1": "value1", "key2": "value2"]
-        }
+        return ["key1": "value1:456", "key2": "value2"]
     }
 }
 

@@ -22,14 +22,14 @@ class StoreSubscriptionTests: XCTestCase {
     override func setUp() {
         super.setUp()
         reducer = TestReducer()
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
     }
 
     /**
      It does not strongly capture an observer
      */
     func testStrongCapture() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         var subscriber: TestSubscriber? = TestSubscriber()
 
         store.subscribe(subscriber!)
@@ -43,7 +43,7 @@ class StoreSubscriptionTests: XCTestCase {
      it removes deferenced subscribers before notifying state changes
      */
     func testRemoveSubscribers() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         var subscriber1: TestSubscriber? = TestSubscriber()
         var subscriber2: TestSubscriber? = TestSubscriber()
 
@@ -65,10 +65,33 @@ class StoreSubscriptionTests: XCTestCase {
     }
 
     /**
+     it replaces the subscription of an existing subscriber with the new one.
+     */
+    func testDuplicateSubscription() {
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
+        let subscriber = TestSubscriber()
+
+        // Initial subscription.
+        store.subscribe(subscriber)
+        // Subsequent subscription that skips repeated updates.
+        store.subscribe(subscriber) { $0.skipRepeats { $0.testValue == $1.testValue } }
+
+        // One initial state update for every subscription.
+        XCTAssertEqual(subscriber.receivedStates.count, 2)
+
+        store.dispatch(SetValueAction(3))
+        store.dispatch(SetValueAction(3))
+        store.dispatch(SetValueAction(3))
+        store.dispatch(SetValueAction(3))
+
+        // Only a single further state update, since latest subscription skips repeated values.
+        XCTAssertEqual(subscriber.receivedStates.count, 3)
+    }
+    /**
      it dispatches initial value upon subscription
      */
     func testDispatchInitialValue() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         let subscriber = TestSubscriber()
 
         store.subscribe(subscriber)
@@ -81,7 +104,7 @@ class StoreSubscriptionTests: XCTestCase {
      it allows dispatching from within an observer
      */
     func testAllowDispatchWithinObserver() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         let subscriber = DispatchingSubscriber(store: store)
 
         store.subscribe(subscriber)
@@ -94,7 +117,7 @@ class StoreSubscriptionTests: XCTestCase {
      it does not dispatch value after subscriber unsubscribes
      */
     func testDontDispatchToUnsubscribers() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         let subscriber = TestSubscriber()
 
         store.dispatch(SetValueAction(5))
@@ -121,7 +144,7 @@ class StoreSubscriptionTests: XCTestCase {
      it ignores identical subscribers
      */
     func testIgnoreIdenticalSubscribers() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         let subscriber = TestSubscriber()
 
         store.subscribe(subscriber)
@@ -134,7 +157,7 @@ class StoreSubscriptionTests: XCTestCase {
      it ignores identical subscribers that provide substate selectors
      */
     func testIgnoreIdenticalSubstateSubscribers() {
-        store = Store(reducer: reducer, state: TestAppState())
+        store = Store(reducer: reducer.handleAction, state: TestAppState())
         let subscriber = TestSubscriber()
 
         store.subscribe(subscriber) { $0 }
