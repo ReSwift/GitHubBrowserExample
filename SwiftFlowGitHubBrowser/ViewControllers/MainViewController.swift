@@ -25,7 +25,7 @@ class MainViewController: UIViewController, StoreSubscriber {
         super.viewWillAppear(animated)
 
         store.subscribe(self) { state in
-            state.repositories
+            state.select { $0.repositories }
         }
 
         // Kick off request to update list of repositories

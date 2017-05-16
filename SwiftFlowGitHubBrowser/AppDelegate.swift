@@ -11,7 +11,7 @@ import OctoKit
 import ReSwift
 import ReSwiftRouter
 
-var store = Store<State>(reducer: AppReducer(), state: nil)
+var store = Store<State>(reducer: appReducer, state: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootRoutable = RootRoutable(window: window!)
 
         router = Router(store: store, rootRoutable: rootRoutable) { state in
-            return state.navigationState
+            state.select { $0.navigationState }
         }
 
         if case .loggedIn(_) = store.state.authenticationState.loggedInState {

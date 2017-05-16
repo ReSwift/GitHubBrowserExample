@@ -27,7 +27,7 @@ class BookmarkViewController: UIViewController, StoreSubscriber {
 
         // Subscribe after other setup is complete
         store.subscribe(self) { state in
-            state.bookmarks
+            state.select { $0.bookmarks }
         }
     }
 
