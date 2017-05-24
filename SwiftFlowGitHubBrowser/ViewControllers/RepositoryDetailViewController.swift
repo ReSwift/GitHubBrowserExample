@@ -24,18 +24,20 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         super.viewWillAppear(animated)
 
         store.subscribe(self) { state in
-            let currentRepository: Repository? = state.navigationState.getRouteSpecificState(
-                state.navigationState.route
-            )
-
-            let isCurrentRepositoryBookmarked = currentRepository.map {
-                BookmarkService.isRepositoryBookmarked(state: state, currentRepository: $0)
-            } ?? false
-
-            return (
-                currentRepository,
-                isCurrentRepositoryBookmarked
-            )
+            state.select { currentState in
+                let currentRepository: Repository? = currentState.navigationState.getRouteSpecificState(
+                    currentState.navigationState.route
+                )
+                
+                let isCurrentRepositoryBookmarked = currentRepository.map {
+                    BookmarkService.isRepositoryBookmarked(state: currentState, currentRepository: $0)
+                    } ?? false
+                
+                return (
+                    currentRepository,
+                    isCurrentRepositoryBookmarked
+                )
+            }
         }
     }
 

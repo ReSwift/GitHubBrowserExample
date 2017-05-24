@@ -18,7 +18,7 @@ class GitHubAuthSpec: QuickSpec {
 
         describe("When receiving a success OAuth URL callback ") {
 
-            let store = Store<State>(reducer: AppReducer(), state: nil)
+            let store = Store<State>(reducer: appReducer, state: nil)
 
             beforeEach {
                 let fakeOAuth = FakeOAuthConfiguration(injectedTokenConfiguration: TokenConfiguration("Token"))
@@ -51,7 +51,7 @@ class GitHubAuthSpec: QuickSpec {
 
         describe("When receiving successful login action") {
 
-            let store = Store<State>(reducer: AppReducer(), state: nil)
+            let store = Store<State>(reducer: appReducer, state: nil)
 
             beforeEach {
                 let tokenConfiguration = TokenConfiguration("Token")

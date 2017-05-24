@@ -61,19 +61,19 @@ public extension Router {
             guard let value = parameters[key] else { continue }
             switch value {
             case let value as String:
-                if let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                if let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.requestKit_URLQueryAllowedCharacterSet()) {
                     components.append(URLQueryItem(name: key, value: escapedValue))
                 }
             case let valueArray as [String]:
                 for (index, item) in valueArray.enumerated() {
-                    if let escapedValue = item.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                    if let escapedValue = item.addingPercentEncoding(withAllowedCharacters: CharacterSet.requestKit_URLQueryAllowedCharacterSet()) {
                         components.append(URLQueryItem(name: "\(key)[\(index)]", value: escapedValue))
                     }
                 }
             case let valueDict as [String: Any]:
                 for nestedKey in valueDict.keys.sorted(by: <) {
                     guard let value = valueDict[nestedKey] as? String else { continue }
-                    if let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) {
+                    if let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.requestKit_URLQueryAllowedCharacterSet()) {
                         components.append(URLQueryItem(name: "\(key)[\(nestedKey)]", value: escapedValue))
                     }
                 }
@@ -86,18 +86,17 @@ public extension Router {
 
     public func request(_ urlComponents: URLComponents, parameters: [String: Any]) -> URLRequest? {
         var urlComponents = urlComponents
-        urlComponents.queryItems = urlQuery(parameters)
+        urlComponents.percentEncodedQuery = urlQuery(parameters)?.map({ [$0.name, $0.value ?? ""].joined(separator: "=") }).joined(separator: "&")
         guard let url = urlComponents.url else { return nil }
         switch encoding {
         case .url, .json:
-            let mutableURLRequest = NSMutableURLRequest(url: url)
+            var mutableURLRequest = URLRequest(url: url)
             mutableURLRequest.httpMethod = method.rawValue
-            return mutableURLRequest as URLRequest
+            return mutableURLRequest
         case .form:
-            urlComponents.queryItems = urlQuery(parameters)
             let queryData = urlComponents.percentEncodedQuery?.data(using: String.Encoding.utf8)
             urlComponents.queryItems = nil // clear the query items as they go into the body
-            let mutableURLRequest = NSMutableURLRequest(url: urlComponents.url!)
+            var mutableURLRequest = URLRequest(url: urlComponents.url!)
             mutableURLRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "content-type")
             mutableURLRequest.httpBody = queryData
             mutableURLRequest.httpMethod = method.rawValue
@@ -134,6 +133,19 @@ public extension Router {
         }
         task.resume()
         return task
+    }
+}
+
+fileprivate extension CharacterSet {
+
+    // https://github.com/Alamofire/Alamofire/blob/3.5.1/Source/ParameterEncoding.swift#L220-L225
+    fileprivate static func requestKit_URLQueryAllowedCharacterSet() -> CharacterSet {
+        let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
+        let subDelimitersToEncode = "!$&'()*+,;="
+
+        var allowedCharacterSet = CharacterSet.urlQueryAllowed
+        allowedCharacterSet.remove(charactersIn: generalDelimitersToEncode + subDelimitersToEncode)
+        return allowedCharacterSet
     }
 }
 
