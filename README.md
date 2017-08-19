@@ -9,7 +9,7 @@ Successful API changes will be merged into the Swift Flow projects.
 In order to install the projects dependencies, run the following Carthage command in the root directory:
 
 ```
-carthage update --no-build
+carthage update --no-use-binaries --platform iOS
 ```
 
 # GitHub Configuration Instructions
