@@ -1,0 +1,34 @@
+language: objective-c
+
+install:
+  - gem install xcpretty
+
+env:
+  global:
+    - LC_CTYPE=en_US.UTF-8
+    - LANG=en_US.UTF-8
+    - APP_NAME="SwiftFlowGitHubBrowser"
+
+osx_image: xcode9
+
+matrix:
+  include:
+      - env: SDK="iphonesimulator"  DESTINATION="OS=11.0,name=iPhone 8"
+
+before_install:
+  - carthage update --no-use-binaries --platform iOS
+
+script:
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  - xcodebuild
+    -project "$APP_NAME.xcodeproj"
+    -scheme "$APP_NAME"
+    -sdk "$SDK"
+    -destination "$DESTINATION"
+    -configuration Debug
+    ONLY_ACTIVE_ARCH=YES
+    GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES
+    GCC_GENERATE_TEST_COVERAGE_FILES=YES
+    test
