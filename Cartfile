@@ -4,4 +4,4 @@ github "Quick/Nimble"
 github "soffes/SSKeychain"
 github "Ben-G/ListKit"
 github "ReSwift/ReSwift" ~> 4.0.0
-github "ReSwift/ReSwiftRouter" "master"
+github "ReSwift/ReSwiftRouter" ~> 0.6.0
