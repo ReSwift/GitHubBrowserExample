@@ -47,7 +47,7 @@ class RepositoryDetailViewController: UIViewController, StoreSubscriber {
         store.unsubscribe(self)
     }
 
-    override func didMove(toParentViewController parent: UIViewController?) {
+    override func didMove(toParent parent: UIViewController?) {
         if parent == nil {
             // Required to update the route, when this VC was dismissed through back button from
             // NavigationController, since we can't intercept the back button

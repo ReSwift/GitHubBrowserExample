@@ -10,6 +10,7 @@ import Quick
 import Nimble
 import ReSwift
 import OctoKit
+import ReSwiftRouter
 @testable import SwiftFlowGitHubBrowser
 
 class GitHubAuthSpec: QuickSpec {
@@ -18,11 +19,18 @@ class GitHubAuthSpec: QuickSpec {
 
         describe("When receiving a success OAuth URL callback ") {
 
-            let store = Store<State>(reducer: appReducer, state: nil)
+            var store: Store<State>!
 
             beforeEach {
                 let fakeOAuth = FakeOAuthConfiguration(injectedTokenConfiguration: TokenConfiguration("Token"))
-                store.state.authenticationState.oAuthConfig = fakeOAuth
+                let state = State(
+                    navigationState: NavigationState(),
+                    authenticationState: AuthenticationState(
+                        oAuthConfig: fakeOAuth,
+                        oAuthURL: nil,
+                        loggedInState: .notLoggedIn),
+                    repositories: nil, bookmarks: [])
+                store = Store<State>(reducer: appReducer, state: state)
 
                 let oAuthCallbackURL = URL(string: "swiftflowgithub://success")!
 

@@ -1,7 +1,8 @@
-github "nerdishbynature/octokit.swift" ~> 0.7.0
-github "Quick/Quick"
-github "Quick/Nimble"
-github "soffes/SSKeychain"
+github "nerdishbynature/octokit.swift"
+github "nerdishbynature/RequestKit" "2.3.0"
+github "Quick/Quick" "master"
+github "Quick/Nimble" "master"
+github "soffes/SSKeychain" "master"
 github "Ben-G/ListKit"
-github "ReSwift/ReSwift" ~> 4.0.0
-github "ReSwift/ReSwiftRouter" ~> 0.6.0
+github "ReSwift/ReSwift" "master"
+github "ReSwift/ReSwiftRouter" "master"
