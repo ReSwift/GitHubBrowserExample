@@ -11,6 +11,7 @@ import Nimble
 import ReSwift
 import OctoKit
 import ReSwiftRouter
+import ReSwiftThunk
 @testable import SwiftFlowGitHubBrowser
 
 class GitHubAuthSpec: QuickSpec {
@@ -30,7 +31,8 @@ class GitHubAuthSpec: QuickSpec {
                         oAuthURL: nil,
                         loggedInState: .notLoggedIn),
                     repositories: nil, bookmarks: [])
-                store = Store<State>(reducer: appReducer, state: state)
+                let thunkMiddleware: Middleware<State> = createThunksMiddleware()
+                store = Store<State>(reducer: appReducer, state: state, middleware: [thunkMiddleware])
 
                 let oAuthCallbackURL = URL(string: "swiftflowgithub://success")!
 

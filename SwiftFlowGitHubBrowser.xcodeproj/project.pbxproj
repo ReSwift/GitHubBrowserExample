@@ -45,6 +45,8 @@
 		62EF0AB61C700D4900D13711 /* GitHubAuthSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */; };
 		62EF0ABA1C700D9D00D13711 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0AA81C700D1F00D13711 /* Nimble.framework */; };
 		62EF0ABB1C700DA200D13711 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62EF0A8D1C700D1200D13711 /* Quick.framework */; };
+		66C463FC22270A970006963A /* ReSwiftThunk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C463F922270A7C0006963A /* ReSwiftThunk.framework */; };
+		66C463FD22270A970006963A /* ReSwiftThunk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 66C463F922270A7C0006963A /* ReSwiftThunk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7A7A57191C91D78C00670D38 /* ListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62C935581C8CD6B400887A23 /* ListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -490,6 +492,27 @@
 			remoteGlobalIDString = 1F5DF15E1BDCA0CE00C3A531;
 			remoteInfo = "Nimble-tvOSTests";
 		};
+		66C463F822270A7C0006963A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65A3D6D5218B89A60075CB92;
+			remoteInfo = "ReSwift-Thunk";
+		};
+		66C463FA22270A7C0006963A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65A3D6DE218B89A60075CB92;
+			remoteInfo = "ReSwift-Thunk-Tests";
+		};
+		66C463FE22270A970006963A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 65A3D6D4218B89A60075CB92;
+			remoteInfo = "ReSwift-Thunk";
+		};
 		7A7A571A1C91D78C00670D38 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 62C9354C1C8CD6B300887A23 /* ListKit.xcodeproj */;
@@ -508,6 +531,7 @@
 			files = (
 				254B3B961D3ABBFF00B1E4F0 /* OctoKit.framework in Embed Frameworks */,
 				254B3B9A1D3ABC0400B1E4F0 /* RequestKit.framework in Embed Frameworks */,
+				66C463FD22270A970006963A /* ReSwiftThunk.framework in Embed Frameworks */,
 				2565B89F1DE7506C0016371D /* ReSwift.framework in Embed Frameworks */,
 				7A7A57191C91D78C00670D38 /* ListKit.framework in Embed Frameworks */,
 				2565B86A1DE74F440016371D /* SAMKeychain.framework in Embed Frameworks */,
@@ -557,6 +581,7 @@
 		62EF0A801C700D1200D13711 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = Carthage/Checkouts/Quick/Quick.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0A9E1C700D1F00D13711 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = Carthage/Checkouts/Nimble/Nimble.xcodeproj; sourceTree = SOURCE_ROOT; };
 		62EF0AB51C700D4900D13711 /* GitHubAuthSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAuthSpec.swift; sourceTree = "<group>"; };
+		66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "ReSwift-Thunk.xcodeproj"; path = "Carthage/Checkouts/ReSwift-Thunk/ReSwift-Thunk.xcodeproj"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +591,7 @@
 			files = (
 				254B3B951D3ABBFF00B1E4F0 /* OctoKit.framework in Frameworks */,
 				254B3B9D1D3ABC0A00B1E4F0 /* ReSwift.framework in Frameworks */,
+				66C463FC22270A970006963A /* ReSwiftThunk.framework in Frameworks */,
 				254B3B991D3ABC0400B1E4F0 /* RequestKit.framework in Frameworks */,
 				62C935791C8CD6E500887A23 /* ListKit.framework in Frameworks */,
 				254B3BA11D3ABC1300B1E4F0 /* ReSwiftRouter.framework in Frameworks */,
@@ -733,6 +759,7 @@
 		25BB76321C3CBA99008EA13B /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */,
 				253038E91D92D8B900AA49F4 /* SAMKeychain.xcodeproj */,
 				254B3B7D1D3ABBCE00B1E4F0 /* OctoKit.xcodeproj */,
 				254B3B651D3ABBC400B1E4F0 /* RequestKit.xcodeproj */,
@@ -878,6 +905,15 @@
 			path = GithubAuthSpec;
 			sourceTree = "<group>";
 		};
+		66C463F422270A7C0006963A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66C463F922270A7C0006963A /* ReSwiftThunk.framework */,
+				66C463FB22270A7C0006963A /* ReSwift-Thunk-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -899,6 +935,7 @@
 				254B3B9C1D3ABC0400B1E4F0 /* PBXTargetDependency */,
 				254B3BA01D3ABC0A00B1E4F0 /* PBXTargetDependency */,
 				254B3BA41D3ABC1300B1E4F0 /* PBXTargetDependency */,
+				66C463FF22270A970006963A /* PBXTargetDependency */,
 			);
 			name = SwiftFlowGitHubBrowser;
 			productName = SwiftFlowGitHubBrowser;
@@ -975,6 +1012,10 @@
 				{
 					ProductGroup = 254B3B661D3ABBC400B1E4F0 /* Products */;
 					ProjectRef = 254B3B651D3ABBC400B1E4F0 /* RequestKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 66C463F422270A7C0006963A /* Products */;
+					ProjectRef = 66C463F322270A7C0006963A /* ReSwift-Thunk.xcodeproj */;
 				},
 				{
 					ProductGroup = 254B3B4E1D3ABBB400B1E4F0 /* Products */;
@@ -1404,6 +1445,20 @@
 			remoteRef = 62EF0AB11C700D1F00D13711 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		66C463F922270A7C0006963A /* ReSwiftThunk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReSwiftThunk.framework;
+			remoteRef = 66C463F822270A7C0006963A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		66C463FB22270A7C0006963A /* ReSwift-Thunk-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "ReSwift-Thunk-Tests.xctest";
+			remoteRef = 66C463FA22270A7C0006963A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1507,6 +1562,11 @@
 			isa = PBXTargetDependency;
 			target = 25BB761C1C3CB8CB008EA13B /* SwiftFlowGitHubBrowser */;
 			targetProxy = 62EF0A7A1C700C2300D13711 /* PBXContainerItemProxy */;
+		};
+		66C463FF22270A970006963A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReSwift-Thunk";
+			targetProxy = 66C463FE22270A970006963A /* PBXContainerItemProxy */;
 		};
 		7A7A571B1C91D78C00670D38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

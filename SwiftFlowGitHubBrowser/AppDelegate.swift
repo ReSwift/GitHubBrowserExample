@@ -10,8 +10,10 @@ import UIKit
 import OctoKit
 import ReSwift
 import ReSwiftRouter
+import ReSwiftThunk
 
-var store = Store<State>(reducer: appReducer, state: nil)
+let thunkMiddleware: Middleware<State> = createThunksMiddleware()
+var store = Store<State>(reducer: appReducer, state: nil, middleware: [thunkMiddleware])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
