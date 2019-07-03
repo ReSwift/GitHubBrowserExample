@@ -1,3 +1,8 @@
+![Swift 4.2](https://img.shields.io/badge/Swift-4.2-blue.svg?style=flat)
+![License](https://img.shields.io/github/license/ReSwift/GitHubBrowserExample.svg?style=flat)
+
+----
+
 Work-in-Progress Real World Example for Swift Flow.
 
 This project is currently driving some API changes, so it is using newer APIs than provided by the latest Swift Flow releases.
