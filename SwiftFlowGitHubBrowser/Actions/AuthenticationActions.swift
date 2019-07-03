@@ -8,32 +8,33 @@
 
 import ReSwift
 import ReSwiftRouter
+import ReSwiftThunk
 import OctoKit
 
-func authenticateUser(state: State, store: Store<State>) -> Action? {
-    guard let config = state.authenticationState.oAuthConfig else { return nil }
+let authenticateUser = Thunk<State> { dispatch, getStat in
+    guard let config = getStat()?.authenticationState.oAuthConfig else { return }
 
     let url = config.authenticate()
 
     if let url = url {
-        store.dispatch(SetOAuthURL(oAuthUrl: url))
-        store.dispatch(SetRouteAction([loginRoute, oAuthRoute]))
+        dispatch(SetOAuthURL(oAuthUrl: url))
+        dispatch(SetRouteAction([loginRoute, oAuthRoute]))
     }
-
-    return nil
 }
 
-func handleOpenURL(url: URL) -> Store<State>.ActionCreator {
-    return { state, store in
-        state.authenticationState.oAuthConfig?.handleOpenURL(openUrl: url) { (config: TokenConfiguration) in
-            AuthenticationService().saveAuthenticationData(config)
+func handleOpenURL(url: URL) -> Thunk<State> {
+    return Thunk<State> { dispatch, getState in
+        guard let config = getState()?.authenticationState.oAuthConfig else { return }
 
-            store.dispatch(UpdateLoggedInState(loggedInState: .loggedIn(config)))
-            // Switch to the Main View Route
-            store.dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
+        config.handleOpenURL(openUrl: url) { (config: TokenConfiguration) in
+            DispatchQueue.main.async {
+                AuthenticationService().saveAuthenticationData(config)
+
+                dispatch(UpdateLoggedInState(loggedInState: .loggedIn(config)))
+                // Switch to the Main View Route
+                dispatch(ReSwiftRouter.SetRouteAction([mainViewRoute]))
+            }
         }
-
-        return nil
     }
 }
 

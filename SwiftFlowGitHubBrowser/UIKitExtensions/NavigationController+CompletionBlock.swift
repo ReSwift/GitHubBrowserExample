@@ -13,7 +13,7 @@ import UIKit
 extension UINavigationController {
 
     func pushViewController(_ viewController: UIViewController,
-                            animated: Bool, completion: @escaping (Void) -> Void) {
+                            animated: Bool, completion: @escaping () -> Void) {
 
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
@@ -21,7 +21,7 @@ extension UINavigationController {
         CATransaction.commit()
     }
 
-    func popViewController(_ animated: Bool, completion: @escaping (Void) -> Void) {
+    func popViewController(_ animated: Bool, completion: @escaping () -> Void) {
 
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)

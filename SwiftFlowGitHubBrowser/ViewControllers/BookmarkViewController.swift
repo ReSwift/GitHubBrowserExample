@@ -59,7 +59,7 @@ extension BookmarkViewController: UITableViewDelegate {
         let routeAction = ReSwiftRouter.SetRouteAction(selectedBookmark.route)
         let setDataAction = ReSwiftRouter.SetRouteSpecificData(route:
             selectedBookmark.route,
-            data: selectedBookmark.routeSpecificData)
+            data: selectedBookmark.routeSpecificData as Any)
 
         store.dispatch(setDataAction)
         store.dispatch(routeAction)

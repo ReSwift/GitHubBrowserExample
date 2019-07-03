@@ -10,8 +10,10 @@ import UIKit
 import OctoKit
 import ReSwift
 import ReSwiftRouter
+import ReSwiftThunk
 
-var store = Store<State>(reducer: appReducer, state: nil)
+let thunkMiddleware: Middleware<State> = createThunksMiddleware()
+var store = Store<State>(reducer: appReducer, state: nil, middleware: [thunkMiddleware])
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var router: Router<State>!
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -48,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         store.dispatch(handleOpenURL(url: url))
 
         return false

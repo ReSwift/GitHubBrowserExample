@@ -9,15 +9,14 @@
 import Foundation
 import OctoKit
 import ReSwift
+import ReSwiftThunk
 
-func fetchGitHubRepositories(state: State, store: Store<State>) -> Action? {
-    guard case let .loggedIn(configuration) = state.authenticationState.loggedInState  else { return nil }
+let fetchGitHubRepositories = Thunk<State> { dispatch, getState in
+    guard case let .loggedIn(configuration)? = getState()?.authenticationState.loggedInState else { return }
 
-    Octokit(configuration).repositories { response in
+    _ = Octokit(configuration).repositories { response in
         DispatchQueue.main.async {
-            store.dispatch(SetRepositories(repositories: response))
+            dispatch(SetRepositories(repositories: response))
         }
     }
-
-    return nil
 }
